@@ -1,2 +1,4 @@
 fpdf == 1.7.2
 PyQt5 == 5.15.6
+pyserial == 3.5
+pyqtgraph == 0.12.3
