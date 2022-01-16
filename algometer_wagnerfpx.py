@@ -14,7 +14,7 @@ class AlgometerWagnerFPX(Algometer):
         self.serial_device.write(b'?\r\n')
         response = self.serial_device.readline().decode('utf-8').strip()
         match = self.__reading_pattern.match(response)
-        reading = float(match[1])
+        reading = -float(match[1])
         unit = Unit.from_string(match[2])
         return AlgometerReading(reading, unit)
 

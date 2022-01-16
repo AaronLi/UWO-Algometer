@@ -1,2 +1,0 @@
-from algometer import Algometer
-

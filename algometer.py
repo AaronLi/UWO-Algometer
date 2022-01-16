@@ -5,6 +5,7 @@ import abc
 import enum
 from dataclasses import dataclass
 from functools import total_ordering
+from typing import Optional
 
 import serial
 
@@ -90,7 +91,7 @@ class Algometer(abc.ABC):
     """
     Algometer, does not close serial port itself
     """
-    def __init__(self, serial_device: serial.Serial):
+    def __init__(self, serial_device: Optional[serial.Serial]):
         self.serial_device = serial_device
 
 

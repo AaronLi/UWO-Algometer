@@ -13,17 +13,22 @@ from serial.tools import list_ports
 
 import algometer_graph
 from algometer_wagnerfpx import AlgometerWagnerFPX
+from algometer_development_testing import DevelopmentAlgometer
 
 ports = list_ports.comports()
 
 if len(ports) == 1:
     desired_port = 0
+    reader = serial.Serial(ports[desired_port].name, 9600)
+    wagner = AlgometerWagnerFPX(reader)
+elif len(ports) == 0:
+    wagner = DevelopmentAlgometer()
 else:
     for i, port in enumerate(ports):
         print(i, port.name)
     desired_port = int(input('Select a port: '))
-reader = serial.Serial(ports[desired_port].name, 9600)
-wagner = AlgometerWagnerFPX(reader)
+    reader = serial.Serial(ports[desired_port].name, 9600)
+    wagner = AlgometerWagnerFPX(reader)
 readings = []
 reading_times = []
 app = QApplication([])
@@ -66,4 +71,4 @@ graph_column.addWidget(algometer_reader, stretch=1)
 graph_column.addWidget(past_reading_list, stretch=2)
 window.show()
 app.exec_()
-reader.close()
+#reader.close()

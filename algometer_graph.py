@@ -22,10 +22,12 @@ class AlgometerReadingGraph(pg.PlotWidget):
         plotitem = pg.PlotItem()
         plotitem.addItem(self.graph)
         plotitem.setYRange(-2.5, 3.5)
-        plotitem.addLine(y=0.449, pen=pg.mkPen('r', width=2))
+        self.target_line = pg.InfiniteLine(pos=0.449, angle=0, movable=False, pen=pg.mkPen('r', width=2))
+        plotitem.addItem(self.target_line)
         plotitem.addLine(y=0.449 -0.25)
         plotitem.addLine(y=0.449 +0.25)
         plotitem.setMouseEnabled(x=False, y=False)
+        plotitem.setMenuEnabled(False)
         self.setCentralItem(plotitem)
         self.timer = QtCore.QTimer()
         self.timer.timeout.connect(self.update)
@@ -45,7 +47,7 @@ class AlgometerReadingGraph(pg.PlotWidget):
 
     def update(self):  # updates the widget
         response = self.algometer.get_reading(Unit.LBF)
-        derivative = self.reading_analyzer .add_reading(-response, time.time())
+        derivative = self.reading_analyzer .add_reading(response, time.time())
         if derivative is not None:
             value, reading_time = derivative
             self.readings.append(value)
