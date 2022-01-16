@@ -132,9 +132,9 @@ class Ui_MainWindow(object):
         self.tabWidget_2.setObjectName("tabWidget_2")
         self.default_tab = QtWidgets.QWidget()
         self.default_tab.setObjectName("default_tab")
-        self.replace_with_graph = QtWidgets.QGraphicsView(self.default_tab)
-        self.replace_with_graph.setGeometry(QtCore.QRect(480, 30, 256, 192))
-        self.replace_with_graph.setObjectName("replace_with_graph")
+
+
+
         self.widget = QtWidgets.QWidget(self.default_tab)
         self.widget.setGeometry(QtCore.QRect(20, 20, 361, 461))
         self.widget.setObjectName("widget")

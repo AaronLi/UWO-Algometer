@@ -16,13 +16,14 @@ class MainWindow:
         self.main_win.setWindowIcon(QtGui.QIcon('logo.png'))
         self.ui.setupUi(self.main_win)
 
-        self.extraTab = QWidget()
-        self.extraTab.setObjectName("extraTab")
-        self.ui.tabWidget.addTab(self.extraTab, "")
-        self.ui.tabWidget.setTabText(self.ui.tabWidget.indexOf(self.extraTab),QtCore.QCoreApplication.translate("MainWindow", "Extra"))
+        self.configTab = QWidget()
+        self.configTab.setObjectName("configTab")
+        self.ui.tabWidget.addTab(self.configTab, "")
+        self.ui.tabWidget.setTabText(self.ui.tabWidget.indexOf(self.configTab),QtCore.QCoreApplication.translate("MainWindow", "Config"))
 
 
-        self.algometer_widget = AlgometerReadingGraph()
+        self.algometer_widget = AlgometerReadingGraph(self.ui.default_tab)
+        self.algometer_widget.setGeometry(QtCore.QRect(400, 20, 200, 200))
         self.algometer_widget.setObjectName("centralwidget")
 
 
