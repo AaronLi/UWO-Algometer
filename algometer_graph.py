@@ -45,7 +45,7 @@ class AlgometerReadingGraph(pg.PlotWidget):
 
     def update(self):  # updates the widget
         response = self.algometer.get_reading(Unit.LBF)
-        derivative = self.reading_analyzer.add_reading(-response, time.time())
+        derivative = self.reading_analyzer .add_reading(-response, time.time())
         if derivative is not None:
             value, reading_time = derivative
             self.readings.append(value)

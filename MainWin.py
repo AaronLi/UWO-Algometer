@@ -1,9 +1,12 @@
 import sys
-from PyQt5 import QtGui
-from PyQt5.QtWidgets import QMainWindow, QApplication
+from PyQt5 import QtGui, QtCore
+from PyQt5.QtWidgets import QMainWindow, QApplication, QWidget
 from UI_MainWin import Ui_MainWindow
 from userDataPrinter import print_pdf
 import os
+
+
+from algometer_graph import AlgometerReadingGraph
 
 class MainWindow:
     def __init__(self):
@@ -12,6 +15,16 @@ class MainWindow:
         self.main_win.setWindowTitle("Algometer Program")
         self.main_win.setWindowIcon(QtGui.QIcon('logo.png'))
         self.ui.setupUi(self.main_win)
+
+        self.extraTab = QWidget()
+        self.extraTab.setObjectName("extraTab")
+        self.ui.tabWidget.addTab(self.extraTab, "")
+        self.ui.tabWidget.setTabText(self.ui.tabWidget.indexOf(self.extraTab),QtCore.QCoreApplication.translate("MainWindow", "Extra"))
+
+
+        self.algometer_widget = AlgometerReadingGraph()
+        self.algometer_widget.setObjectName("centralwidget")
+
 
 
         #connect signals to slots
