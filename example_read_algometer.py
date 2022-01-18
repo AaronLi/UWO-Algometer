@@ -12,8 +12,8 @@ from PyQt5.QtWidgets import QApplication, QVBoxLayout, QHBoxLayout, QWidget, QPu
 from serial.tools import list_ports
 
 import algometer_graph
-from algometer_wagnerfpx import AlgometerWagnerFPX
-from algometer_development_testing import DevelopmentAlgometer
+from algometer.wagnerfpx.algometer_wagnerfpx import AlgometerWagnerFPX
+from algometer.development_testing.algometer_development_testing import DevelopmentAlgometer
 
 ports = list_ports.comports()
 

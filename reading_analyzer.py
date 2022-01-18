@@ -4,7 +4,7 @@ also adds smoothing
 """
 from typing import Tuple, Optional
 from collections import deque
-from algometer import Unit, AlgometerReading
+from algometer.algometer import Unit, AlgometerReading
 
 
 class ReadingAnalyzer:

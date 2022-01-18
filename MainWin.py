@@ -16,49 +16,27 @@ class MainWindow:
         self.main_win.setWindowIcon(QtGui.QIcon('logo.png'))
         self.ui.setupUi(self.main_win)
 
-        self.configTab = QWidget()
-        self.configTab.setObjectName("configTab")
-        self.ui.tabWidget.addTab(self.configTab, "")
-        self.ui.tabWidget.setTabText(self.ui.tabWidget.indexOf(self.configTab),QtCore.QCoreApplication.translate("MainWindow", "Config"))
-
-
-        self.algometer_widget = AlgometerReadingGraph(self.ui.default_tab)
-        self.algometer_widget.setGeometry(QtCore.QRect(400, 20, 200, 200))
-        self.algometer_widget.setObjectName("centralwidget")
-
 
 
         #connect signals to slots
 
         #self.ui.yesButton.clicked.connect(self.on_yes_button_clicked)
         #self.ui.noButton.clicked.connect(self.on_no_button_clicked)
-        self.ui.PrintButton.clicked.connect(self.on_print_button_clicked)
+
 
 
 
     def show(self):
         self.main_win.show()
 
-    def on_yes_button_clicked(self):
-        self.ui.label.setText("yes is the answer")
-
-    def on_no_button_clicked(self):
-        self.ui.label.setText("no is the answer")
-
-    def on_print_button_clicked(self):
-        name_text = self.ui.NameBox.text()
-        age_text = self.ui.AgeBox.text()
-        height_text = self.ui.HeightBox.text()
-        weight_text = self.ui.WeightBox.text()
-        age_diff = 65-int(age_text)
-        diagnosis_text = "{} years until retirement".format(age_diff)
-        formatted_name = name_text.replace(" ", "_")
-        path = "{}_Report.pdf".format(formatted_name)
-        print_pdf(name_text, age_text, height_text, weight_text, diagnosis_text)
-        os.system(path)
-
-    def on_measure_button_clicked(self, measure_value):
-        a = 10
+    # def on_yes_button_clicked(self):
+    #     self.ui.label.setText("yes is the answer")
+    #
+    # def on_no_button_clicked(self):
+    #     self.ui.label.setText("no is the answer")
+    #
+    # def on_measure_button_clicked(self, measure_value):
+    #     a = 10
 
 
 

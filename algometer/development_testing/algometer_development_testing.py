@@ -1,7 +1,8 @@
 import random
 import time
+from typing import Iterable, Any
 
-from algometer import Algometer, AlgometerReading, Unit
+from algometer.algometer import Algometer, AlgometerReading, Unit
 
 
 class DevelopmentAlgometer(Algometer):
@@ -24,3 +25,13 @@ class DevelopmentAlgometer(Algometer):
             self.start_reading_time = 0
         reading = self.current_force + random.gauss(0, 0.05)
         return AlgometerReading(reading, Unit.LBF)
+
+    @classmethod
+    def get_display_name(cls) -> str:
+        return "***DEVELOPMENT ALGOMETER***"
+
+    @classmethod
+    def get_device_requirements(cls) -> Iterable[Any]:
+        return []
+
+
