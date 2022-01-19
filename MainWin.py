@@ -35,6 +35,8 @@ class MainWindow:
         self.ui.PrintButton.clicked.connect(self.on_print_button_clicked)
 
         self.ui.add_measurement_button.clicked.connect(self.on_measure_area_add)
+        self.ui.remove_measurement_button.clicked.connect(self.remove_measurement_tab)
+
 
 
 
@@ -43,6 +45,10 @@ class MainWindow:
 
 
 
+
+
+    def remove_measurement_tab(self):
+        self.ui.listWidget.takeItem(self.ui.listWidget.currentRow)
 
     def add_measurement_tab(self):
         self.newTab = QWidget()
