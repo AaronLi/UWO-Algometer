@@ -5,6 +5,7 @@ import abc
 import enum
 from dataclasses import dataclass
 from functools import total_ordering
+from typing import Optional, Iterable, Any
 
 import serial
 
@@ -90,7 +91,7 @@ class Algometer(abc.ABC):
     """
     Algometer, does not close serial port itself
     """
-    def __init__(self, serial_device: serial.Serial):
+    def __init__(self, serial_device: Optional[serial.Serial]):
         self.serial_device = serial_device
 
 
@@ -108,5 +109,27 @@ class Algometer(abc.ABC):
         """
         Returns a reading in the default units from the device. For control over what units are returned, use get_reading(Unit)
         :return: The reading and its units
+        """
+        pass
+
+    def disconnect(self):
+        pass
+
+
+    @classmethod
+    @abc.abstractmethod
+    def get_display_name(cls) -> str:
+        """
+        Returns a human readable name for the device
+        :return:
+        """
+        pass
+
+    @classmethod
+    @abc.abstractmethod
+    def get_device_requirements(cls) -> Iterable[Any]:
+        """
+        Returns a list of requirements for the device to be usable
+        :return:
         """
         pass

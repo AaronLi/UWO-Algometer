@@ -5,9 +5,10 @@ import time
 
 import numpy as np
 import pyqtgraph as pg
+import serial
 from PyQt5 import QtCore, QtGui
 
-from algometer import Unit, Algometer
+from algometer.algometer import Unit, Algometer
 from reading_analyzer import ReadingAnalyzer
 
 
@@ -22,10 +23,12 @@ class AlgometerReadingGraph(pg.PlotWidget):
         plotitem = pg.PlotItem()
         plotitem.addItem(self.graph)
         plotitem.setYRange(-2.5, 3.5)
-        plotitem.addLine(y=0.449, pen=pg.mkPen('r', width=2))
+        self.target_line = pg.InfiniteLine(pos=0.449, angle=0, movable=False, pen=pg.mkPen('r', width=2))
+        plotitem.addItem(self.target_line)
         plotitem.addLine(y=0.449 -0.25)
         plotitem.addLine(y=0.449 +0.25)
         plotitem.setMouseEnabled(x=False, y=False)
+        plotitem.setMenuEnabled(False)
         self.setCentralItem(plotitem)
         self.timer = QtCore.QTimer()
         self.timer.timeout.connect(self.update)
@@ -44,14 +47,18 @@ class AlgometerReadingGraph(pg.PlotWidget):
         self.algometer = None
 
     def update(self):  # updates the widget
-        response = self.algometer.get_reading(Unit.LBF)
-        derivative = self.reading_analyzer .add_reading(-response, time.time())
-        if derivative is not None:
-            value, reading_time = derivative
-            self.readings.append(value)
-            self.reading_times.append(reading_time)
-            self.graph.setData(x=np.array(self.reading_times), y=np.array(self.readings))
-        #QtGui.QTApplication.processEvents(QtCore.QEventLoop.ExcludeUserInputEvents)
+        try:
+            response = self.algometer.get_reading(Unit.LBF)
+            derivative = self.reading_analyzer .add_reading(response, time.time())
+            if derivative is not None:
+                value, reading_time = derivative
+                self.readings.append(value)
+                self.reading_times.append(reading_time)
+                self.graph.setData(x=np.array(self.reading_times), y=np.array(self.readings))
+        except serial.SerialTimeoutException:
+            pass
+        except ValueError:
+            pass
 
     def reset(self):
         self.reading_analyzer.reset()
@@ -73,3 +80,6 @@ class AlgometerReadingGraph(pg.PlotWidget):
         new_reading.graph.setData(x=np.array(new_reading.reading_times), y=np.array(new_reading.readings))
 
         return new_reading
+
+    def is_reading(self) -> bool:
+        return self.algometer is not None and self.timer.isActive()
