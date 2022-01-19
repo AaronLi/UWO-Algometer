@@ -8,6 +8,7 @@ import algometer_data
 class MeasurementRegionTab(QWidget):
     def __init__(self):
         super().__init__()
+        self.current_reading_side = None
         self.setObjectName("measurement_tab_content")
         self.gridLayout = QGridLayout(self)
         self.gridLayout.setContentsMargins(0, 0, 0, 0)
@@ -58,32 +59,37 @@ class MeasurementRegionTab(QWidget):
             QMessageBox.information(self, "No Algometer Connected", "Please go to the Config tab to connect an Algometer")
             return
         if self.algometer_widget.is_reading():
-            self.algometer_widget.stop_reading()
-            algometer_data.readings[self.get_region_index()].append(('left', self.algometer_widget.get_max_reading()))
-            self.update_reading_table()
-            self.record_right.setEnabled(True)
-            self.record_left.setText(QCoreApplication.translate("MainWindow", "Start\nRecording"))
+            self.stop_reading()
         else:
             self.algometer_widget.reset()
             self.record_right.setEnabled(False)
             self.record_left.setText(QCoreApplication.translate("MainWindow", "Stop\nRecording"))
             self.algometer_widget.start_reading(algometer_data.algometer)
+            self.current_reading_side = "left"
 
     def on_start_recording_right(self):
         if algometer_data.algometer is None:
             QMessageBox.information(self, "No Algometer Connected", "Please go to the Config tab to connect an Algometer")
             return
         if self.algometer_widget.is_reading():
-            self.algometer_widget.stop_reading()
-            algometer_data.readings[self.get_region_index()].append(('right', self.algometer_widget.get_max_reading()))
-            self.update_reading_table()
-            self.record_left.setEnabled(True)
-            self.record_right.setText(QCoreApplication.translate("MainWindow", "Start\nRecording"))
+            self.stop_reading()
         else:
             self.algometer_widget.reset()
             self.record_left.setEnabled(False)
             self.record_right.setText(QCoreApplication.translate("MainWindow", "Stop\nRecording"))
             self.algometer_widget.start_reading(algometer_data.algometer)
+            self.current_reading_side = "right"
+
+    def stop_reading(self):
+        if self.current_reading_side is not None:
+            self.algometer_widget.stop_reading()
+            algometer_data.readings[self.get_region_index()].append((self.current_reading_side, self.algometer_widget.get_max_reading()))
+            self.update_reading_table()
+            self.record_left.setEnabled(True)
+            self.record_right.setEnabled(True)
+            self.record_right.setText(QCoreApplication.translate("MainWindow", "Start\nRecording"))
+            self.record_left.setText(QCoreApplication.translate("MainWindow", "Start\nRecording"))
+            self.current_reading_side = None
 
     def update_reading_table(self):
         self.tableWidget.clear()

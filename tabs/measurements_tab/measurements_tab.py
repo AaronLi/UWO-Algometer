@@ -1,8 +1,6 @@
-from PyQt5 import QtCore, QtGui
 from PyQt5.QtCore import QCoreApplication
-from PyQt5.QtWidgets import QWidget, QTabWidget, QGridLayout, QLabel, QPushButton, QTableWidget
+from PyQt5.QtWidgets import QTabWidget
 
-from algometer_graph import AlgometerReadingGraph
 from tabs.measurements_tab.measurement_region_tab import MeasurementRegionTab
 
 
@@ -13,6 +11,11 @@ class MeasurementsTab(QTabWidget):
         self.measurement_tab_content = MeasurementRegionTab()
         self.addTab(self.measurement_tab_content, "")
 
+    def stop_all_readings(self):
+        for tab in range(self.count()):
+            child_tab = self.widget(tab)
+            if type(child_tab) == MeasurementRegionTab:
+                child_tab.stop_reading()
 
 
     def retranslateUi(self):
