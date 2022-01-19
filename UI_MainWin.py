@@ -34,6 +34,7 @@ class Ui_MainWindow(object):
         self.measurement_tab = MeasurementsTab()
         self.measurement_tab.setObjectName("measurement_tab")
         self.tabWidget.addTab(self.measurement_tab, "")
+        self.tabWidget.currentChanged.connect(self.measurement_tab.stop_all_readings)
 
         self.analysisTab = AnalysisTab()
         self.analysisTab.setObjectName("analysisTab")
