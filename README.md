@@ -1,2 +1,8 @@
 # UWO-Algometer
-Code and Documentation for an open source Algometer
+
+## Installation
+```
+1) pip install --upgrade pip
+2) pip install -r requirements.txt
+
+```
