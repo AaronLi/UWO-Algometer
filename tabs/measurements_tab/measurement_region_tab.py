@@ -1,5 +1,5 @@
 from PyQt5 import QtGui
-from PyQt5.QtCore import QRect, QCoreApplication
+from PyQt5.QtCore import QRect, QCoreApplication, QSize
 from PyQt5.QtWidgets import QWidget, QGridLayout, QLabel, QPushButton, QTableWidget, QTableWidgetItem, QMessageBox
 
 from algometer_graph import AlgometerReadingGraph
@@ -15,13 +15,11 @@ class MeasurementRegionTab(QWidget):
         self.gridLayout.setObjectName("gridLayout")
         self.left_side_label = QLabel(self)
         font = QtGui.QFont()
-        font.setPointSize(16)
+        font.setPointSize(12)
         self.left_side_label.setFont(font)
         self.left_side_label.setText("Left Side")
         self.gridLayout.addWidget(self.left_side_label, 0, 0, 1, 1)
         self.right_side_label = QLabel(self)
-        font = QtGui.QFont()
-        font.setPointSize(16)
         self.right_side_label.setFont(font)
         self.right_side_label.setText("Right Side")
         self.gridLayout.addWidget(self.right_side_label, 0, 1, 1, 1)
@@ -34,13 +32,15 @@ class MeasurementRegionTab(QWidget):
         self.tableWidget = QTableWidget(self)
         self.tableWidget.setShowGrid(True)
         self.tableWidget.setWordWrap(False)
-        self.tableWidget.setRowCount(10)
+        self.tableWidget.setRowCount(5)
         self.tableWidget.setColumnCount(2)
         self.tableWidget.setObjectName("tableWidget")
+        self.tableWidget.setMinimumSize(QSize(290, 0))
         self.gridLayout.addWidget(self.tableWidget, 2, 0, 1, 2)
 
+
         self.algometer_widget = AlgometerReadingGraph()
-        self.gridLayout.addWidget(self.algometer_widget, 1, 3, 2, 1)
+        self.gridLayout.addWidget(self.algometer_widget, 1, 4, 2, 1)
 
         self.record_left.clicked.connect(self.on_start_recording_left)
         self.record_right.clicked.connect(self.on_start_recording_right)
@@ -102,3 +102,6 @@ class MeasurementRegionTab(QWidget):
             elif reading[0] == 'right':
                 self.tableWidget.setItem(right_readings, 1, QTableWidgetItem(str(reading[1])))
                 right_readings += 1
+
+
+#class SingleReadingWidget(QWidget):

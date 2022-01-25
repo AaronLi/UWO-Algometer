@@ -8,8 +8,10 @@ class MeasurementsTab(QTabWidget):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, *kwargs)
         self.setObjectName("measurementsTab")
+        self.tab_count = 0
         self.measurement_tab_content = MeasurementRegionTab()
         self.addTab(self.measurement_tab_content, "")
+
 
     def stop_all_readings(self):
         for tab in range(self.count()):
@@ -23,3 +25,11 @@ class MeasurementsTab(QTabWidget):
 
         "Uncomment below once multiple measurements are implemented"
         self.setTabText(0, QCoreApplication.translate("MainWindow", "Default"))
+
+
+    def create_tab(self, name):
+        self.tab_count += 1
+        self.new_tab = MeasurementRegionTab()
+        self.addTab(self.new_tab, "")
+        self.new_tab.setObjectName(name+"_tab")
+        self.setTabText(self.tab_count, QCoreApplication.translate("MainWindow", "Default"))

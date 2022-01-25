@@ -90,9 +90,9 @@ class PatientInfoTab(QWidget):
         self.comboBox.addItem("")
         self.comboBox.setItemText(4, "")
         self.formLayout_2.setWidget(0, QFormLayout.LabelRole, self.comboBox)
-        self.PrintButton_2 = QPushButton(self)
-        self.PrintButton_2.setObjectName("PrintButton_2")
-        self.formLayout_2.setWidget(1, QFormLayout.LabelRole, self.PrintButton_2)
+        self.add_measurement_button = QPushButton(self)
+        self.add_measurement_button.setObjectName("add_measurement_button")
+        self.formLayout_2.setWidget(1, QFormLayout.LabelRole, self.add_measurement_button)
         self.verticalLayout_2.addLayout(self.formLayout_2)
         spacerItem12 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
         self.verticalLayout_2.addItem(spacerItem12)
@@ -121,7 +121,7 @@ class PatientInfoTab(QWidget):
         self.comboBox.setItemText(1, QCoreApplication.translate("MainWindow", "Bicep"))
         self.comboBox.setItemText(2, QCoreApplication.translate("MainWindow", "Thigh"))
         self.comboBox.setItemText(3, QCoreApplication.translate("MainWindow", "Other (No comparative data)"))
-        self.PrintButton_2.setText(QCoreApplication.translate("MainWindow", "Add Measurement"))
+        self.add_measurement_button.setText(QCoreApplication.translate("MainWindow", "Add Measurement"))
         self.PrintButton.setText(QCoreApplication.translate("MainWindow", "Print Report"))
 
     def on_print_button_clicked(self):
@@ -135,3 +135,4 @@ class PatientInfoTab(QWidget):
         path = "{}_Report.pdf".format(formatted_name)
         print_pdf(name_text, age_text, height_text, weight_text, diagnosis_text)
         os.system(path)
+
