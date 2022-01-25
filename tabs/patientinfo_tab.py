@@ -72,6 +72,25 @@ class PatientInfoTab(QWidget):
         self.verticalLayout.addLayout(self.horizontalLayout_10)
         spacerItem9 = QSpacerItem(20, 48, QSizePolicy.Minimum, QSizePolicy.Expanding)
         self.verticalLayout.addItem(spacerItem9)
+
+        ##test
+
+        self.comment_horizontal_box = QHBoxLayout()
+        self.comment_horizontal_box.setObjectName("comment_horizontal_box")
+        self.comment_label = QLabel(self)
+        self.comment_label.setObjectName("comment_label")
+        self.comment_horizontal_box.addWidget(self.comment_label)
+        comment_spacer = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+        self.comment_horizontal_box.addItem(comment_spacer)
+        self.CommentBox = QLineEdit(self)
+        self.CommentBox.setObjectName("CommentBox")
+        self.comment_horizontal_box.addWidget(self.CommentBox)
+        self.verticalLayout.addLayout(self.comment_horizontal_box)
+        comment_bottom_spacer = QSpacerItem(20, 48, QSizePolicy.Minimum, QSizePolicy.Expanding)
+        self.verticalLayout.addItem(comment_bottom_spacer)
+        ##test
+
+
         self.horizontalLayout.addLayout(self.verticalLayout)
         spacerItem10 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
         self.horizontalLayout.addItem(spacerItem10)
@@ -83,8 +102,6 @@ class PatientInfoTab(QWidget):
         self.formLayout_2.setObjectName("formLayout_2")
         self.comboBox = QComboBox(self)
         self.comboBox.setObjectName("comboBox")
-        self.comboBox.addItem("")
-        self.comboBox.addItem("")
         self.comboBox.addItem("")
         self.comboBox.addItem("")
         self.comboBox.addItem("")
@@ -110,20 +127,21 @@ class PatientInfoTab(QWidget):
         spacerItem15 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
         self.horizontalLayout.addItem(spacerItem15)
 
-        self.PrintButton.clicked.connect(self.on_print_button_clicked)
+
 
     def retranslateUi(self):
         self.label_2.setText(QCoreApplication.translate("MainWindow", "Name"))
         self.label_3.setText(QCoreApplication.translate("MainWindow", "Age"))
         self.label_4.setText(QCoreApplication.translate("MainWindow", "Height"))
         self.label_5.setText(QCoreApplication.translate("MainWindow", "Weight"))
-        self.comboBox.setItemText(0, QCoreApplication.translate("MainWindow", "Neck"))
-        self.comboBox.setItemText(1, QCoreApplication.translate("MainWindow", "Bicep"))
-        self.comboBox.setItemText(2, QCoreApplication.translate("MainWindow", "Thigh"))
-        self.comboBox.setItemText(3, QCoreApplication.translate("MainWindow", "Other (No comparative data)"))
+        self.comment_label.setText(QCoreApplication.translate("MainWindow", "Comment"))
+        self.comboBox.setItemText(0, QCoreApplication.translate("MainWindow", "Upper Fibers of Trapezius"))
+        self.comboBox.setItemText(1, QCoreApplication.translate("MainWindow", "Tibialis Anterior"))
+        self.comboBox.setItemText(2 , QCoreApplication.translate("MainWindow", "Other (No comparative data)"))
         self.add_measurement_button.setText(QCoreApplication.translate("MainWindow", "Add Measurement"))
         self.PrintButton.setText(QCoreApplication.translate("MainWindow", "Print Report"))
 
+"""
     def on_print_button_clicked(self):
         name_text = self.NameBox.text()
         age_text = self.AgeBox.text()
@@ -135,4 +153,4 @@ class PatientInfoTab(QWidget):
         path = "{}_Report.pdf".format(formatted_name)
         print_pdf(name_text, age_text, height_text, weight_text, diagnosis_text)
         os.system(path)
-
+"""

@@ -48,7 +48,7 @@ class Ui_MainWindow(object):
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
-        self.tabWidget.setCurrentIndex(1)
+        self.tabWidget.setCurrentIndex(0)
         self.measurement_tab.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 

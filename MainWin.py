@@ -18,6 +18,7 @@ class MainWindow:
 
         #connecting buttons here
         self.ui.patient_info_tab.add_measurement_button.clicked.connect(self.on_measure_area_add)
+        self.ui.patient_info_tab.PrintButton.clicked.connect(self.on_print_button_clicked)
 
 
     def show(self):
@@ -32,6 +33,17 @@ class MainWindow:
         self.newTab = QWidget()
         new_area = self.ui.patient_info_tab.comboBox.itemText(self.ui.patient_info_tab.comboBox.currentIndex())
         self.ui.measurement_tab.create_tab(new_area)
+
+    def on_print_button_clicked(self):
+        name_text = self.ui.patient_info_tab.NameBox.text()
+        age_text = self.ui.patient_info_tab.AgeBox.text()
+        height_text = self.ui.patient_info_tab.HeightBox.text()
+        weight_text = self.ui.patient_info_tab.WeightBox.text()
+        formatted_name = name_text.replace(" ", "_")
+        path = "{}_Report.pdf".format(formatted_name)
+        comment = self.ui.patient_info_tab.CommentBox.text()
+        print_pdf(name_text, age_text, height_text, weight_text, comment)
+        os.system(path)
 
 
 
