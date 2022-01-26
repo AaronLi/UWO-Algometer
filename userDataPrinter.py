@@ -13,4 +13,10 @@ def print_pdf(name, age, height, weight, condition):
     formatted_name = name.replace(" ", "_")
     pdf.output("{}_Report.pdf".format(formatted_name))
 
-
+def print_txt(name, age, height, weight, condition):
+    f = open(name + "_Report.txt", "w")
+    f.write("Name: " + name + "\n" 
+            + "Age: " + age + "\n" 
+            + "Height: " + height + "\n" 
+            + "Weight: " + weight + "\n"
+            + "Information: " + condition + "\n")

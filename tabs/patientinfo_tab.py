@@ -4,7 +4,7 @@ from PyQt5.QtCore import QRect, QCoreApplication
 from PyQt5.QtWidgets import QWidget, QHBoxLayout, QSpacerItem, QSizePolicy, QVBoxLayout, QLabel, QLineEdit, QFormLayout, \
     QComboBox, QPushButton, QListWidget
 
-from userDataPrinter import print_pdf
+from userDataPrinter import print_pdf, print_txt
 
 
 class PatientInfoTab(QWidget):
@@ -101,6 +101,16 @@ class PatientInfoTab(QWidget):
         self.verticalLayout_2.addWidget(self.listWidget)
         spacerItem13 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
         self.verticalLayout_2.addItem(spacerItem13)
+
+        spacerItem16 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+        self.verticalLayout_2.addItem(spacerItem16)
+        self.reportComboBox = QComboBox(self)
+        self.reportComboBox.setObjectName("reportComboBox")
+        self.reportComboBox.addItem("")
+        self.reportComboBox.addItem("")
+        self.reportComboBox.setItemText(2, "")
+        self.formLayout_2.setWidget(0, QFormLayout.LabelRole, self.reportComboBox)
+
         self.PrintButton = QPushButton(self)
         self.PrintButton.setObjectName("PrintButton")
         self.verticalLayout_2.addWidget(self.PrintButton)
@@ -124,6 +134,9 @@ class PatientInfoTab(QWidget):
         self.add_measurement_button.setText(QCoreApplication.translate("MainWindow", "Add Measurement"))
         self.PrintButton.setText(QCoreApplication.translate("MainWindow", "Print Report"))
 
+        self.reportComboBox.setItemText(0, QCoreApplication.translate("MainWindow", ".pdf"))
+        self.reportComboBox.setItemText(1, QCoreApplication.translate("MainWindow", ".txt"))
+
     def on_print_button_clicked(self):
         name_text = self.NameBox.text()
         age_text = self.AgeBox.text()
@@ -133,6 +146,8 @@ class PatientInfoTab(QWidget):
         diagnosis_text = "{} years until retirement".format(age_diff)
         formatted_name = name_text.replace(" ", "_")
         path = "{}_Report.pdf".format(formatted_name)
-        print_pdf(name_text, age_text, height_text, weight_text, diagnosis_text)
+        # If you print a PDF and then print another format, it prints a PDF and the other format. Can't figure out how to change that
+        if self.reportComboBox.currentText() == ".pdf": print_pdf(name_text, age_text, height_text, weight_text, diagnosis_text)
+        elif (self.reportComboBox.currentText() == ".txt"): print_txt(name_text, age_text, height_text, weight_text, diagnosis_text)
         os.system(path)
 
