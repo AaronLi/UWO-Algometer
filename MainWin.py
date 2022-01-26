@@ -16,6 +16,10 @@ class MainWindow:
         self.main_win.setWindowIcon(QtGui.QIcon('logo.png'))
         self.ui.setupUi(self.main_win)
 
+
+        #list of measured areas
+        self.measured_areas = []
+
         #connecting buttons here
         self.ui.patient_info_tab.add_measurement_button.clicked.connect(self.on_measure_area_add)
         self.ui.patient_info_tab.PrintButton.clicked.connect(self.on_print_button_clicked)
@@ -28,6 +32,7 @@ class MainWindow:
         currentIndex = self.ui.patient_info_tab.comboBox.currentIndex()
         self.ui.patient_info_tab.listWidget.addItem(self.ui.patient_info_tab.comboBox.itemText(currentIndex))
         self.add_measurement_tab()
+        self.measured_areas.append(self.ui.patient_info_tab.comboBox.itemText(currentIndex))
 
     def add_measurement_tab(self):
         self.newTab = QWidget()
@@ -42,7 +47,7 @@ class MainWindow:
         formatted_name = name_text.replace(" ", "_")
         path = "{}_Report.pdf".format(formatted_name)
         comment = self.ui.patient_info_tab.CommentBox.text()
-        print_pdf(name_text, age_text, height_text, weight_text, comment)
+        print_pdf(name_text, age_text, height_text, weight_text, comment, self.measured_areas)
         os.system(path)
 
 
