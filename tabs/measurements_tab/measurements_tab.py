@@ -8,7 +8,7 @@ class MeasurementsTab(QTabWidget):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, *kwargs)
         self.setObjectName("measurementsTab")
-        self.tab_count = 0
+        self.tab_count = -1
         self.measurement_tab_content = MeasurementRegionTab()
         self.addTab(self.measurement_tab_content, "")
 
@@ -29,6 +29,8 @@ class MeasurementsTab(QTabWidget):
 
     def create_tab(self, name):
         self.tab_count += 1
+        if(self.tab_count == 0):
+            self.removeTab(0)
         self.new_tab = MeasurementRegionTab()
         self.addTab(self.new_tab, "")
         self.new_tab.setObjectName(name+"_tab")
