@@ -65,8 +65,8 @@ class Unit(enum.Enum):
     def convert_to(self, value: float, to_unit: 'Unit') -> float:
         return to_unit.__from_newtons(self.__to_newtons(value))
 
-@dataclass(frozen=True)
 @total_ordering
+@dataclass(frozen=True)
 class AlgometerReading:
     value: float
     unit: Unit
@@ -74,13 +74,20 @@ class AlgometerReading:
     def convert_to(self, to_unit: Unit) -> 'AlgometerReading':
         return AlgometerReading(self.unit.convert_to(self.value, to_unit), to_unit)
 
+    def _valid_operand(self, other):
+        return isinstance(other, AlgometerReading)
+
     def __neg__(self):
         return AlgometerReading(-self.value, self.unit)
 
     def __lt__(self, other: 'AlgometerReading'):
+        if not self._valid_operand(other):
+            return NotImplemented
         return self.value < other.convert_to(self.unit).value
 
     def __eq__(self, other: 'AlgometerReading'):
+        if not self._valid_operand(other):
+            return NotImplemented
         return self.value == other.convert_to(self.unit).value
 
     def __str__(self) -> str:
