@@ -35,3 +35,4 @@ class MeasurementsTab(QTabWidget):
         self.addTab(self.new_tab, "")
         self.new_tab.setObjectName(name+"_tab")
         self.setTabText(self.tab_count, QCoreApplication.translate("MainWindow", name))
+        return self.new_tab
