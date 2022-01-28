@@ -1,7 +1,7 @@
 import json
 import dataclasses
 import enum
-from typing import List
+from typing import List, Optional
 
 from algometer.algometer import AlgometerReading, Unit
 
@@ -44,6 +44,14 @@ class NormativeData:
     quartiles: List[AlgometerReading]
     standard_error_of_measurement: AlgometerReading
 
+    def get_quartile(self, measurement: AlgometerReading) -> Optional[int]:
+        quartile = len(self.quartiles)-1
+        while self.quartiles[quartile] > measurement:
+            quartile -= 1
+            if quartile < 0:
+                return None
+        return quartile + 1
+
 class NormativeDataTable:
     def __init__(self, data_file):
         self.data_file = data_file
@@ -68,11 +76,34 @@ class NormativeDataTable:
                     second_quartile = AlgometerReading(float(data_table['Q2']), units)
                     third_quartile = AlgometerReading(float(data_table['Q3']), units)
                     standard_error_of_measurement = AlgometerReading(float(data_table['SEM']), units)
-                    out_data[data_sex][data_region] = NormativeData(data_sex, data_region, [first_quartile, second_quartile, third_quartile], standard_error_of_measurement)
+                    out_data[data_sex][data_region] = NormativeData(data_sex, data_region, [AlgometerReading(0, Unit.N), first_quartile, second_quartile, third_quartile], standard_error_of_measurement)
         return out_data
     def get_normative_data(self, location: MeasurementLocation, sex: Sex) -> NormativeData:
         return self.data[sex][location]
 
 if __name__ == '__main__':
     table = NormativeDataTable('normative_data_1.json')
-    print(table.get_normative_data(MeasurementLocation.TIBIALIS_ANTERIOR, Sex.FEMALE))
+    data = table.get_normative_data(MeasurementLocation.TIBIALIS_ANTERIOR, Sex.FEMALE)
+    print(data)
+
+    test_reading = AlgometerReading(-1, Unit.N)
+    print(data.get_quartile(test_reading))
+
+    test_reading = AlgometerReading(5, Unit.N)
+
+    print(data.get_quartile(test_reading))
+    test_reading = AlgometerReading(25, Unit.N)
+
+    print(data.get_quartile(test_reading))
+
+    test_reading = AlgometerReading(45, Unit.N)
+
+    print(data.get_quartile(test_reading))
+
+    test_reading = AlgometerReading(55, Unit.N)
+
+    print(data.get_quartile(test_reading))
+
+    test_reading = AlgometerReading(505, Unit.N)
+
+    print(data.get_quartile(test_reading))
