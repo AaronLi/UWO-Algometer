@@ -12,27 +12,24 @@ class MeasurementsTab(QTabWidget):
         self.measurement_tab_content = MeasurementRegionTab()
         self.addTab(self.measurement_tab_content, "")
 
-
     def stop_all_readings(self):
         for tab in range(self.count()):
             child_tab = self.widget(tab)
             if type(child_tab) == MeasurementRegionTab:
                 child_tab.stop_reading()
 
-
     def retranslateUi(self):
         self.measurement_tab_content.retranslateUi()
 
-        "Uncomment below once multiple measurements are implemented"
         self.setTabText(0, QCoreApplication.translate("MainWindow", "Default"))
-
 
     def create_tab(self, name):
         self.tab_count += 1
-        if(self.tab_count == 0):
+        # delete default tab if adding a new one
+        if self.tab_count == 0:
             self.removeTab(0)
-        self.new_tab = MeasurementRegionTab()
-        self.addTab(self.new_tab, "")
-        self.new_tab.setObjectName(name+"_tab")
+        new_tab = MeasurementRegionTab()
+        self.addTab(new_tab, "")
+        new_tab.setObjectName(name + "_tab")
         self.setTabText(self.tab_count, QCoreApplication.translate("MainWindow", name))
-        return self.new_tab
+        return new_tab

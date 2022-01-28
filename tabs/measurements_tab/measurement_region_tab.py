@@ -1,3 +1,5 @@
+from typing import Hashable
+
 from PyQt5 import QtGui
 from PyQt5.QtCore import QRect, QCoreApplication, QSize
 from PyQt5.QtWidgets import QWidget, QGridLayout, QLabel, QPushButton, QTableWidget, QTableWidgetItem, QMessageBox
@@ -57,8 +59,8 @@ class MeasurementRegionTab(QWidget):
         self.record_right.setText(QCoreApplication.translate("MainWindow", "Start\nRecording"))
         self.remove_reading.setText(QCoreApplication.translate("MainWindow", "Remove Reading"))
 
-    def get_region_index(self) -> int:
-        return self.parent().children().index(self)
+    def get_region_identifier(self) -> Hashable:
+        return self
 
     def on_start_recording_left(self):
         if algometer_data.algometer is None:
@@ -89,7 +91,7 @@ class MeasurementRegionTab(QWidget):
     def stop_reading(self):
         if self.current_reading_side is not None:
             self.algometer_widget.stop_reading()
-            algometer_data.readings[self.get_region_index()].append((self.current_reading_side, self.algometer_widget.get_max_reading()))
+            algometer_data.readings[self.get_region_identifier()].append((self.current_reading_side, self.algometer_widget.get_max_reading()))
             self.update_reading_table()
             self.record_left.setEnabled(True)
             self.record_right.setEnabled(True)
@@ -101,7 +103,7 @@ class MeasurementRegionTab(QWidget):
         self.tableWidget.clear()
         left_readings = 0
         right_readings = 0
-        for i, reading in enumerate(algometer_data.readings[self.get_region_index()]):
+        for i, reading in enumerate(algometer_data.readings[self.get_region_identifier()]):
             if reading[0] == 'left':
                 self.tableWidget.setItem(left_readings, 0, QTableWidgetItem(str(reading[1])))
                 left_readings += 1
