@@ -1,0 +1,184 @@
+@startuml
+
+' Algometer related classes
+enum Unit {
+    LBF
+    N
+    KGF
+    OZF
+    + {static} Unit from_string(str)
+    + str to_string(str)
+    + float convert_to(float, Unit)
+}
+
+class AlgometerReading {
+    + float value
+    + Unit unit
+    + AlgometerReading convert_to(Unit)
+}
+
+abstract class Algometer {
+    + AlgometerReading get_reading(Unit)
+    + {abstract} AlgometerReading get_reading_raw()
+    + {abstract} void disconnect()
+    + {abstract} {static} str get_display_name()
+    + {abstract} {static} Iterable[Any] get_device_requirements()
+}
+
+class DevelopmentAlgometer {
+    + float current_force
+    + float start_reading_time
+    + AlgometerReading get_reading_raw()
+    + void disconnect()
+    + {static} str get_display_name()
+    + {static} Iterable[Any] get_device_requirements()
+}
+
+class AlgometerWagnerFPX {
+    + serial.Serial serial_device
+    + AlgometerReading get_reading_raw()
+    + void disconnect()
+    + {static} str get_display_name()
+    + {static} Iterable[Any] get_device_requirements()
+    + {static} AlgometerWagnerFPX(serial.Serial)
+}
+
+Algometer <|-- DevelopmentAlgometer
+Algometer <|-- AlgometerWagnerFPX
+Algometer --> AlgometerReading
+AlgometerReading *-- Unit
+
+' UI Related classes
+class MainWindow {
+    + QMainWindow main_win
+    + Ui_MainWindow ui
+    + List[str] measured_areas
+    + void show()
+    + void on_measure_area_add()
+    + void add_measurement_tab()
+    + void on_print_button_clicked()
+}
+class Ui_MainWindow {
+    + QWidget centralwidget
+    + QFormLayout formLayout
+    + QTabWidget tabWidget
+    + PatientInfoTab patient_info_tab
+    + MeasurementsTab measurement_tab
+    + AnalysisTab analysisTab
+    + ConfigTab configTab
+    + {static} Ui_MainWindow(QMainWindow window)
+    + void retranslateUi()
+}
+
+class QWidget {
+}
+
+class QTabWidget {
+}
+
+class PatientInfoTab {
+    + QLabel label_2
+    + QLineEdit name_box
+    + QLabel label_3
+    + QLineEdit age_box
+    + QLabel label_4
+    + QLineEdit height_box
+    + QLabel label_5
+    + QLineEdit weight_box
+    + QLabel comment_label
+    + QLineEdit comment_box
+    + QComboBox comboBox
+    + QPushButton add_measurement_button
+    + QPushButton print_button
+    + void retranslateUi()
+}
+
+class MeasurementsTab {
+
+    + int tab_count
+    + void stop_all_readings()
+    + void retranslateUi()
+    + MeasurementRegionTab create_tab(str)
+}
+
+enum MeasurementReadingSide{
+    NONE
+    LEFT
+    RIGHT
+}
+
+class MeasurementRegionTab{
+    + MeasurementReadingSide current_reading_side
+    + QLabel left_side_label
+    + QLabel right_side_label
+    + QPushButton record_left
+    + QPushButton record_right
+    + QTableWidget tableWidget
+    + AlgometerReadingGraph algometer_widget
+    + QPushButton remove_reading
+    + void retranslateUi()
+    + Hashable get_region_identifier()
+    + void on_start_recording_left()
+    + void on_start_recording_right()
+    + void on_stop_reading()
+    + void update_reading_table()
+}
+
+class AnalysisTab {
+    + retranslateUi()
+}
+
+class ConfigTab {
+    + QComboBox algometer_type_choice
+    + Dict[Algometer, QWidget] algometer_widget_map
+    + QStackedWidget algometer_requirements
+    + QPushButton connect_button
+
+    + Type[Algometer] get_current_algometer_type()
+    + void on_algometer_type_changed(int)
+    + void on_connect_button_clicked()
+    + QWidget get_algometer_requirements_ui(Type[Algometer])
+    + void retranslateUi()
+}
+
+class algometer_data <<singleton>>{
+    + Optional[Algometer] algometer
+    + Dict[Hashable, List[Tuple[MeasurementReadingSide, AlgometerReading]]] readings
+}
+
+class ReadingAnalyzer {
+    + float start_reading_time
+    + AlgometerReading max_reading
+    + deque[Tuple[float, float]] previous_derivatives
+    + deque[Tuple[AlgometerReading, float]] previous_readings
+    + Optional[Tuple[float, float]] add_reading(AlgometerReading, float)
+    + void reset()
+}
+
+class AlgometerReadingGraph {
+    + PlotDataItem graph
+    + InfiniteLine target_line
+    + QTimer timer
+    + Algometer algometer
+    + ReadingAnalyzer analyzer
+    + List[float] readings
+    + List[float] reading_times
+}
+
+AlgometerReadingGraph *-- ReadingAnalyzer
+MeasurementRegionTab *-- AlgometerReadingGraph
+MainWindow *-- Ui_MainWindow
+PatientInfoTab --|> QWidget
+MeasurementRegionTab --|> QWidget
+AnalysisTab --|> QWidget
+ConfigTab --|> QWidget
+MeasurementRegionTab -- MeasurementReadingSide
+QTabWidget <|-- MeasurementsTab
+Ui_MainWindow *-- PatientInfoTab
+Ui_MainWindow *-- MeasurementsTab
+Ui_MainWindow *-- AnalysisTab
+Ui_MainWindow *-- ConfigTab
+algometer_data "1" -- "1" ConfigTab
+algometer_data "1" -- "1" MeasurementRegionTab
+MeasurementsTab "1" *-- "1..*" MeasurementRegionTab
+@enduml

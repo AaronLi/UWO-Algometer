@@ -1,20 +1,19 @@
+import os
 import sys
-from PyQt5 import QtGui, QtCore
+
+from PyQt5 import QtGui
 from PyQt5.QtWidgets import QMainWindow, QApplication, QWidget
+
 from UI_MainWin import Ui_MainWindow
 from userDataPrinter import print_pdf
-import os
 
-
-from algometer_graph import AlgometerReadingGraph
 
 class MainWindow:
     def __init__(self):
         self.main_win = QMainWindow()
-        self.ui = Ui_MainWindow()
+        self.ui = Ui_MainWindow(self.main_win)
         self.main_win.setWindowTitle("Algometer Program")
         self.main_win.setWindowIcon(QtGui.QIcon('logo.png'))
-        self.ui.setupUi(self.main_win)
 
 
         #list of measured areas
@@ -22,7 +21,7 @@ class MainWindow:
 
         #connecting buttons here
         self.ui.patient_info_tab.add_measurement_button.clicked.connect(self.on_measure_area_add)
-        self.ui.patient_info_tab.PrintButton.clicked.connect(self.on_print_button_clicked)
+        self.ui.patient_info_tab.print_button.clicked.connect(self.on_print_button_clicked)
 
 
     def show(self):
@@ -40,13 +39,13 @@ class MainWindow:
         self.ui.measurement_tab.create_tab(new_area)
 
     def on_print_button_clicked(self):
-        name_text = self.ui.patient_info_tab.NameBox.text()
-        age_text = self.ui.patient_info_tab.AgeBox.text()
-        height_text = self.ui.patient_info_tab.HeightBox.text()
-        weight_text = self.ui.patient_info_tab.WeightBox.text()
+        name_text = self.ui.patient_info_tab.name_box.text()
+        age_text = self.ui.patient_info_tab.age_box.text()
+        height_text = self.ui.patient_info_tab.height_box.text()
+        weight_text = self.ui.patient_info_tab.weight_box.text()
         formatted_name = name_text.replace(" ", "_")
         path = "{}_Report.pdf".format(formatted_name)
-        comment = self.ui.patient_info_tab.CommentBox.text()
+        comment = self.ui.patient_info_tab.comment_box.text()
         print_pdf(name_text, age_text, height_text, weight_text, comment, self.measured_areas)
         os.system(path)
 

@@ -20,11 +20,11 @@ class ConfigTab(QWidget):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
-        self.config_layout = QFormLayout()
+        config_layout = QFormLayout()
 
         self.algometer_type_choice = QComboBox()
         self.algometer_type_choice.addItems([a.get_display_name() for a in self.SUPPORTED_ALGOMETERS])
-        self.config_layout.addRow("Algometer type", self.algometer_type_choice)
+        config_layout.addRow("Algometer type", self.algometer_type_choice)
         self.algometer_type_choice.currentIndexChanged.connect(self.on_algometer_type_changed)
 
         self.algometer_widget_map = {}
@@ -32,12 +32,12 @@ class ConfigTab(QWidget):
         for algometer_type in self.SUPPORTED_ALGOMETERS:
             self.algometer_widget_map[algometer_type] = self.get_algometer_requirements_ui(algometer_type)
             self.algometer_requirements.addWidget(self.algometer_widget_map[algometer_type])
-        self.config_layout.addRow("Config", self.algometer_requirements)
+        config_layout.addRow("Config", self.algometer_requirements)
 
         self.connect_button = QPushButton("Connect")
         self.connect_button.clicked.connect(self.on_connect_button_clicked)
-        self.config_layout.addRow(self.connect_button)
-        self.setLayout(self.config_layout)
+        config_layout.addRow(self.connect_button)
+        self.setLayout(config_layout)
 
 
         self.retranslateUi()

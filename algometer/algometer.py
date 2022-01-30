@@ -42,6 +42,9 @@ class Unit(enum.Enum):
         else:
             raise ValueError('Unknown unit: {}'.format(self))
 
+    def __str__(self) -> str:
+        return self.to_string()
+
     def __to_newtons(self, value: float) -> float:
         if self == Unit.LBF:
             return value * 4.4482216152605
@@ -65,6 +68,7 @@ class Unit(enum.Enum):
     def convert_to(self, value: float, to_unit: 'Unit') -> float:
         return to_unit.__from_newtons(self.__to_newtons(value))
 
+
 @total_ordering
 @dataclass(frozen=True)
 class AlgometerReading:
@@ -74,7 +78,8 @@ class AlgometerReading:
     def convert_to(self, to_unit: Unit) -> 'AlgometerReading':
         return AlgometerReading(self.unit.convert_to(self.value, to_unit), to_unit)
 
-    def _valid_operand(self, other):
+    @staticmethod
+    def _valid_operand(other):
         return isinstance(other, AlgometerReading)
 
     def __neg__(self):
@@ -98,9 +103,6 @@ class Algometer(abc.ABC):
     """
     Algometer, does not close serial port itself
     """
-    def __init__(self, serial_device: Optional[serial.Serial]):
-        self.serial_device = serial_device
-
 
     def get_reading(self, target_units: Unit) -> AlgometerReading:
         """
@@ -121,7 +123,6 @@ class Algometer(abc.ABC):
 
     def disconnect(self):
         pass
-
 
     @classmethod
     @abc.abstractmethod

@@ -9,8 +9,8 @@ class MeasurementsTab(QTabWidget):
         super().__init__(*args, *kwargs)
         self.setObjectName("measurementsTab")
         self.tab_count = -1
-        self.measurement_tab_content = MeasurementRegionTab()
-        self.addTab(self.measurement_tab_content, "")
+        measurement_tab_content = MeasurementRegionTab()
+        self.addTab(measurement_tab_content, "")
 
     def stop_all_readings(self):
         for tab in range(self.count()):
@@ -19,11 +19,11 @@ class MeasurementsTab(QTabWidget):
                 child_tab.stop_reading()
 
     def retranslateUi(self):
-        self.measurement_tab_content.retranslateUi()
+        #measurement_tab_content.retranslateUi()
 
         self.setTabText(0, QCoreApplication.translate("MainWindow", "Default"))
 
-    def create_tab(self, name):
+    def create_tab(self, name) -> MeasurementRegionTab:
         self.tab_count += 1
         # delete default tab if adding a new one
         if self.tab_count == 0:

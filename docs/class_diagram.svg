@@ -1,0 +1,415 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="1692.6px" preserveAspectRatio="none" style="width:2186px;height:1692px;background:#FFFFFF;" version="1.1" viewBox="0 0 2186 1692" width="2186.6px" zoomAndPan="magnify"><defs><filter height="300%" id="f4xwwgjfkgikf" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.6"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="5.2" dy="5.2" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--MD5=[63a373d2559db13dd8cc7d36e037ebb1]
+class Unit--><rect codeLine="3" fill="#FEFECE" filter="url(#f4xwwgjfkgikf)" height="188.307" id="Unit" style="stroke:#A80036;stroke-width:1.9500000000000002;" width="201.5" x="35.1" y="578.5"/><ellipse cx="116.025" cy="599.3" fill="#EB937F" rx="14.3" ry="14.3" style="stroke:#A80036;stroke-width:1.3;"/><path d="M114.075,600.6 L114.075,603.2 L119.275,603.2 L119.275,601.9 L119.275,601.2703 L120.0875,600.6 L120.575,600.6 L121.0625,600.6 L121.875,601.2703 L121.875,601.9 L121.875,605.8 L111.475,605.8 L110.8453,605.8 L110.175,604.9875 L110.175,604.5 L110.175,604.0125 L110.8453,603.2 L111.475,603.2 L111.475,603.2 L111.475,595.4 L111.475,595.4 L110.8453,595.4 L110.175,594.5875 L110.175,594.1 L110.175,593.6125 L110.8453,592.8 L111.475,592.8 L121.875,592.8 L121.875,596.7 L121.875,597.3297 L121.0625,598 L120.575,598 L120.0875,598 L119.275,597.3297 L119.275,596.7 L119.275,595.4 L114.075,595.4 L114.075,598 L115.375,598 L115.375,597.3703 L115.375,597.3703 L116.1875,596.7 L116.675,596.7 L117.1625,596.7 L117.975,597.3703 L117.975,598 L117.975,600.6 L117.975,601.2297 L117.1625,601.9 L117.1625,601.9 L116.675,601.9 L116.1875,601.9 L115.375,601.2297 L115.375,601.2297 L115.375,600.6 L114.075,600.6 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="15.6" lengthAdjust="spacing" textLength="28.6" x="142.675" y="605.6832">Unit</text><line style="stroke:#A80036;stroke-width:1.9500000000000002;" x1="36.4" x2="235.3" y1="620.1" y2="620.1"/><text fill="#000000" font-family="sans-serif" font-size="14.3" lengthAdjust="spacing" textLength="24.7" x="42.9" y="640.1446">LBF</text><text fill="#000000" font-family="sans-serif" font-size="14.3" lengthAdjust="spacing" textLength="9.1" x="42.9" y="658.1313">N</text><text fill="#000000" font-family="sans-serif" font-size="14.3" lengthAdjust="spacing" textLength="27.3" x="42.9" y="676.1181">KGF</text><text fill="#000000" font-family="sans-serif" font-size="14.3" lengthAdjust="spacing" textLength="27.3" x="42.9" y="694.1048">OZF</text><line style="stroke:#A80036;stroke-width:1.9500000000000002;" x1="36.4" x2="235.3" y1="702.4469" y2="702.4469"/><ellipse cx="49.4" cy="716.7469" fill="#84BE84" rx="3.9" ry="3.9" style="stroke:#038048;stroke-width:1.3;"/><text fill="#000000" font-family="sans-serif" font-size="14.3" lengthAdjust="spacing" text-decoration="underline" textLength="126.1" x="61.1" y="722.4915">Unit from_string(str)</text><ellipse cx="49.4" cy="734.7336" fill="#84BE84" rx="3.9" ry="3.9" style="stroke:#038048;stroke-width:1.3;"/><text fill="#000000" font-family="sans-serif" font-size="14.3" lengthAdjust="spacing" textLength="102.7" x="61.1" y="740.4782">str to_string(str)</text><ellipse cx="49.4" cy="752.7203" fill="#84BE84" rx="3.9" ry="3.9" style="stroke:#038048;stroke-width:1.3;"/><text fill="#000000" font-family="sans-serif" font-size="14.3" lengthAdjust="spacing" textLength="167.7" x="61.1" y="758.4649">float convert_to(float, Unit)</text><!--MD5=[719ebcad07213ae62d016fe406fbe1c5]
+class AlgometerReading--><rect codeLine="13" fill="#FEFECE" filter="url(#f4xwwgjfkgikf)" height="116.3602" id="AlgometerReading" style="stroke:#A80036;stroke-width:1.9500000000000002;" width="253.5" x="9.1" y="329.55"/><ellipse cx="63.7" cy="350.35" fill="#ADD1B2" rx="14.3" ry="14.3" style="stroke:#A80036;stroke-width:1.3;"/><path d="M66.3,345.8 Q66.5641,345.15 66.8688,344.825 Q67.1734,344.5 67.5188,344.5 Q68.1281,344.5 68.5141,344.8656 Q68.9,345.2313 68.9,346.0844 L68.9,348.1156 Q68.9,348.9688 68.5344,349.3344 Q68.1688,349.7 67.6,349.7 Q67.0922,349.7 66.7672,349.4766 Q66.4422,349.2531 66.3,348.6641 Q66.2391,348.2578 66.0156,348.0344 Q65.6094,347.6078 64.8781,347.3641 Q64.1469,347.1 63.4156,347.1 Q62.5016,347.1 61.7297,347.4656 Q60.9781,347.8313 60.3891,348.6438 Q59.8,349.4563 59.8,350.5734 L59.8,351.7719 Q59.8,353.1125 60.8969,354.0063 Q61.9938,354.9 63.9438,354.9 Q65.1016,354.9 65.9141,354.6359 Q66.3813,354.4938 66.9094,354.0266 Q67.2547,353.7625 67.4375,353.6813 Q67.6203,353.6 67.8438,353.6 Q68.2703,353.6 68.575,353.9453 Q68.9,354.2703 68.9,354.7375 Q68.9,355.1844 68.4531,355.7125 Q67.8031,356.4844 66.7672,356.9109 Q65.4063,357.5 63.7406,357.5 Q61.7906,357.5 60.2266,356.7281 Q58.9672,356.1188 58.0734,354.7984 Q57.2,353.4781 57.2,351.9141 L57.2,350.4922 Q57.2,348.8672 57.9719,347.4453 Q58.7641,346.0234 60.125,345.2719 Q61.5063,344.5 63.05,344.5 Q63.9844,344.5 64.7969,344.825 Q65.6094,345.15 66.3,345.8 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="15.6" lengthAdjust="spacing" textLength="133.9" x="89.7" y="356.7332">AlgometerReading</text><line style="stroke:#A80036;stroke-width:1.9500000000000002;" x1="10.4" x2="261.3" y1="371.15" y2="371.15"/><ellipse cx="23.4" cy="385.45" rx="3.9" ry="3.9" style="stroke:#038048;stroke-width:1.3;fill:none;"/><text fill="#000000" font-family="sans-serif" font-size="14.3" lengthAdjust="spacing" textLength="65" x="35.1" y="391.1946">float value</text><ellipse cx="23.4" cy="403.4367" rx="3.9" ry="3.9" style="stroke:#038048;stroke-width:1.3;fill:none;"/><text fill="#000000" font-family="sans-serif" font-size="14.3" lengthAdjust="spacing" textLength="49.4" x="35.1" y="409.1813">Unit unit</text><line style="stroke:#A80036;stroke-width:1.9500000000000002;" x1="10.4" x2="261.3" y1="417.5234" y2="417.5234"/><ellipse cx="23.4" cy="431.8234" fill="#84BE84" rx="3.9" ry="3.9" style="stroke:#038048;stroke-width:1.3;"/><text fill="#000000" font-family="sans-serif" font-size="14.3" lengthAdjust="spacing" textLength="219.7" x="35.1" y="437.5681">AlgometerReading convert_to(Unit)</text><!--MD5=[f0ab97c172f4b672de48b8c0f48e3f52]
+class Algometer--><rect codeLine="19" fill="#FEFECE" filter="url(#f4xwwgjfkgikf)" height="152.3336" id="Algometer" style="stroke:#A80036;stroke-width:1.9500000000000002;" width="289.9" x="306.8" y="27.3"/><ellipse cx="409.175" cy="48.1" fill="#A9DCDF" rx="14.3" ry="14.3" style="stroke:#A80036;stroke-width:1.3;"/><path d="M411.45,50.05 L407.1641,50.05 L406.5953,51.35 L406.5953,51.35 L407.2047,51.35 L407.875,52.1625 L407.875,52.65 L407.875,53.1375 L407.2047,53.95 L406.5953,53.95 L404.1375,53.95 L403.3453,53.95 L402.675,53.1375 L402.675,52.65 L402.675,52.1625 L403.3453,51.35 L404.1375,51.35 L407.1438,43.55 L406.0063,43.55 L404.6453,43.55 L403.975,42.7375 L403.975,42.25 L403.975,41.7625 L404.6453,40.95 L406.0063,40.95 L410.7797,40.95 L414.2734,51.35 L415.0047,51.35 L415.0047,51.35 L415.675,52.1625 L415.675,52.65 L415.675,53.1375 L415.0047,53.95 L414.2734,53.95 L411.8156,53.95 L411.1453,53.95 L410.475,53.1375 L410.475,52.65 L410.475,52.1625 L411.1453,51.35 L411.8156,51.35 L411.8156,51.35 L411.45,50.05 Z M410.7391,47.45 L409.175,42.7984 L407.8344,47.45 L410.7391,47.45 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="15.6" font-style="italic" lengthAdjust="spacing" textLength="74.1" x="435.825" y="54.4832">Algometer</text><line style="stroke:#A80036;stroke-width:1.9500000000000002;" x1="308.1" x2="595.4" y1="68.9" y2="68.9"/><line style="stroke:#A80036;stroke-width:1.9500000000000002;" x1="308.1" x2="595.4" y1="79.3" y2="79.3"/><ellipse cx="321.1" cy="93.6" fill="#84BE84" rx="3.9" ry="3.9" style="stroke:#038048;stroke-width:1.3;"/><text fill="#000000" font-family="sans-serif" font-size="14.3" lengthAdjust="spacing" textLength="226.2" x="332.8" y="99.3446">AlgometerReading get_reading(Unit)</text><ellipse cx="321.1" cy="111.5867" fill="#84BE84" rx="3.9" ry="3.9" style="stroke:#038048;stroke-width:1.3;"/><text fill="#000000" font-family="sans-serif" font-size="14.3" font-style="italic" lengthAdjust="spacing" textLength="237.9" x="332.8" y="117.3313">AlgometerReading get_reading_raw()</text><ellipse cx="321.1" cy="129.5734" fill="#84BE84" rx="3.9" ry="3.9" style="stroke:#038048;stroke-width:1.3;"/><text fill="#000000" font-family="sans-serif" font-size="14.3" font-style="italic" lengthAdjust="spacing" textLength="110.5" x="332.8" y="135.3181">void disconnect()</text><ellipse cx="321.1" cy="147.5602" fill="#84BE84" rx="3.9" ry="3.9" style="stroke:#038048;stroke-width:1.3;"/><text fill="#000000" font-family="sans-serif" font-size="14.3" font-style="italic" lengthAdjust="spacing" text-decoration="underline" textLength="146.9" x="332.8" y="153.3048">str get_display_name()</text><ellipse cx="321.1" cy="165.5469" fill="#84BE84" rx="3.9" ry="3.9" style="stroke:#038048;stroke-width:1.3;"/><text fill="#000000" font-family="sans-serif" font-size="14.3" font-style="italic" lengthAdjust="spacing" text-decoration="underline" textLength="256.1" x="332.8" y="171.2915">Iterable[Any] get_device_requirements()</text><!--MD5=[dc2c9437e432f418666a07f20a175d51]
+class DevelopmentAlgometer--><rect codeLine="27" fill="#FEFECE" filter="url(#f4xwwgjfkgikf)" height="170.3203" id="DevelopmentAlgometer" style="stroke:#A80036;stroke-width:1.9500000000000002;" width="286" x="308.75" y="302.9"/><ellipse cx="362.765" cy="323.7" fill="#ADD1B2" rx="14.3" ry="14.3" style="stroke:#A80036;stroke-width:1.3;"/><path d="M365.365,319.15 Q365.6291,318.5 365.9338,318.175 Q366.2384,317.85 366.5838,317.85 Q367.1931,317.85 367.5791,318.2156 Q367.965,318.5813 367.965,319.4344 L367.965,321.4656 Q367.965,322.3188 367.5994,322.6844 Q367.2338,323.05 366.665,323.05 Q366.1572,323.05 365.8322,322.8266 Q365.5072,322.6031 365.365,322.0141 Q365.3041,321.6078 365.0806,321.3844 Q364.6744,320.9578 363.9431,320.7141 Q363.2119,320.45 362.4806,320.45 Q361.5666,320.45 360.7947,320.8156 Q360.0431,321.1813 359.4541,321.9938 Q358.865,322.8063 358.865,323.9234 L358.865,325.1219 Q358.865,326.4625 359.9619,327.3563 Q361.0588,328.25 363.0088,328.25 Q364.1666,328.25 364.9791,327.9859 Q365.4463,327.8438 365.9744,327.3766 Q366.3197,327.1125 366.5025,327.0313 Q366.6853,326.95 366.9088,326.95 Q367.3353,326.95 367.64,327.2953 Q367.965,327.6203 367.965,328.0875 Q367.965,328.5344 367.5181,329.0625 Q366.8681,329.8344 365.8322,330.2609 Q364.4713,330.85 362.8056,330.85 Q360.8556,330.85 359.2916,330.0781 Q358.0322,329.4688 357.1384,328.1484 Q356.265,326.8281 356.265,325.2641 L356.265,323.8422 Q356.265,322.2172 357.0369,320.7953 Q357.8291,319.3734 359.19,318.6219 Q360.5713,317.85 362.115,317.85 Q363.0494,317.85 363.8619,318.175 Q364.6744,318.5 365.365,319.15 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="15.6" lengthAdjust="spacing" textLength="167.7" x="388.635" y="330.0832">DevelopmentAlgometer</text><line style="stroke:#A80036;stroke-width:1.9500000000000002;" x1="310.05" x2="593.45" y1="344.5" y2="344.5"/><ellipse cx="323.05" cy="358.8" rx="3.9" ry="3.9" style="stroke:#038048;stroke-width:1.3;fill:none;"/><text fill="#000000" font-family="sans-serif" font-size="14.3" lengthAdjust="spacing" textLength="118.3" x="334.75" y="364.5446">float current_force</text><ellipse cx="323.05" cy="376.7867" rx="3.9" ry="3.9" style="stroke:#038048;stroke-width:1.3;fill:none;"/><text fill="#000000" font-family="sans-serif" font-size="14.3" lengthAdjust="spacing" textLength="146.9" x="334.75" y="382.5313">float start_reading_time</text><line style="stroke:#A80036;stroke-width:1.9500000000000002;" x1="310.05" x2="593.45" y1="390.8734" y2="390.8734"/><ellipse cx="323.05" cy="405.1734" fill="#84BE84" rx="3.9" ry="3.9" style="stroke:#038048;stroke-width:1.3;"/><text fill="#000000" font-family="sans-serif" font-size="14.3" lengthAdjust="spacing" textLength="236.6" x="334.75" y="410.9181">AlgometerReading get_reading_raw()</text><ellipse cx="323.05" cy="423.1602" fill="#84BE84" rx="3.9" ry="3.9" style="stroke:#038048;stroke-width:1.3;"/><text fill="#000000" font-family="sans-serif" font-size="14.3" lengthAdjust="spacing" textLength="109.2" x="334.75" y="428.9048">void disconnect()</text><ellipse cx="323.05" cy="441.1469" fill="#84BE84" rx="3.9" ry="3.9" style="stroke:#038048;stroke-width:1.3;"/><text fill="#000000" font-family="sans-serif" font-size="14.3" lengthAdjust="spacing" text-decoration="underline" textLength="144.3" x="334.75" y="446.8915">str get_display_name()</text><ellipse cx="323.05" cy="459.1336" fill="#84BE84" rx="3.9" ry="3.9" style="stroke:#038048;stroke-width:1.3;"/><text fill="#000000" font-family="sans-serif" font-size="14.3" lengthAdjust="spacing" text-decoration="underline" textLength="252.2" x="334.75" y="464.8782">Iterable[Any] get_device_requirements()</text><!--MD5=[e0aa99a26b54d72995c8fcc643c4f838]
+class AlgometerWagnerFPX--><rect codeLine="36" fill="#FEFECE" filter="url(#f4xwwgjfkgikf)" height="170.3203" id="AlgometerWagnerFPX" style="stroke:#A80036;stroke-width:1.9500000000000002;" width="286" x="640.25" y="302.9"/><ellipse cx="699.075" cy="323.7" fill="#ADD1B2" rx="14.3" ry="14.3" style="stroke:#A80036;stroke-width:1.3;"/><path d="M701.675,319.15 Q701.9391,318.5 702.2438,318.175 Q702.5484,317.85 702.8938,317.85 Q703.5031,317.85 703.8891,318.2156 Q704.275,318.5813 704.275,319.4344 L704.275,321.4656 Q704.275,322.3188 703.9094,322.6844 Q703.5438,323.05 702.975,323.05 Q702.4672,323.05 702.1422,322.8266 Q701.8172,322.6031 701.675,322.0141 Q701.6141,321.6078 701.3906,321.3844 Q700.9844,320.9578 700.2531,320.7141 Q699.5219,320.45 698.7906,320.45 Q697.8766,320.45 697.1047,320.8156 Q696.3531,321.1813 695.7641,321.9938 Q695.175,322.8063 695.175,323.9234 L695.175,325.1219 Q695.175,326.4625 696.2719,327.3563 Q697.3688,328.25 699.3188,328.25 Q700.4766,328.25 701.2891,327.9859 Q701.7563,327.8438 702.2844,327.3766 Q702.6297,327.1125 702.8125,327.0313 Q702.9953,326.95 703.2188,326.95 Q703.6453,326.95 703.95,327.2953 Q704.275,327.6203 704.275,328.0875 Q704.275,328.5344 703.8281,329.0625 Q703.1781,329.8344 702.1422,330.2609 Q700.7813,330.85 699.1156,330.85 Q697.1656,330.85 695.6016,330.0781 Q694.3422,329.4688 693.4484,328.1484 Q692.575,326.8281 692.575,325.2641 L692.575,323.8422 Q692.575,322.2172 693.3469,320.7953 Q694.1391,319.3734 695.5,318.6219 Q696.8813,317.85 698.425,317.85 Q699.3594,317.85 700.1719,318.175 Q700.9844,318.5 701.675,319.15 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="15.6" lengthAdjust="spacing" textLength="157.3" x="725.725" y="330.0832">AlgometerWagnerFPX</text><line style="stroke:#A80036;stroke-width:1.9500000000000002;" x1="641.55" x2="924.95" y1="344.5" y2="344.5"/><ellipse cx="654.55" cy="358.8" rx="3.9" ry="3.9" style="stroke:#038048;stroke-width:1.3;fill:none;"/><text fill="#000000" font-family="sans-serif" font-size="14.3" lengthAdjust="spacing" textLength="159.9" x="666.25" y="364.5446">serial.Serial serial_device</text><line style="stroke:#A80036;stroke-width:1.9500000000000002;" x1="641.55" x2="924.95" y1="372.8867" y2="372.8867"/><ellipse cx="654.55" cy="387.1867" fill="#84BE84" rx="3.9" ry="3.9" style="stroke:#038048;stroke-width:1.3;"/><text fill="#000000" font-family="sans-serif" font-size="14.3" lengthAdjust="spacing" textLength="236.6" x="666.25" y="392.9313">AlgometerReading get_reading_raw()</text><ellipse cx="654.55" cy="405.1734" fill="#84BE84" rx="3.9" ry="3.9" style="stroke:#038048;stroke-width:1.3;"/><text fill="#000000" font-family="sans-serif" font-size="14.3" lengthAdjust="spacing" textLength="109.2" x="666.25" y="410.9181">void disconnect()</text><ellipse cx="654.55" cy="423.1602" fill="#84BE84" rx="3.9" ry="3.9" style="stroke:#038048;stroke-width:1.3;"/><text fill="#000000" font-family="sans-serif" font-size="14.3" lengthAdjust="spacing" text-decoration="underline" textLength="144.3" x="666.25" y="428.9048">str get_display_name()</text><ellipse cx="654.55" cy="441.1469" fill="#84BE84" rx="3.9" ry="3.9" style="stroke:#038048;stroke-width:1.3;"/><text fill="#000000" font-family="sans-serif" font-size="14.3" lengthAdjust="spacing" text-decoration="underline" textLength="252.2" x="666.25" y="446.8915">Iterable[Any] get_device_requirements()</text><ellipse cx="654.55" cy="459.1336" fill="#84BE84" rx="3.9" ry="3.9" style="stroke:#038048;stroke-width:1.3;"/><text fill="#000000" font-family="sans-serif" font-size="14.3" lengthAdjust="spacing" text-decoration="underline" textLength="221" x="666.25" y="464.8782">AlgometerWagnerFPX(serial.Serial)</text><!--MD5=[e6c809820d88acc3564faeb20394ab9d]
+class MainWindow--><rect codeLine="51" fill="#FEFECE" filter="url(#f4xwwgjfkgikf)" height="188.307" id="MainWindow" style="stroke:#A80036;stroke-width:1.9500000000000002;" width="222.3" x="1773.2" y="9.1"/><ellipse cx="1833.325" cy="29.9" fill="#ADD1B2" rx="14.3" ry="14.3" style="stroke:#A80036;stroke-width:1.3;"/><path d="M1835.925,25.35 Q1836.1891,24.7 1836.4938,24.375 Q1836.7984,24.05 1837.1438,24.05 Q1837.7531,24.05 1838.1391,24.4156 Q1838.525,24.7813 1838.525,25.6344 L1838.525,27.6656 Q1838.525,28.5188 1838.1594,28.8844 Q1837.7938,29.25 1837.225,29.25 Q1836.7172,29.25 1836.3922,29.0266 Q1836.0672,28.8031 1835.925,28.2141 Q1835.8641,27.8078 1835.6406,27.5844 Q1835.2344,27.1578 1834.5031,26.9141 Q1833.7719,26.65 1833.0406,26.65 Q1832.1266,26.65 1831.3547,27.0156 Q1830.6031,27.3813 1830.0141,28.1938 Q1829.425,29.0063 1829.425,30.1234 L1829.425,31.3219 Q1829.425,32.6625 1830.5219,33.5563 Q1831.6188,34.45 1833.5688,34.45 Q1834.7266,34.45 1835.5391,34.1859 Q1836.0063,34.0438 1836.5344,33.5766 Q1836.8797,33.3125 1837.0625,33.2313 Q1837.2453,33.15 1837.4688,33.15 Q1837.8953,33.15 1838.2,33.4953 Q1838.525,33.8203 1838.525,34.2875 Q1838.525,34.7344 1838.0781,35.2625 Q1837.4281,36.0344 1836.3922,36.4609 Q1835.0313,37.05 1833.3656,37.05 Q1831.4156,37.05 1829.8516,36.2781 Q1828.5922,35.6688 1827.6984,34.3484 Q1826.825,33.0281 1826.825,31.4641 L1826.825,30.0422 Q1826.825,28.4172 1827.5969,26.9953 Q1828.3891,25.5734 1829.75,24.8219 Q1831.1313,24.05 1832.675,24.05 Q1833.6094,24.05 1834.4219,24.375 Q1835.2344,24.7 1835.925,25.35 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="15.6" lengthAdjust="spacing" textLength="91" x="1859.975" y="36.2832">MainWindow</text><line style="stroke:#A80036;stroke-width:1.9500000000000002;" x1="1774.5" x2="1994.2" y1="50.7" y2="50.7"/><ellipse cx="1787.5" cy="65" rx="3.9" ry="3.9" style="stroke:#038048;stroke-width:1.3;fill:none;"/><text fill="#000000" font-family="sans-serif" font-size="14.3" lengthAdjust="spacing" textLength="154.7" x="1799.2" y="70.7446">QMainWindow main_win</text><ellipse cx="1787.5" cy="82.9867" rx="3.9" ry="3.9" style="stroke:#038048;stroke-width:1.3;fill:none;"/><text fill="#000000" font-family="sans-serif" font-size="14.3" lengthAdjust="spacing" textLength="114.4" x="1799.2" y="88.7313">Ui_MainWindow ui</text><ellipse cx="1787.5" cy="100.9734" rx="3.9" ry="3.9" style="stroke:#038048;stroke-width:1.3;fill:none;"/><text fill="#000000" font-family="sans-serif" font-size="14.3" lengthAdjust="spacing" textLength="157.3" x="1799.2" y="106.7181">List[str] measured_areas</text><line style="stroke:#A80036;stroke-width:1.9500000000000002;" x1="1774.5" x2="1994.2" y1="115.0602" y2="115.0602"/><ellipse cx="1787.5" cy="129.3602" fill="#84BE84" rx="3.9" ry="3.9" style="stroke:#038048;stroke-width:1.3;"/><text fill="#000000" font-family="sans-serif" font-size="14.3" lengthAdjust="spacing" textLength="76.7" x="1799.2" y="135.1048">void show()</text><ellipse cx="1787.5" cy="147.3469" fill="#84BE84" rx="3.9" ry="3.9" style="stroke:#038048;stroke-width:1.3;"/><text fill="#000000" font-family="sans-serif" font-size="14.3" lengthAdjust="spacing" textLength="185.9" x="1799.2" y="153.0915">void on_measure_area_add()</text><ellipse cx="1787.5" cy="165.3336" fill="#84BE84" rx="3.9" ry="3.9" style="stroke:#038048;stroke-width:1.3;"/><text fill="#000000" font-family="sans-serif" font-size="14.3" lengthAdjust="spacing" textLength="183.3" x="1799.2" y="171.0782">void add_measurement_tab()</text><ellipse cx="1787.5" cy="183.3203" fill="#84BE84" rx="3.9" ry="3.9" style="stroke:#038048;stroke-width:1.3;"/><text fill="#000000" font-family="sans-serif" font-size="14.3" lengthAdjust="spacing" textLength="188.5" x="1799.2" y="189.0649">void on_print_button_clicked()</text><!--MD5=[5186ef3305e0cbe09d8c16bd8b21be36]
+class Ui_MainWindow--><rect codeLine="60" fill="#FEFECE" filter="url(#f4xwwgjfkgikf)" height="224.2805" id="Ui_MainWindow" style="stroke:#A80036;stroke-width:1.9500000000000002;" width="291.2" x="1738.75" y="275.6"/><ellipse cx="1820.975" cy="296.4" fill="#ADD1B2" rx="14.3" ry="14.3" style="stroke:#A80036;stroke-width:1.3;"/><path d="M1823.575,291.85 Q1823.8391,291.2 1824.1438,290.875 Q1824.4484,290.55 1824.7938,290.55 Q1825.4031,290.55 1825.7891,290.9156 Q1826.175,291.2813 1826.175,292.1344 L1826.175,294.1656 Q1826.175,295.0188 1825.8094,295.3844 Q1825.4438,295.75 1824.875,295.75 Q1824.3672,295.75 1824.0422,295.5266 Q1823.7172,295.3031 1823.575,294.7141 Q1823.5141,294.3078 1823.2906,294.0844 Q1822.8844,293.6578 1822.1531,293.4141 Q1821.4219,293.15 1820.6906,293.15 Q1819.7766,293.15 1819.0047,293.5156 Q1818.2531,293.8813 1817.6641,294.6938 Q1817.075,295.5063 1817.075,296.6234 L1817.075,297.8219 Q1817.075,299.1625 1818.1719,300.0563 Q1819.2688,300.95 1821.2188,300.95 Q1822.3766,300.95 1823.1891,300.6859 Q1823.6563,300.5438 1824.1844,300.0766 Q1824.5297,299.8125 1824.7125,299.7313 Q1824.8953,299.65 1825.1188,299.65 Q1825.5453,299.65 1825.85,299.9953 Q1826.175,300.3203 1826.175,300.7875 Q1826.175,301.2344 1825.7281,301.7625 Q1825.0781,302.5344 1824.0422,302.9609 Q1822.6813,303.55 1821.0156,303.55 Q1819.0656,303.55 1817.5016,302.7781 Q1816.2422,302.1688 1815.3484,300.8484 Q1814.475,299.5281 1814.475,297.9641 L1814.475,296.5422 Q1814.475,294.9172 1815.2469,293.4953 Q1816.0391,292.0734 1817.4,291.3219 Q1818.7813,290.55 1820.325,290.55 Q1821.2594,290.55 1822.0719,290.875 Q1822.8844,291.2 1823.575,291.85 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="15.6" lengthAdjust="spacing" textLength="115.7" x="1847.625" y="302.7832">Ui_MainWindow</text><line style="stroke:#A80036;stroke-width:1.9500000000000002;" x1="1740.05" x2="2028.65" y1="317.2" y2="317.2"/><ellipse cx="1753.05" cy="331.5" rx="3.9" ry="3.9" style="stroke:#038048;stroke-width:1.3;fill:none;"/><text fill="#000000" font-family="sans-serif" font-size="14.3" lengthAdjust="spacing" textLength="143" x="1764.75" y="337.2446">QWidget centralwidget</text><ellipse cx="1753.05" cy="349.4867" rx="3.9" ry="3.9" style="stroke:#038048;stroke-width:1.3;fill:none;"/><text fill="#000000" font-family="sans-serif" font-size="14.3" lengthAdjust="spacing" textLength="159.9" x="1764.75" y="355.2313">QFormLayout formLayout</text><ellipse cx="1753.05" cy="367.4734" rx="3.9" ry="3.9" style="stroke:#038048;stroke-width:1.3;fill:none;"/><text fill="#000000" font-family="sans-serif" font-size="14.3" lengthAdjust="spacing" textLength="143" x="1764.75" y="373.2181">QTabWidget tabWidget</text><ellipse cx="1753.05" cy="385.4602" rx="3.9" ry="3.9" style="stroke:#038048;stroke-width:1.3;fill:none;"/><text fill="#000000" font-family="sans-serif" font-size="14.3" lengthAdjust="spacing" textLength="192.4" x="1764.75" y="391.2048">PatientInfoTab patient_info_tab</text><ellipse cx="1753.05" cy="403.4469" rx="3.9" ry="3.9" style="stroke:#038048;stroke-width:1.3;fill:none;"/><text fill="#000000" font-family="sans-serif" font-size="14.3" lengthAdjust="spacing" textLength="231.4" x="1764.75" y="409.1915">MeasurementsTab measurement_tab</text><ellipse cx="1753.05" cy="421.4336" rx="3.9" ry="3.9" style="stroke:#038048;stroke-width:1.3;fill:none;"/><text fill="#000000" font-family="sans-serif" font-size="14.3" lengthAdjust="spacing" textLength="157.3" x="1764.75" y="427.1782">AnalysisTab analysisTab</text><ellipse cx="1753.05" cy="439.4203" rx="3.9" ry="3.9" style="stroke:#038048;stroke-width:1.3;fill:none;"/><text fill="#000000" font-family="sans-serif" font-size="14.3" lengthAdjust="spacing" textLength="130" x="1764.75" y="445.1649">ConfigTab configTab</text><line style="stroke:#A80036;stroke-width:1.9500000000000002;" x1="1740.05" x2="2028.65" y1="453.507" y2="453.507"/><ellipse cx="1753.05" cy="467.807" fill="#84BE84" rx="3.9" ry="3.9" style="stroke:#038048;stroke-width:1.3;"/><text fill="#000000" font-family="sans-serif" font-size="14.3" lengthAdjust="spacing" text-decoration="underline" textLength="257.4" x="1764.75" y="473.5517">Ui_MainWindow(QMainWindow window)</text><ellipse cx="1753.05" cy="485.7938" fill="#84BE84" rx="3.9" ry="3.9" style="stroke:#038048;stroke-width:1.3;"/><text fill="#000000" font-family="sans-serif" font-size="14.3" lengthAdjust="spacing" textLength="119.6" x="1764.75" y="491.5384">void retranslateUi()</text><!--MD5=[3e3f16721f1fb369e45a968cb01568b2]
+class QWidget--><rect codeLine="72" fill="#FEFECE" filter="url(#f4xwwgjfkgikf)" height="62.4" id="QWidget" style="stroke:#A80036;stroke-width:1.9500000000000002;" width="102.7" x="1679.6" y="1300.65"/><ellipse cx="1699.1" cy="1321.45" fill="#ADD1B2" rx="14.3" ry="14.3" style="stroke:#A80036;stroke-width:1.3;"/><path d="M1701.7,1316.9 Q1701.9641,1316.25 1702.2688,1315.925 Q1702.5734,1315.6 1702.9188,1315.6 Q1703.5281,1315.6 1703.9141,1315.9656 Q1704.3,1316.3313 1704.3,1317.1844 L1704.3,1319.2156 Q1704.3,1320.0688 1703.9344,1320.4344 Q1703.5688,1320.8 1703,1320.8 Q1702.4922,1320.8 1702.1672,1320.5766 Q1701.8422,1320.3531 1701.7,1319.7641 Q1701.6391,1319.3578 1701.4156,1319.1344 Q1701.0094,1318.7078 1700.2781,1318.4641 Q1699.5469,1318.2 1698.8156,1318.2 Q1697.9016,1318.2 1697.1297,1318.5656 Q1696.3781,1318.9313 1695.7891,1319.7438 Q1695.2,1320.5563 1695.2,1321.6734 L1695.2,1322.8719 Q1695.2,1324.2125 1696.2969,1325.1063 Q1697.3938,1326 1699.3438,1326 Q1700.5016,1326 1701.3141,1325.7359 Q1701.7813,1325.5938 1702.3094,1325.1266 Q1702.6547,1324.8625 1702.8375,1324.7813 Q1703.0203,1324.7 1703.2438,1324.7 Q1703.6703,1324.7 1703.975,1325.0453 Q1704.3,1325.3703 1704.3,1325.8375 Q1704.3,1326.2844 1703.8531,1326.8125 Q1703.2031,1327.5844 1702.1672,1328.0109 Q1700.8063,1328.6 1699.1406,1328.6 Q1697.1906,1328.6 1695.6266,1327.8281 Q1694.3672,1327.2188 1693.4734,1325.8984 Q1692.6,1324.5781 1692.6,1323.0141 L1692.6,1321.5922 Q1692.6,1319.9672 1693.3719,1318.5453 Q1694.1641,1317.1234 1695.525,1316.3719 Q1696.9063,1315.6 1698.45,1315.6 Q1699.3844,1315.6 1700.1969,1315.925 Q1701.0094,1316.25 1701.7,1316.9 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="15.6" lengthAdjust="spacing" textLength="61.1" x="1717.3" y="1327.8332">QWidget</text><line style="stroke:#A80036;stroke-width:1.9500000000000002;" x1="1680.9" x2="1781" y1="1342.25" y2="1342.25"/><line style="stroke:#A80036;stroke-width:1.9500000000000002;" x1="1680.9" x2="1781" y1="1352.65" y2="1352.65"/><!--MD5=[f83ef373cea3a0dbd36c1996e1d33a64]
+class QTabWidget--><rect codeLine="75" fill="#FEFECE" filter="url(#f4xwwgjfkgikf)" height="62.4" id="QTabWidget" style="stroke:#A80036;stroke-width:1.9500000000000002;" width="130" x="971.75" y="356.85"/><ellipse cx="991.25" cy="377.65" fill="#ADD1B2" rx="14.3" ry="14.3" style="stroke:#A80036;stroke-width:1.3;"/><path d="M993.85,373.1 Q994.1141,372.45 994.4188,372.125 Q994.7234,371.8 995.0688,371.8 Q995.6781,371.8 996.0641,372.1656 Q996.45,372.5313 996.45,373.3844 L996.45,375.4156 Q996.45,376.2688 996.0844,376.6344 Q995.7188,377 995.15,377 Q994.6422,377 994.3172,376.7766 Q993.9922,376.5531 993.85,375.9641 Q993.7891,375.5578 993.5656,375.3344 Q993.1594,374.9078 992.4281,374.6641 Q991.6969,374.4 990.9656,374.4 Q990.0516,374.4 989.2797,374.7656 Q988.5281,375.1313 987.9391,375.9438 Q987.35,376.7563 987.35,377.8734 L987.35,379.0719 Q987.35,380.4125 988.4469,381.3063 Q989.5438,382.2 991.4938,382.2 Q992.6516,382.2 993.4641,381.9359 Q993.9313,381.7938 994.4594,381.3266 Q994.8047,381.0625 994.9875,380.9813 Q995.1703,380.9 995.3938,380.9 Q995.8203,380.9 996.125,381.2453 Q996.45,381.5703 996.45,382.0375 Q996.45,382.4844 996.0031,383.0125 Q995.3531,383.7844 994.3172,384.2109 Q992.9563,384.8 991.2906,384.8 Q989.3406,384.8 987.7766,384.0281 Q986.5172,383.4188 985.6234,382.0984 Q984.75,380.7781 984.75,379.2141 L984.75,377.7922 Q984.75,376.1672 985.5219,374.7453 Q986.3141,373.3234 987.675,372.5719 Q989.0563,371.8 990.6,371.8 Q991.5344,371.8 992.3469,372.125 Q993.1594,372.45 993.85,373.1 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="15.6" lengthAdjust="spacing" textLength="88.4" x="1009.45" y="384.0332">QTabWidget</text><line style="stroke:#A80036;stroke-width:1.9500000000000002;" x1="973.05" x2="1100.45" y1="398.45" y2="398.45"/><line style="stroke:#A80036;stroke-width:1.9500000000000002;" x1="973.05" x2="1100.45" y1="408.85" y2="408.85"/><!--MD5=[a6624ae7cfd37e7a6a8c204a86459f3d]
+class PatientInfoTab--><rect codeLine="78" fill="#FEFECE" filter="url(#f4xwwgjfkgikf)" height="314.2141" id="PatientInfoTab" style="stroke:#A80036;stroke-width:1.9500000000000002;" width="282.1" x="1766.7" y="845"/><ellipse cx="1850.875" cy="865.8" fill="#ADD1B2" rx="14.3" ry="14.3" style="stroke:#A80036;stroke-width:1.3;"/><path d="M1853.475,861.25 Q1853.7391,860.6 1854.0438,860.275 Q1854.3484,859.95 1854.6938,859.95 Q1855.3031,859.95 1855.6891,860.3156 Q1856.075,860.6813 1856.075,861.5344 L1856.075,863.5656 Q1856.075,864.4188 1855.7094,864.7844 Q1855.3438,865.15 1854.775,865.15 Q1854.2672,865.15 1853.9422,864.9266 Q1853.6172,864.7031 1853.475,864.1141 Q1853.4141,863.7078 1853.1906,863.4844 Q1852.7844,863.0578 1852.0531,862.8141 Q1851.3219,862.55 1850.5906,862.55 Q1849.6766,862.55 1848.9047,862.9156 Q1848.1531,863.2813 1847.5641,864.0938 Q1846.975,864.9063 1846.975,866.0234 L1846.975,867.2219 Q1846.975,868.5625 1848.0719,869.4563 Q1849.1688,870.35 1851.1188,870.35 Q1852.2766,870.35 1853.0891,870.0859 Q1853.5563,869.9438 1854.0844,869.4766 Q1854.4297,869.2125 1854.6125,869.1313 Q1854.7953,869.05 1855.0188,869.05 Q1855.4453,869.05 1855.75,869.3953 Q1856.075,869.7203 1856.075,870.1875 Q1856.075,870.6344 1855.6281,871.1625 Q1854.9781,871.9344 1853.9422,872.3609 Q1852.5813,872.95 1850.9156,872.95 Q1848.9656,872.95 1847.4016,872.1781 Q1846.1422,871.5688 1845.2484,870.2484 Q1844.375,868.9281 1844.375,867.3641 L1844.375,865.9422 Q1844.375,864.3172 1845.1469,862.8953 Q1845.9391,861.4734 1847.3,860.7219 Q1848.6813,859.95 1850.225,859.95 Q1851.1594,859.95 1851.9719,860.275 Q1852.7844,860.6 1853.475,861.25 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="15.6" lengthAdjust="spacing" textLength="102.7" x="1877.525" y="872.1832">PatientInfoTab</text><line style="stroke:#A80036;stroke-width:1.9500000000000002;" x1="1768" x2="2047.5" y1="886.6" y2="886.6"/><ellipse cx="1781" cy="900.9" rx="3.9" ry="3.9" style="stroke:#038048;stroke-width:1.3;fill:none;"/><text fill="#000000" font-family="sans-serif" font-size="14.3" lengthAdjust="spacing" textLength="92.3" x="1792.7" y="906.6446">QLabel label_2</text><ellipse cx="1781" cy="918.8867" rx="3.9" ry="3.9" style="stroke:#038048;stroke-width:1.3;fill:none;"/><text fill="#000000" font-family="sans-serif" font-size="14.3" lengthAdjust="spacing" textLength="127.4" x="1792.7" y="924.6313">QLineEdit name_box</text><ellipse cx="1781" cy="936.8734" rx="3.9" ry="3.9" style="stroke:#038048;stroke-width:1.3;fill:none;"/><text fill="#000000" font-family="sans-serif" font-size="14.3" lengthAdjust="spacing" textLength="92.3" x="1792.7" y="942.6181">QLabel label_3</text><ellipse cx="1781" cy="954.8602" rx="3.9" ry="3.9" style="stroke:#038048;stroke-width:1.3;fill:none;"/><text fill="#000000" font-family="sans-serif" font-size="14.3" lengthAdjust="spacing" textLength="117" x="1792.7" y="960.6048">QLineEdit age_box</text><ellipse cx="1781" cy="972.8469" rx="3.9" ry="3.9" style="stroke:#038048;stroke-width:1.3;fill:none;"/><text fill="#000000" font-family="sans-serif" font-size="14.3" lengthAdjust="spacing" textLength="92.3" x="1792.7" y="978.5915">QLabel label_4</text><ellipse cx="1781" cy="990.8336" rx="3.9" ry="3.9" style="stroke:#038048;stroke-width:1.3;fill:none;"/><text fill="#000000" font-family="sans-serif" font-size="14.3" lengthAdjust="spacing" textLength="131.3" x="1792.7" y="996.5782">QLineEdit height_box</text><ellipse cx="1781" cy="1008.8203" rx="3.9" ry="3.9" style="stroke:#038048;stroke-width:1.3;fill:none;"/><text fill="#000000" font-family="sans-serif" font-size="14.3" lengthAdjust="spacing" textLength="92.3" x="1792.7" y="1014.5649">QLabel label_5</text><ellipse cx="1781" cy="1026.807" rx="3.9" ry="3.9" style="stroke:#038048;stroke-width:1.3;fill:none;"/><text fill="#000000" font-family="sans-serif" font-size="14.3" lengthAdjust="spacing" textLength="136.5" x="1792.7" y="1032.5517">QLineEdit weight_box</text><ellipse cx="1781" cy="1044.7938" rx="3.9" ry="3.9" style="stroke:#038048;stroke-width:1.3;fill:none;"/><text fill="#000000" font-family="sans-serif" font-size="14.3" lengthAdjust="spacing" textLength="140.4" x="1792.7" y="1050.5384">QLabel comment_label</text><ellipse cx="1781" cy="1062.7805" rx="3.9" ry="3.9" style="stroke:#038048;stroke-width:1.3;fill:none;"/><text fill="#000000" font-family="sans-serif" font-size="14.3" lengthAdjust="spacing" textLength="149.5" x="1792.7" y="1068.5251">QLineEdit comment_box</text><ellipse cx="1781" cy="1080.7672" rx="3.9" ry="3.9" style="stroke:#038048;stroke-width:1.3;fill:none;"/><text fill="#000000" font-family="sans-serif" font-size="14.3" lengthAdjust="spacing" textLength="148.2" x="1792.7" y="1086.5118">QComboBox comboBox</text><ellipse cx="1781" cy="1098.7539" rx="3.9" ry="3.9" style="stroke:#038048;stroke-width:1.3;fill:none;"/><text fill="#000000" font-family="sans-serif" font-size="14.3" lengthAdjust="spacing" textLength="248.3" x="1792.7" y="1104.4985">QPushButton add_measurement_button</text><ellipse cx="1781" cy="1116.7406" rx="3.9" ry="3.9" style="stroke:#038048;stroke-width:1.3;fill:none;"/><text fill="#000000" font-family="sans-serif" font-size="14.3" lengthAdjust="spacing" textLength="159.9" x="1792.7" y="1122.4853">QPushButton print_button</text><line style="stroke:#A80036;stroke-width:1.9500000000000002;" x1="1768" x2="2047.5" y1="1130.8273" y2="1130.8273"/><ellipse cx="1781" cy="1145.1273" fill="#84BE84" rx="3.9" ry="3.9" style="stroke:#038048;stroke-width:1.3;"/><text fill="#000000" font-family="sans-serif" font-size="14.3" lengthAdjust="spacing" textLength="119.6" x="1792.7" y="1150.872">void retranslateUi()</text><!--MD5=[b9529e04735aa463c163c6f49d454179]
+class MeasurementsTab--><rect codeLine="95" fill="#FEFECE" filter="url(#f4xwwgjfkgikf)" height="134.3469" id="MeasurementsTab" style="stroke:#A80036;stroke-width:1.9500000000000002;" width="283.4" x="895.05" y="605.8"/><ellipse cx="963.625" cy="626.6" fill="#ADD1B2" rx="14.3" ry="14.3" style="stroke:#A80036;stroke-width:1.3;"/><path d="M966.225,622.05 Q966.4891,621.4 966.7938,621.075 Q967.0984,620.75 967.4438,620.75 Q968.0531,620.75 968.4391,621.1156 Q968.825,621.4813 968.825,622.3344 L968.825,624.3656 Q968.825,625.2188 968.4594,625.5844 Q968.0938,625.95 967.525,625.95 Q967.0172,625.95 966.6922,625.7266 Q966.3672,625.5031 966.225,624.9141 Q966.1641,624.5078 965.9406,624.2844 Q965.5344,623.8578 964.8031,623.6141 Q964.0719,623.35 963.3406,623.35 Q962.4266,623.35 961.6547,623.7156 Q960.9031,624.0813 960.3141,624.8938 Q959.725,625.7063 959.725,626.8234 L959.725,628.0219 Q959.725,629.3625 960.8219,630.2563 Q961.9188,631.15 963.8688,631.15 Q965.0266,631.15 965.8391,630.8859 Q966.3063,630.7438 966.8344,630.2766 Q967.1797,630.0125 967.3625,629.9313 Q967.5453,629.85 967.7688,629.85 Q968.1953,629.85 968.5,630.1953 Q968.825,630.5203 968.825,630.9875 Q968.825,631.4344 968.3781,631.9625 Q967.7281,632.7344 966.6922,633.1609 Q965.3313,633.75 963.6656,633.75 Q961.7156,633.75 960.1516,632.9781 Q958.8922,632.3688 957.9984,631.0484 Q957.125,629.7281 957.125,628.1641 L957.125,626.7422 Q957.125,625.1172 957.8969,623.6953 Q958.6891,622.2734 960.05,621.5219 Q961.4313,620.75 962.975,620.75 Q963.9094,620.75 964.7219,621.075 Q965.5344,621.4 966.225,622.05 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="15.6" lengthAdjust="spacing" textLength="135.2" x="990.275" y="632.9832">MeasurementsTab</text><line style="stroke:#A80036;stroke-width:1.9500000000000002;" x1="896.35" x2="1177.15" y1="647.4" y2="647.4"/><ellipse cx="909.35" cy="661.7" rx="3.9" ry="3.9" style="stroke:#038048;stroke-width:1.3;fill:none;"/><text fill="#000000" font-family="sans-serif" font-size="14.3" lengthAdjust="spacing" textLength="80.6" x="921.05" y="667.4446">int tab_count</text><line style="stroke:#A80036;stroke-width:1.9500000000000002;" x1="896.35" x2="1177.15" y1="675.7867" y2="675.7867"/><ellipse cx="909.35" cy="690.0867" fill="#84BE84" rx="3.9" ry="3.9" style="stroke:#038048;stroke-width:1.3;"/><text fill="#000000" font-family="sans-serif" font-size="14.3" lengthAdjust="spacing" textLength="150.8" x="921.05" y="695.8313">void stop_all_readings()</text><ellipse cx="909.35" cy="708.0734" fill="#84BE84" rx="3.9" ry="3.9" style="stroke:#038048;stroke-width:1.3;"/><text fill="#000000" font-family="sans-serif" font-size="14.3" lengthAdjust="spacing" textLength="119.6" x="921.05" y="713.8181">void retranslateUi()</text><ellipse cx="909.35" cy="726.0602" fill="#84BE84" rx="3.9" ry="3.9" style="stroke:#038048;stroke-width:1.3;"/><text fill="#000000" font-family="sans-serif" font-size="14.3" lengthAdjust="spacing" textLength="249.6" x="921.05" y="731.8048">MeasurementRegionTab create_tab(str)</text><!--MD5=[f4e6e1a33ae0f26e21b3a7526271002b]
+class MeasurementReadingSide--><rect codeLine="103" fill="#FEFECE" filter="url(#f4xwwgjfkgikf)" height="116.3602" id="MeasurementReadingSide" style="stroke:#A80036;stroke-width:1.9500000000000002;" width="234" x="957.45" y="1273.35"/><ellipse cx="976.95" cy="1294.15" fill="#EB937F" rx="14.3" ry="14.3" style="stroke:#A80036;stroke-width:1.3;"/><path d="M975,1295.45 L975,1298.05 L980.2,1298.05 L980.2,1296.75 L980.2,1296.1203 L981.0125,1295.45 L981.5,1295.45 L981.9875,1295.45 L982.8,1296.1203 L982.8,1296.75 L982.8,1300.65 L972.4,1300.65 L971.7703,1300.65 L971.1,1299.8375 L971.1,1299.35 L971.1,1298.8625 L971.7703,1298.05 L972.4,1298.05 L972.4,1298.05 L972.4,1290.25 L972.4,1290.25 L971.7703,1290.25 L971.1,1289.4375 L971.1,1288.95 L971.1,1288.4625 L971.7703,1287.65 L972.4,1287.65 L982.8,1287.65 L982.8,1291.55 L982.8,1292.1797 L981.9875,1292.85 L981.5,1292.85 L981.0125,1292.85 L980.2,1292.1797 L980.2,1291.55 L980.2,1290.25 L975,1290.25 L975,1292.85 L976.3,1292.85 L976.3,1292.2203 L976.3,1292.2203 L977.1125,1291.55 L977.6,1291.55 L978.0875,1291.55 L978.9,1292.2203 L978.9,1292.85 L978.9,1295.45 L978.9,1296.0797 L978.0875,1296.75 L978.0875,1296.75 L977.6,1296.75 L977.1125,1296.75 L976.3,1296.0797 L976.3,1296.0797 L976.3,1295.45 L975,1295.45 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="15.6" lengthAdjust="spacing" textLength="192.4" x="995.15" y="1300.5332">MeasurementReadingSide</text><line style="stroke:#A80036;stroke-width:1.9500000000000002;" x1="958.75" x2="1190.15" y1="1314.95" y2="1314.95"/><text fill="#000000" font-family="sans-serif" font-size="14.3" lengthAdjust="spacing" textLength="36.4" x="965.25" y="1334.9946">NONE</text><text fill="#000000" font-family="sans-serif" font-size="14.3" lengthAdjust="spacing" textLength="31.2" x="965.25" y="1352.9813">LEFT</text><text fill="#000000" font-family="sans-serif" font-size="14.3" lengthAdjust="spacing" textLength="39" x="965.25" y="1370.9681">RIGHT</text><line style="stroke:#A80036;stroke-width:1.9500000000000002;" x1="958.75" x2="1190.15" y1="1379.3102" y2="1379.3102"/><!--MD5=[0127d3b5a674b9302452d6d2bed9f0a7]
+class MeasurementRegionTab--><rect codeLine="109" fill="#FEFECE" filter="url(#f4xwwgjfkgikf)" height="314.2141" id="MeasurementRegionTab" style="stroke:#A80036;stroke-width:1.9500000000000002;" width="334.1" x="939.9" y="845"/><ellipse cx="1012.375" cy="865.8" fill="#ADD1B2" rx="14.3" ry="14.3" style="stroke:#A80036;stroke-width:1.3;"/><path d="M1014.975,861.25 Q1015.2391,860.6 1015.5438,860.275 Q1015.8484,859.95 1016.1938,859.95 Q1016.8031,859.95 1017.1891,860.3156 Q1017.575,860.6813 1017.575,861.5344 L1017.575,863.5656 Q1017.575,864.4188 1017.2094,864.7844 Q1016.8438,865.15 1016.275,865.15 Q1015.7672,865.15 1015.4422,864.9266 Q1015.1172,864.7031 1014.975,864.1141 Q1014.9141,863.7078 1014.6906,863.4844 Q1014.2844,863.0578 1013.5531,862.8141 Q1012.8219,862.55 1012.0906,862.55 Q1011.1766,862.55 1010.4047,862.9156 Q1009.6531,863.2813 1009.0641,864.0938 Q1008.475,864.9063 1008.475,866.0234 L1008.475,867.2219 Q1008.475,868.5625 1009.5719,869.4563 Q1010.6688,870.35 1012.6188,870.35 Q1013.7766,870.35 1014.5891,870.0859 Q1015.0563,869.9438 1015.5844,869.4766 Q1015.9297,869.2125 1016.1125,869.1313 Q1016.2953,869.05 1016.5188,869.05 Q1016.9453,869.05 1017.25,869.3953 Q1017.575,869.7203 1017.575,870.1875 Q1017.575,870.6344 1017.1281,871.1625 Q1016.4781,871.9344 1015.4422,872.3609 Q1014.0813,872.95 1012.4156,872.95 Q1010.4656,872.95 1008.9016,872.1781 Q1007.6422,871.5688 1006.7484,870.2484 Q1005.875,868.9281 1005.875,867.3641 L1005.875,865.9422 Q1005.875,864.3172 1006.6469,862.8953 Q1007.4391,861.4734 1008.8,860.7219 Q1010.1813,859.95 1011.725,859.95 Q1012.6594,859.95 1013.4719,860.275 Q1014.2844,860.6 1014.975,861.25 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="15.6" lengthAdjust="spacing" textLength="178.1" x="1039.025" y="872.1832">MeasurementRegionTab</text><line style="stroke:#A80036;stroke-width:1.9500000000000002;" x1="941.2" x2="1272.7" y1="886.6" y2="886.6"/><ellipse cx="954.2" cy="900.9" rx="3.9" ry="3.9" style="stroke:#038048;stroke-width:1.3;fill:none;"/><text fill="#000000" font-family="sans-serif" font-size="14.3" lengthAdjust="spacing" textLength="300.3" x="965.9" y="906.6446">MeasurementReadingSide current_reading_side</text><ellipse cx="954.2" cy="918.8867" rx="3.9" ry="3.9" style="stroke:#038048;stroke-width:1.3;fill:none;"/><text fill="#000000" font-family="sans-serif" font-size="14.3" lengthAdjust="spacing" textLength="137.8" x="965.9" y="924.6313">QLabel left_side_label</text><ellipse cx="954.2" cy="936.8734" rx="3.9" ry="3.9" style="stroke:#038048;stroke-width:1.3;fill:none;"/><text fill="#000000" font-family="sans-serif" font-size="14.3" lengthAdjust="spacing" textLength="145.6" x="965.9" y="942.6181">QLabel right_side_label</text><ellipse cx="954.2" cy="954.8602" rx="3.9" ry="3.9" style="stroke:#038048;stroke-width:1.3;fill:none;"/><text fill="#000000" font-family="sans-serif" font-size="14.3" lengthAdjust="spacing" textLength="154.7" x="965.9" y="960.6048">QPushButton record_left</text><ellipse cx="954.2" cy="972.8469" rx="3.9" ry="3.9" style="stroke:#038048;stroke-width:1.3;fill:none;"/><text fill="#000000" font-family="sans-serif" font-size="14.3" lengthAdjust="spacing" textLength="162.5" x="965.9" y="978.5915">QPushButton record_right</text><ellipse cx="954.2" cy="990.8336" rx="3.9" ry="3.9" style="stroke:#038048;stroke-width:1.3;fill:none;"/><text fill="#000000" font-family="sans-serif" font-size="14.3" lengthAdjust="spacing" textLength="163.8" x="965.9" y="996.5782">QTableWidget tableWidget</text><ellipse cx="954.2" cy="1008.8203" rx="3.9" ry="3.9" style="stroke:#038048;stroke-width:1.3;fill:none;"/><text fill="#000000" font-family="sans-serif" font-size="14.3" lengthAdjust="spacing" textLength="269.1" x="965.9" y="1014.5649">AlgometerReadingGraph algometer_widget</text><ellipse cx="954.2" cy="1026.807" rx="3.9" ry="3.9" style="stroke:#038048;stroke-width:1.3;fill:none;"/><text fill="#000000" font-family="sans-serif" font-size="14.3" lengthAdjust="spacing" textLength="187.2" x="965.9" y="1032.5517">QPushButton remove_reading</text><line style="stroke:#A80036;stroke-width:1.9500000000000002;" x1="941.2" x2="1272.7" y1="1040.8938" y2="1040.8938"/><ellipse cx="954.2" cy="1055.1938" fill="#84BE84" rx="3.9" ry="3.9" style="stroke:#038048;stroke-width:1.3;"/><text fill="#000000" font-family="sans-serif" font-size="14.3" lengthAdjust="spacing" textLength="119.6" x="965.9" y="1060.9384">void retranslateUi()</text><ellipse cx="954.2" cy="1073.1805" fill="#84BE84" rx="3.9" ry="3.9" style="stroke:#038048;stroke-width:1.3;"/><text fill="#000000" font-family="sans-serif" font-size="14.3" lengthAdjust="spacing" textLength="200.2" x="965.9" y="1078.9251">Hashable get_region_identifier()</text><ellipse cx="954.2" cy="1091.1672" fill="#84BE84" rx="3.9" ry="3.9" style="stroke:#038048;stroke-width:1.3;"/><text fill="#000000" font-family="sans-serif" font-size="14.3" lengthAdjust="spacing" textLength="187.2" x="965.9" y="1096.9118">void on_start_recording_left()</text><ellipse cx="954.2" cy="1109.1539" fill="#84BE84" rx="3.9" ry="3.9" style="stroke:#038048;stroke-width:1.3;"/><text fill="#000000" font-family="sans-serif" font-size="14.3" lengthAdjust="spacing" textLength="195" x="965.9" y="1114.8985">void on_start_recording_right()</text><ellipse cx="954.2" cy="1127.1406" fill="#84BE84" rx="3.9" ry="3.9" style="stroke:#038048;stroke-width:1.3;"/><text fill="#000000" font-family="sans-serif" font-size="14.3" lengthAdjust="spacing" textLength="145.6" x="965.9" y="1132.8853">void on_stop_reading()</text><ellipse cx="954.2" cy="1145.1273" fill="#84BE84" rx="3.9" ry="3.9" style="stroke:#038048;stroke-width:1.3;"/><text fill="#000000" font-family="sans-serif" font-size="14.3" lengthAdjust="spacing" textLength="175.5" x="965.9" y="1150.872">void update_reading_table()</text><!--MD5=[ed86997a7e09ac1401662b4cadefd3b3]
+class AnalysisTab--><rect codeLine="126" fill="#FEFECE" filter="url(#f4xwwgjfkgikf)" height="80.3867" id="AnalysisTab" style="stroke:#A80036;stroke-width:1.9500000000000002;" width="128.7" x="2039.7" y="632.45"/><ellipse cx="2059.2" cy="653.25" fill="#ADD1B2" rx="14.3" ry="14.3" style="stroke:#A80036;stroke-width:1.3;"/><path d="M2061.8,648.7 Q2062.0641,648.05 2062.3688,647.725 Q2062.6734,647.4 2063.0188,647.4 Q2063.6281,647.4 2064.0141,647.7656 Q2064.4,648.1313 2064.4,648.9844 L2064.4,651.0156 Q2064.4,651.8688 2064.0344,652.2344 Q2063.6688,652.6 2063.1,652.6 Q2062.5922,652.6 2062.2672,652.3766 Q2061.9422,652.1531 2061.8,651.5641 Q2061.7391,651.1578 2061.5156,650.9344 Q2061.1094,650.5078 2060.3781,650.2641 Q2059.6469,650 2058.9156,650 Q2058.0016,650 2057.2297,650.3656 Q2056.4781,650.7313 2055.8891,651.5438 Q2055.3,652.3563 2055.3,653.4734 L2055.3,654.6719 Q2055.3,656.0125 2056.3969,656.9063 Q2057.4938,657.8 2059.4438,657.8 Q2060.6016,657.8 2061.4141,657.5359 Q2061.8813,657.3938 2062.4094,656.9266 Q2062.7547,656.6625 2062.9375,656.5813 Q2063.1203,656.5 2063.3438,656.5 Q2063.7703,656.5 2064.075,656.8453 Q2064.4,657.1703 2064.4,657.6375 Q2064.4,658.0844 2063.9531,658.6125 Q2063.3031,659.3844 2062.2672,659.8109 Q2060.9063,660.4 2059.2406,660.4 Q2057.2906,660.4 2055.7266,659.6281 Q2054.4672,659.0188 2053.5734,657.6984 Q2052.7,656.3781 2052.7,654.8141 L2052.7,653.3922 Q2052.7,651.7672 2053.4719,650.3453 Q2054.2641,648.9234 2055.625,648.1719 Q2057.0063,647.4 2058.55,647.4 Q2059.4844,647.4 2060.2969,647.725 Q2061.1094,648.05 2061.8,648.7 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="15.6" lengthAdjust="spacing" textLength="87.1" x="2077.4" y="659.6332">AnalysisTab</text><line style="stroke:#A80036;stroke-width:1.9500000000000002;" x1="2041" x2="2167.1" y1="674.05" y2="674.05"/><line style="stroke:#A80036;stroke-width:1.9500000000000002;" x1="2041" x2="2167.1" y1="684.45" y2="684.45"/><ellipse cx="2054" cy="698.75" fill="#84BE84" rx="3.9" ry="3.9" style="stroke:#038048;stroke-width:1.3;"/><text fill="#000000" font-family="sans-serif" font-size="14.3" lengthAdjust="spacing" textLength="89.7" x="2065.7" y="704.4946">retranslateUi()</text><!--MD5=[ed89af877aa167ded626cd393bc9253a]
+class ConfigTab--><rect codeLine="130" fill="#FEFECE" filter="url(#f4xwwgjfkgikf)" height="224.2805" id="ConfigTab" style="stroke:#A80036;stroke-width:1.9500000000000002;" width="400.4" x="1320.15" y="889.85"/><ellipse cx="1477.775" cy="910.65" fill="#ADD1B2" rx="14.3" ry="14.3" style="stroke:#A80036;stroke-width:1.3;"/><path d="M1480.375,906.1 Q1480.6391,905.45 1480.9438,905.125 Q1481.2484,904.8 1481.5938,904.8 Q1482.2031,904.8 1482.5891,905.1656 Q1482.975,905.5313 1482.975,906.3844 L1482.975,908.4156 Q1482.975,909.2688 1482.6094,909.6344 Q1482.2438,910 1481.675,910 Q1481.1672,910 1480.8422,909.7766 Q1480.5172,909.5531 1480.375,908.9641 Q1480.3141,908.5578 1480.0906,908.3344 Q1479.6844,907.9078 1478.9531,907.6641 Q1478.2219,907.4 1477.4906,907.4 Q1476.5766,907.4 1475.8047,907.7656 Q1475.0531,908.1313 1474.4641,908.9438 Q1473.875,909.7563 1473.875,910.8734 L1473.875,912.0719 Q1473.875,913.4125 1474.9719,914.3063 Q1476.0688,915.2 1478.0188,915.2 Q1479.1766,915.2 1479.9891,914.9359 Q1480.4563,914.7938 1480.9844,914.3266 Q1481.3297,914.0625 1481.5125,913.9813 Q1481.6953,913.9 1481.9188,913.9 Q1482.3453,913.9 1482.65,914.2453 Q1482.975,914.5703 1482.975,915.0375 Q1482.975,915.4844 1482.5281,916.0125 Q1481.8781,916.7844 1480.8422,917.2109 Q1479.4813,917.8 1477.8156,917.8 Q1475.8656,917.8 1474.3016,917.0281 Q1473.0422,916.4188 1472.1484,915.0984 Q1471.275,913.7781 1471.275,912.2141 L1471.275,910.7922 Q1471.275,909.1672 1472.0469,907.7453 Q1472.8391,906.3234 1474.2,905.5719 Q1475.5813,904.8 1477.125,904.8 Q1478.0594,904.8 1478.8719,905.125 Q1479.6844,905.45 1480.375,906.1 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="15.6" lengthAdjust="spacing" textLength="74.1" x="1504.425" y="917.0332">ConfigTab</text><line style="stroke:#A80036;stroke-width:1.9500000000000002;" x1="1321.45" x2="1719.25" y1="931.45" y2="931.45"/><ellipse cx="1334.45" cy="945.75" rx="3.9" ry="3.9" style="stroke:#038048;stroke-width:1.3;fill:none;"/><text fill="#000000" font-family="sans-serif" font-size="14.3" lengthAdjust="spacing" textLength="227.5" x="1346.15" y="951.4946">QComboBox algometer_type_choice</text><ellipse cx="1334.45" cy="963.7367" rx="3.9" ry="3.9" style="stroke:#038048;stroke-width:1.3;fill:none;"/><text fill="#000000" font-family="sans-serif" font-size="14.3" lengthAdjust="spacing" textLength="305.5" x="1346.15" y="969.4813">Dict[Algometer, QWidget] algometer_widget_map</text><ellipse cx="1334.45" cy="981.7234" rx="3.9" ry="3.9" style="stroke:#038048;stroke-width:1.3;fill:none;"/><text fill="#000000" font-family="sans-serif" font-size="14.3" lengthAdjust="spacing" textLength="258.7" x="1346.15" y="987.4681">QStackedWidget algometer_requirements</text><ellipse cx="1334.45" cy="999.7102" rx="3.9" ry="3.9" style="stroke:#038048;stroke-width:1.3;fill:none;"/><text fill="#000000" font-family="sans-serif" font-size="14.3" lengthAdjust="spacing" textLength="183.3" x="1346.15" y="1005.4548">QPushButton connect_button</text><line style="stroke:#A80036;stroke-width:1.9500000000000002;" x1="1321.45" x2="1719.25" y1="1013.7969" y2="1013.7969"/><ellipse cx="1334.45" cy="1028.0969" fill="#84BE84" rx="3.9" ry="3.9" style="stroke:#038048;stroke-width:1.3;"/><text fill="#000000" font-family="sans-serif" font-size="14.3" lengthAdjust="spacing" textLength="293.8" x="1346.15" y="1033.8415">Type[Algometer] get_current_algometer_type()</text><ellipse cx="1334.45" cy="1046.0836" fill="#84BE84" rx="3.9" ry="3.9" style="stroke:#038048;stroke-width:1.3;"/><text fill="#000000" font-family="sans-serif" font-size="14.3" lengthAdjust="spacing" textLength="236.6" x="1346.15" y="1051.8282">void on_algometer_type_changed(int)</text><ellipse cx="1334.45" cy="1064.0703" fill="#84BE84" rx="3.9" ry="3.9" style="stroke:#038048;stroke-width:1.3;"/><text fill="#000000" font-family="sans-serif" font-size="14.3" lengthAdjust="spacing" textLength="211.9" x="1346.15" y="1069.8149">void on_connect_button_clicked()</text><ellipse cx="1334.45" cy="1082.057" fill="#84BE84" rx="3.9" ry="3.9" style="stroke:#038048;stroke-width:1.3;"/><text fill="#000000" font-family="sans-serif" font-size="14.3" lengthAdjust="spacing" textLength="366.6" x="1346.15" y="1087.8017">QWidget get_algometer_requirements_ui(Type[Algometer])</text><ellipse cx="1334.45" cy="1100.0438" fill="#84BE84" rx="3.9" ry="3.9" style="stroke:#038048;stroke-width:1.3;"/><text fill="#000000" font-family="sans-serif" font-size="14.3" lengthAdjust="spacing" textLength="119.6" x="1346.15" y="1105.7884">void retranslateUi()</text><!--MD5=[614a24f3e89da66c864b45e1c0b4ff9d]
+class algometer_data--><rect codeLine="143" fill="#FEFECE" filter="url(#f4xwwgjfkgikf)" height="109.0172" id="algometer_data" style="stroke:#A80036;stroke-width:1.9500000000000002;" width="546" x="1223.95" y="618.15"/><ellipse cx="1434.875" cy="644.2719" fill="#ADD1B2" rx="14.3" ry="14.3" style="stroke:#A80036;stroke-width:1.3;"/><path d="M1437.475,639.7219 Q1437.7391,639.0719 1438.0438,638.7469 Q1438.3484,638.4219 1438.6938,638.4219 Q1439.3031,638.4219 1439.6891,638.7875 Q1440.075,639.1531 1440.075,640.0063 L1440.075,642.0375 Q1440.075,642.8906 1439.7094,643.2563 Q1439.3438,643.6219 1438.775,643.6219 Q1438.2672,643.6219 1437.9422,643.3984 Q1437.6172,643.175 1437.475,642.5859 Q1437.4141,642.1797 1437.1906,641.9563 Q1436.7844,641.5297 1436.0531,641.2859 Q1435.3219,641.0219 1434.5906,641.0219 Q1433.6766,641.0219 1432.9047,641.3875 Q1432.1531,641.7531 1431.5641,642.5656 Q1430.975,643.3781 1430.975,644.4953 L1430.975,645.6938 Q1430.975,647.0344 1432.0719,647.9281 Q1433.1688,648.8219 1435.1188,648.8219 Q1436.2766,648.8219 1437.0891,648.5578 Q1437.5563,648.4156 1438.0844,647.9484 Q1438.4297,647.6844 1438.6125,647.6031 Q1438.7953,647.5219 1439.0188,647.5219 Q1439.4453,647.5219 1439.75,647.8672 Q1440.075,648.1922 1440.075,648.6594 Q1440.075,649.1063 1439.6281,649.6344 Q1438.9781,650.4063 1437.9422,650.8328 Q1436.5813,651.4219 1434.9156,651.4219 Q1432.9656,651.4219 1431.4016,650.65 Q1430.1422,650.0406 1429.2484,648.7203 Q1428.375,647.4 1428.375,645.8359 L1428.375,644.4141 Q1428.375,642.7891 1429.1469,641.3672 Q1429.9391,639.9453 1431.3,639.1938 Q1432.6813,638.4219 1434.225,638.4219 Q1435.1594,638.4219 1435.9719,638.7469 Q1436.7844,639.0719 1437.475,639.7219 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="15.6" font-style="italic" lengthAdjust="spacing" textLength="83.2" x="1476.475" y="640.8441">«singleton»</text><text fill="#000000" font-family="sans-serif" font-size="15.6" lengthAdjust="spacing" textLength="113.1" x="1461.525" y="660.466">algometer_data</text><line style="stroke:#A80036;stroke-width:1.9500000000000002;" x1="1225.25" x2="1768.65" y1="670.3938" y2="670.3938"/><ellipse cx="1238.25" cy="684.6938" rx="3.9" ry="3.9" style="stroke:#038048;stroke-width:1.3;fill:none;"/><text fill="#000000" font-family="sans-serif" font-size="14.3" lengthAdjust="spacing" textLength="187.2" x="1249.95" y="690.4384">Optional[Algometer] algometer</text><ellipse cx="1238.25" cy="702.6805" rx="3.9" ry="3.9" style="stroke:#038048;stroke-width:1.3;fill:none;"/><text fill="#000000" font-family="sans-serif" font-size="14.3" lengthAdjust="spacing" textLength="512.2" x="1249.95" y="708.4251">Dict[Hashable, List[Tuple[MeasurementReadingSide, AlgometerReading]]] readings</text><line style="stroke:#A80036;stroke-width:1.9500000000000002;" x1="1225.25" x2="1768.65" y1="716.7672" y2="716.7672"/><!--MD5=[49701fce5b2c448ab9d1f552be4b4991]
+class ReadingAnalyzer--><rect codeLine="148" fill="#FEFECE" filter="url(#f4xwwgjfkgikf)" height="170.3203" id="ReadingAnalyzer" style="stroke:#A80036;stroke-width:1.9500000000000002;" width="438.1" x="1128.4" y="1504.1"/><ellipse cx="1282.125" cy="1524.9" fill="#ADD1B2" rx="14.3" ry="14.3" style="stroke:#A80036;stroke-width:1.3;"/><path d="M1284.725,1520.35 Q1284.9891,1519.7 1285.2938,1519.375 Q1285.5984,1519.05 1285.9438,1519.05 Q1286.5531,1519.05 1286.9391,1519.4156 Q1287.325,1519.7813 1287.325,1520.6344 L1287.325,1522.6656 Q1287.325,1523.5188 1286.9594,1523.8844 Q1286.5938,1524.25 1286.025,1524.25 Q1285.5172,1524.25 1285.1922,1524.0266 Q1284.8672,1523.8031 1284.725,1523.2141 Q1284.6641,1522.8078 1284.4406,1522.5844 Q1284.0344,1522.1578 1283.3031,1521.9141 Q1282.5719,1521.65 1281.8406,1521.65 Q1280.9266,1521.65 1280.1547,1522.0156 Q1279.4031,1522.3813 1278.8141,1523.1938 Q1278.225,1524.0063 1278.225,1525.1234 L1278.225,1526.3219 Q1278.225,1527.6625 1279.3219,1528.5563 Q1280.4188,1529.45 1282.3688,1529.45 Q1283.5266,1529.45 1284.3391,1529.1859 Q1284.8063,1529.0438 1285.3344,1528.5766 Q1285.6797,1528.3125 1285.8625,1528.2313 Q1286.0453,1528.15 1286.2688,1528.15 Q1286.6953,1528.15 1287,1528.4953 Q1287.325,1528.8203 1287.325,1529.2875 Q1287.325,1529.7344 1286.8781,1530.2625 Q1286.2281,1531.0344 1285.1922,1531.4609 Q1283.8313,1532.05 1282.1656,1532.05 Q1280.2156,1532.05 1278.6516,1531.2781 Q1277.3922,1530.6688 1276.4984,1529.3484 Q1275.625,1528.0281 1275.625,1526.4641 L1275.625,1525.0422 Q1275.625,1523.4172 1276.3969,1521.9953 Q1277.1891,1520.5734 1278.55,1519.8219 Q1279.9313,1519.05 1281.475,1519.05 Q1282.4094,1519.05 1283.2219,1519.375 Q1284.0344,1519.7 1284.725,1520.35 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="15.6" lengthAdjust="spacing" textLength="119.6" x="1308.775" y="1531.2832">ReadingAnalyzer</text><line style="stroke:#A80036;stroke-width:1.9500000000000002;" x1="1129.7" x2="1565.2" y1="1545.7" y2="1545.7"/><ellipse cx="1142.7" cy="1560" rx="3.9" ry="3.9" style="stroke:#038048;stroke-width:1.3;fill:none;"/><text fill="#000000" font-family="sans-serif" font-size="14.3" lengthAdjust="spacing" textLength="146.9" x="1154.4" y="1565.7446">float start_reading_time</text><ellipse cx="1142.7" cy="1577.9867" rx="3.9" ry="3.9" style="stroke:#038048;stroke-width:1.3;fill:none;"/><text fill="#000000" font-family="sans-serif" font-size="14.3" lengthAdjust="spacing" textLength="198.9" x="1154.4" y="1583.7313">AlgometerReading max_reading</text><ellipse cx="1142.7" cy="1595.9734" rx="3.9" ry="3.9" style="stroke:#038048;stroke-width:1.3;fill:none;"/><text fill="#000000" font-family="sans-serif" font-size="14.3" lengthAdjust="spacing" textLength="286" x="1154.4" y="1601.7181">deque[Tuple[float, float]] previous_derivatives</text><ellipse cx="1142.7" cy="1613.9602" rx="3.9" ry="3.9" style="stroke:#038048;stroke-width:1.3;fill:none;"/><text fill="#000000" font-family="sans-serif" font-size="14.3" lengthAdjust="spacing" textLength="358.8" x="1154.4" y="1619.7048">deque[Tuple[AlgometerReading, float]] previous_readings</text><line style="stroke:#A80036;stroke-width:1.9500000000000002;" x1="1129.7" x2="1565.2" y1="1628.0469" y2="1628.0469"/><ellipse cx="1142.7" cy="1642.3469" fill="#84BE84" rx="3.9" ry="3.9" style="stroke:#038048;stroke-width:1.3;"/><text fill="#000000" font-family="sans-serif" font-size="14.3" lengthAdjust="spacing" textLength="404.3" x="1154.4" y="1648.0915">Optional[Tuple[float, float]] add_reading(AlgometerReading, float)</text><ellipse cx="1142.7" cy="1660.3336" fill="#84BE84" rx="3.9" ry="3.9" style="stroke:#038048;stroke-width:1.3;"/><text fill="#000000" font-family="sans-serif" font-size="14.3" lengthAdjust="spacing" textLength="72.8" x="1154.4" y="1666.0782">void reset()</text><!--MD5=[8c20a9bc867d631a6c22175d9023df04]
+class AlgometerReadingGraph--><rect codeLine="157" fill="#FEFECE" filter="url(#f4xwwgjfkgikf)" height="188.307" id="AlgometerReadingGraph" style="stroke:#A80036;stroke-width:1.9500000000000002;" width="219.7" x="1237.6" y="1237.6"/><ellipse cx="1257.1" cy="1258.4" fill="#ADD1B2" rx="14.3" ry="14.3" style="stroke:#A80036;stroke-width:1.3;"/><path d="M1259.7,1253.85 Q1259.9641,1253.2 1260.2688,1252.875 Q1260.5734,1252.55 1260.9188,1252.55 Q1261.5281,1252.55 1261.9141,1252.9156 Q1262.3,1253.2813 1262.3,1254.1344 L1262.3,1256.1656 Q1262.3,1257.0188 1261.9344,1257.3844 Q1261.5688,1257.75 1261,1257.75 Q1260.4922,1257.75 1260.1672,1257.5266 Q1259.8422,1257.3031 1259.7,1256.7141 Q1259.6391,1256.3078 1259.4156,1256.0844 Q1259.0094,1255.6578 1258.2781,1255.4141 Q1257.5469,1255.15 1256.8156,1255.15 Q1255.9016,1255.15 1255.1297,1255.5156 Q1254.3781,1255.8813 1253.7891,1256.6938 Q1253.2,1257.5063 1253.2,1258.6234 L1253.2,1259.8219 Q1253.2,1261.1625 1254.2969,1262.0563 Q1255.3938,1262.95 1257.3438,1262.95 Q1258.5016,1262.95 1259.3141,1262.6859 Q1259.7813,1262.5438 1260.3094,1262.0766 Q1260.6547,1261.8125 1260.8375,1261.7313 Q1261.0203,1261.65 1261.2438,1261.65 Q1261.6703,1261.65 1261.975,1261.9953 Q1262.3,1262.3203 1262.3,1262.7875 Q1262.3,1263.2344 1261.8531,1263.7625 Q1261.2031,1264.5344 1260.1672,1264.9609 Q1258.8063,1265.55 1257.1406,1265.55 Q1255.1906,1265.55 1253.6266,1264.7781 Q1252.3672,1264.1688 1251.4734,1262.8484 Q1250.6,1261.5281 1250.6,1259.9641 L1250.6,1258.5422 Q1250.6,1256.9172 1251.3719,1255.4953 Q1252.1641,1254.0734 1253.525,1253.3219 Q1254.9063,1252.55 1256.45,1252.55 Q1257.3844,1252.55 1258.1969,1252.875 Q1259.0094,1253.2 1259.7,1253.85 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="15.6" lengthAdjust="spacing" textLength="178.1" x="1275.3" y="1264.7832">AlgometerReadingGraph</text><line style="stroke:#A80036;stroke-width:1.9500000000000002;" x1="1238.9" x2="1456" y1="1279.2" y2="1279.2"/><ellipse cx="1251.9" cy="1293.5" rx="3.9" ry="3.9" style="stroke:#038048;stroke-width:1.3;fill:none;"/><text fill="#000000" font-family="sans-serif" font-size="14.3" lengthAdjust="spacing" textLength="115.7" x="1263.6" y="1299.2446">PlotDataItem graph</text><ellipse cx="1251.9" cy="1311.4867" rx="3.9" ry="3.9" style="stroke:#038048;stroke-width:1.3;fill:none;"/><text fill="#000000" font-family="sans-serif" font-size="14.3" lengthAdjust="spacing" textLength="135.2" x="1263.6" y="1317.2313">InfiniteLine target_line</text><ellipse cx="1251.9" cy="1329.4734" rx="3.9" ry="3.9" style="stroke:#038048;stroke-width:1.3;fill:none;"/><text fill="#000000" font-family="sans-serif" font-size="14.3" lengthAdjust="spacing" textLength="78" x="1263.6" y="1335.2181">QTimer timer</text><ellipse cx="1251.9" cy="1347.4602" rx="3.9" ry="3.9" style="stroke:#038048;stroke-width:1.3;fill:none;"/><text fill="#000000" font-family="sans-serif" font-size="14.3" lengthAdjust="spacing" textLength="128.7" x="1263.6" y="1353.2048">Algometer algometer</text><ellipse cx="1251.9" cy="1365.4469" rx="3.9" ry="3.9" style="stroke:#038048;stroke-width:1.3;fill:none;"/><text fill="#000000" font-family="sans-serif" font-size="14.3" lengthAdjust="spacing" textLength="166.4" x="1263.6" y="1371.1915">ReadingAnalyzer analyzer</text><ellipse cx="1251.9" cy="1383.4336" rx="3.9" ry="3.9" style="stroke:#038048;stroke-width:1.3;fill:none;"/><text fill="#000000" font-family="sans-serif" font-size="14.3" lengthAdjust="spacing" textLength="115.7" x="1263.6" y="1389.1782">List[float] readings</text><ellipse cx="1251.9" cy="1401.4203" rx="3.9" ry="3.9" style="stroke:#038048;stroke-width:1.3;fill:none;"/><text fill="#000000" font-family="sans-serif" font-size="14.3" lengthAdjust="spacing" textLength="148.2" x="1263.6" y="1407.1649">List[float] reading_times</text><line style="stroke:#A80036;stroke-width:1.9500000000000002;" x1="1238.9" x2="1456" y1="1415.507" y2="1415.507"/><!--MD5=[e921151d59261e374cfb4559af449c84]
+reverse link Algometer to DevelopmentAlgometer--><path codeLine="45" d="M451.75,205.855 C451.75,237.562 451.75,272.181 451.75,302.575 " fill="none" id="Algometer-backto-DevelopmentAlgometer" style="stroke:#A80036;stroke-width:1.3;"/><polygon fill="none" points="442.65,205.504,451.75,179.504,460.85,205.504,442.65,205.504" style="stroke:#A80036;stroke-width:1.3;"/><!--MD5=[038a423b82c755120b2d810c9bdf6f35]
+reverse link Algometer to AlgometerWagnerFPX--><path codeLine="46" d="M559.559,196.391 C599.703,230.555 645.034,269.126 684.333,302.575 " fill="none" id="Algometer-backto-AlgometerWagnerFPX" style="stroke:#A80036;stroke-width:1.3;"/><polygon fill="none" points="553.618,203.281,539.721,179.504,565.409,189.423,553.618,203.281" style="stroke:#A80036;stroke-width:1.3;"/><!--MD5=[8658587a71ad5b6fde3f231520805098]
+link Algometer to AlgometerReading--><path codeLine="47" d="M367.926,179.504 C317.135,224.861 253.11,282.035 205.192,324.831 " fill="none" id="Algometer-to-AlgometerReading" style="stroke:#A80036;stroke-width:1.3;"/><polygon fill="#A80036" points="200.018,329.446,212.2091,325.5334,204.8669,325.1173,205.2831,317.7751,200.018,329.446" style="stroke:#A80036;stroke-width:1.3;"/><!--MD5=[c45f1b060feb94835358922f342dfbc1]
+reverse link AlgometerReading to Unit--><path codeLine="48" d="M135.85,463.84 C135.85,498.836 135.85,540.904 135.85,578.006 " fill="none" id="AlgometerReading-backto-Unit" style="stroke:#A80036;stroke-width:1.3;"/><polygon fill="#A80036" points="135.85,446.771,130.65,454.571,135.85,462.371,141.05,454.571,135.85,446.771" style="stroke:#A80036;stroke-width:1.3;"/><!--MD5=[3a5108e9c491e6e16d7402c0d2988e4a]
+reverse link AlgometerReadingGraph to ReadingAnalyzer--><path codeLine="167" d="M1347.45,1443.156 C1347.45,1463.54 1347.45,1484.535 1347.45,1503.996 " fill="none" id="AlgometerReadingGraph-backto-ReadingAnalyzer" style="stroke:#A80036;stroke-width:1.3;"/><polygon fill="#A80036" points="1347.45,1426.217,1342.25,1434.017,1347.45,1441.817,1352.65,1434.017,1347.45,1426.217" style="stroke:#A80036;stroke-width:1.3;"/><!--MD5=[59aa6dfef80129489ad1fedfc513e804]
+reverse link MeasurementRegionTab to AlgometerReadingGraph--><path codeLine="168" d="M1231.945,1173.536 C1248.052,1195.428 1264.042,1217.164 1278.758,1237.171 " fill="none" id="MeasurementRegionTab-backto-AlgometerReadingGraph" style="stroke:#A80036;stroke-width:1.3;"/><polygon fill="#A80036" points="1221.922,1159.899,1222.3535,1169.2635,1231.1636,1172.4669,1230.7321,1163.1024,1221.922,1159.899" style="stroke:#A80036;stroke-width:1.3;"/><!--MD5=[02212c5d7e414692794acc23eceb609a]
+reverse link MainWindow to Ui_MainWindow--><path codeLine="169" d="M1884.35,215.02 C1884.35,234.897 1884.35,255.645 1884.35,275.548 " fill="none" id="MainWindow-backto-Ui_MainWindow" style="stroke:#A80036;stroke-width:1.3;"/><polygon fill="#A80036" points="1884.35,197.808,1879.15,205.608,1884.35,213.408,1889.55,205.608,1884.35,197.808" style="stroke:#A80036;stroke-width:1.3;"/><!--MD5=[bca4fa602553d83aff34d103f1dad905]
+link PatientInfoTab to QWidget--><path codeLine="170" d="M1823.237,1159.899 C1800.396,1202.123 1777.217,1244.997 1759.797,1277.211 " fill="none" id="PatientInfoTab-to-QWidget" style="stroke:#A80036;stroke-width:1.3;"/><polygon fill="none" points="1767.545,1281.995,1747.174,1300.533,1751.542,1273.337,1767.545,1281.995" style="stroke:#A80036;stroke-width:1.3;"/><!--MD5=[d9c0625cbc17ebd9342d757b8fa2b9b0]
+link MeasurementRegionTab to QWidget--><path codeLine="171" d="M1274.156,1145.508 C1281.67,1150.448 1289.21,1155.167 1296.75,1159.6 C1328.886,1178.502 1539.304,1258.608 1655.004,1302.132 " fill="none" id="MeasurementRegionTab-to-QWidget" style="stroke:#A80036;stroke-width:1.3;"/><polygon fill="none" points="1658.371,1293.669,1679.509,1311.336,1651.975,1310.712,1658.371,1293.669" style="stroke:#A80036;stroke-width:1.3;"/><!--MD5=[ed465d2705066d7aa227ef126dbfca37]
+link AnalysisTab to QWidget--><path codeLine="172" d="M2113.41,713.05 C2132.195,801.125 2165.15,1018.667 2071.55,1159.6 C2011.529,1249.976 1888.679,1294.709 1808.092,1315.197 " fill="none" id="AnalysisTab-to-QWidget" style="stroke:#A80036;stroke-width:1.3;"/><polygon fill="none" points="1809.938,1324.102,1782.534,1321.242,1805.739,1306.396,1809.938,1324.102" style="stroke:#A80036;stroke-width:1.3;"/><!--MD5=[95f61130894019c76a37d7b969c2b330]
+link ConfigTab to QWidget--><path codeLine="173" d="M1592.24,1115.205 C1627.834,1170.455 1669.096,1234.532 1697.319,1278.329 " fill="none" id="ConfigTab-to-QWidget" style="stroke:#A80036;stroke-width:1.3;"/><polygon fill="none" points="1705.093,1273.61,1711.528,1300.39,1689.792,1283.464,1705.093,1273.61" style="stroke:#A80036;stroke-width:1.3;"/><!--MD5=[f3c321462bb360aa8ec175c884cc9552]
+link MeasurementRegionTab to MeasurementReadingSide--><path codeLine="174" d="M1091.415,1159.899 C1087.385,1200.446 1083.29,1241.591 1080.144,1273.311 " fill="none" id="MeasurementRegionTab-MeasurementReadingSide" style="stroke:#A80036;stroke-width:1.3;"/><!--MD5=[449bd7aa45ba614927251bb851ea4ef4]
+reverse link QTabWidget to MeasurementsTab--><path codeLine="175" d="M1036.75,445.718 C1036.75,491.738 1036.75,556.855 1036.75,605.332 " fill="none" id="QTabWidget-backto-MeasurementsTab" style="stroke:#A80036;stroke-width:1.3;"/><polygon fill="none" points="1027.65,445.536,1036.75,419.536,1045.85,445.536,1027.65,445.536" style="stroke:#A80036;stroke-width:1.3;"/><!--MD5=[90a6be6f6e83c2665f42b54d5015938d]
+reverse link Ui_MainWindow to PatientInfoTab--><path codeLine="176" d="M1889.277,518.193 C1892.917,613.457 1897.909,743.639 1901.77,844.831 " fill="none" id="Ui_MainWindow-backto-PatientInfoTab" style="stroke:#A80036;stroke-width:1.3;"/><polygon fill="#A80036" points="1888.614,500.825,1883.7092,508.8139,1889.1971,516.4141,1894.1019,508.4252,1888.614,500.825" style="stroke:#A80036;stroke-width:1.3;"/><!--MD5=[c6fcaee6f665422ef01f2045f868d295]
+reverse link Ui_MainWindow to MeasurementsTab--><path codeLine="177" d="M1721.629,422.474 C1580.683,453.934 1372.891,507.052 1200.55,578.5 C1181.817,586.261 1162.564,595.725 1144.117,605.592 " fill="none" id="Ui_MainWindow-backto-MeasurementsTab" style="stroke:#A80036;stroke-width:1.3;"/><polygon fill="#A80036" points="1738.477,418.743,1729.7404,415.3443,1723.2429,422.1017,1731.9795,425.5004,1738.477,418.743" style="stroke:#A80036;stroke-width:1.3;"/><!--MD5=[7d60401671183d7b49166f985adfefbb]
+reverse link Ui_MainWindow to AnalysisTab--><path codeLine="178" d="M1981.876,514.579 C2015.039,557.154 2049.71,601.679 2073.604,632.359 " fill="none" id="Ui_MainWindow-backto-AnalysisTab" style="stroke:#A80036;stroke-width:1.3;"/><polygon fill="#A80036" points="1971.177,500.838,1971.8737,510.1865,1980.7711,513.139,1980.0744,503.7905,1971.177,500.838" style="stroke:#A80036;stroke-width:1.3;"/><!--MD5=[f1b51f9fe1817301e412d0626fd3973a]
+reverse link Ui_MainWindow to ConfigTab--><path codeLine="179" d="M1873.404,517.907 C1862.172,594.737 1839.422,691.73 1793.35,767 C1765.153,813.059 1724.853,854.698 1683.825,889.655 " fill="none" id="Ui_MainWindow-backto-ConfigTab" style="stroke:#A80036;stroke-width:1.3;"/><polygon fill="#A80036" points="1875.757,500.825,1869.5421,507.8432,1873.6301,516.2793,1879.845,509.2611,1875.757,500.825" style="stroke:#A80036;stroke-width:1.3;"/><!--MD5=[a0d81d350428a3e0fcac0eae80054e2c]
+link algometer_data to ConfigTab--><path codeLine="180" d="M1500.785,727.675 C1503.931,771.511 1508.468,834.977 1512.381,889.707 " fill="none" id="algometer_data-ConfigTab" style="stroke:#A80036;stroke-width:1.3;"/><text fill="#000000" font-family="sans-serif" font-size="16.9" lengthAdjust="spacing" textLength="9.1" x="1491.5755" y="755.2705">1</text><text fill="#000000" font-family="sans-serif" font-size="16.9" lengthAdjust="spacing" textLength="9.1" x="1502.2051" y="875.9272">1</text><!--MD5=[477faa03d7eb69850c5717cd37c435ac]
+link algometer_data to MeasurementRegionTab--><path codeLine="181" d="M1432.99,727.675 C1389.661,763.997 1330.264,813.787 1274.039,860.925 " fill="none" id="algometer_data-MeasurementRegionTab" style="stroke:#A80036;stroke-width:1.3;"/><text fill="#000000" font-family="sans-serif" font-size="16.9" lengthAdjust="spacing" textLength="9.1" x="1413.3994" y="755.2705">1</text><text fill="#000000" font-family="sans-serif" font-size="16.9" lengthAdjust="spacing" textLength="9.1" x="1284.4983" y="848.4455">1</text><!--MD5=[3f92df2ce68d3307ad03610e48e44fb5]
+reverse link MeasurementsTab to MeasurementRegionTab--><path codeLine="182" d="M1054.443,756.47 C1060.228,783.393 1066.845,814.242 1073.397,844.753 " fill="none" id="MeasurementsTab-backto-MeasurementRegionTab" style="stroke:#A80036;stroke-width:1.3;"/><polygon fill="#A80036" points="1050.868,739.817,1047.4204,748.5345,1054.1413,755.0697,1057.5889,746.3522,1050.868,739.817" style="stroke:#A80036;stroke-width:1.3;"/><text fill="#000000" font-family="sans-serif" font-size="16.9" lengthAdjust="spacing" textLength="9.1" x="1043.1135" y="768.2552">1</text><text fill="#000000" font-family="sans-serif" font-size="16.9" lengthAdjust="spacing" textLength="26" x="1044.4147" y="830.7645">1..*</text><!--MD5=[03eef4024e29a828bd3b8b02d3c0dc7a]
+@startuml
+
+' Algometer related classes
+enum Unit {
+    LBF
+    N
+    KGF
+    OZF
+    + {static} Unit from_string(str)
+    + str to_string(str)
+    + float convert_to(float, Unit)
+}
+
+class AlgometerReading {
+    + float value
+    + Unit unit
+    + AlgometerReading convert_to(Unit)
+}
+
+abstract class Algometer {
+    + AlgometerReading get_reading(Unit)
+    + {abstract} AlgometerReading get_reading_raw()
+    + {abstract} void disconnect()
+    + {abstract} {static} str get_display_name()
+    + {abstract} {static} Iterable[Any] get_device_requirements()
+}
+
+class DevelopmentAlgometer {
+    + float current_force
+    + float start_reading_time
+    + AlgometerReading get_reading_raw()
+    + void disconnect()
+    + {static} str get_display_name()
+    + {static} Iterable[Any] get_device_requirements()
+}
+
+class AlgometerWagnerFPX {
+    + serial.Serial serial_device
+    + AlgometerReading get_reading_raw()
+    + void disconnect()
+    + {static} str get_display_name()
+    + {static} Iterable[Any] get_device_requirements()
+    + {static} AlgometerWagnerFPX(serial.Serial)
+}
+
+Algometer <|- - DevelopmentAlgometer
+Algometer <|- - AlgometerWagnerFPX
+Algometer - -> AlgometerReading
+AlgometerReading *- - Unit
+
+' UI Related classes
+class MainWindow {
+    + QMainWindow main_win
+    + Ui_MainWindow ui
+    + List[str] measured_areas
+    + void show()
+    + void on_measure_area_add()
+    + void add_measurement_tab()
+    + void on_print_button_clicked()
+}
+class Ui_MainWindow {
+    + QWidget centralwidget
+    + QFormLayout formLayout
+    + QTabWidget tabWidget
+    + PatientInfoTab patient_info_tab
+    + MeasurementsTab measurement_tab
+    + AnalysisTab analysisTab
+    + ConfigTab configTab
+    + {static} Ui_MainWindow(QMainWindow window)
+    + void retranslateUi()
+}
+
+class QWidget {
+}
+
+class QTabWidget {
+}
+
+class PatientInfoTab {
+    + QLabel label_2
+    + QLineEdit name_box
+    + QLabel label_3
+    + QLineEdit age_box
+    + QLabel label_4
+    + QLineEdit height_box
+    + QLabel label_5
+    + QLineEdit weight_box
+    + QLabel comment_label
+    + QLineEdit comment_box
+    + QComboBox comboBox
+    + QPushButton add_measurement_button
+    + QPushButton print_button
+    + void retranslateUi()
+}
+
+class MeasurementsTab {
+
+    + int tab_count
+    + void stop_all_readings()
+    + void retranslateUi()
+    + MeasurementRegionTab create_tab(str)
+}
+
+enum MeasurementReadingSide{
+    NONE
+    LEFT
+    RIGHT
+}
+
+class MeasurementRegionTab{
+    + MeasurementReadingSide current_reading_side
+    + QLabel left_side_label
+    + QLabel right_side_label
+    + QPushButton record_left
+    + QPushButton record_right
+    + QTableWidget tableWidget
+    + AlgometerReadingGraph algometer_widget
+    + QPushButton remove_reading
+    + void retranslateUi()
+    + Hashable get_region_identifier()
+    + void on_start_recording_left()
+    + void on_start_recording_right()
+    + void on_stop_reading()
+    + void update_reading_table()
+}
+
+class AnalysisTab {
+    + retranslateUi()
+}
+
+class ConfigTab {
+    + QComboBox algometer_type_choice
+    + Dict[Algometer, QWidget] algometer_widget_map
+    + QStackedWidget algometer_requirements
+    + QPushButton connect_button
+
+    + Type[Algometer] get_current_algometer_type()
+    + void on_algometer_type_changed(int)
+    + void on_connect_button_clicked()
+    + QWidget get_algometer_requirements_ui(Type[Algometer])
+    + void retranslateUi()
+}
+
+class algometer_data <<singleton>>{
+    + Optional[Algometer] algometer
+    + Dict[Hashable, List[Tuple[MeasurementReadingSide, AlgometerReading]]] readings
+}
+
+class ReadingAnalyzer {
+    + float start_reading_time
+    + AlgometerReading max_reading
+    + deque[Tuple[float, float]] previous_derivatives
+    + deque[Tuple[AlgometerReading, float]] previous_readings
+    + Optional[Tuple[float, float]] add_reading(AlgometerReading, float)
+    + void reset()
+}
+
+class AlgometerReadingGraph {
+    + PlotDataItem graph
+    + InfiniteLine target_line
+    + QTimer timer
+    + Algometer algometer
+    + ReadingAnalyzer analyzer
+    + List[float] readings
+    + List[float] reading_times
+}
+
+AlgometerReadingGraph *- - ReadingAnalyzer
+MeasurementRegionTab *- - AlgometerReadingGraph
+MainWindow *- - Ui_MainWindow
+PatientInfoTab - -|> QWidget
+MeasurementRegionTab - -|> QWidget
+AnalysisTab - -|> QWidget
+ConfigTab - -|> QWidget
+MeasurementRegionTab - - MeasurementReadingSide
+QTabWidget <|- - MeasurementsTab
+Ui_MainWindow *- - PatientInfoTab
+Ui_MainWindow *- - MeasurementsTab
+Ui_MainWindow *- - AnalysisTab
+Ui_MainWindow *- - ConfigTab
+algometer_data "1" - - "1" ConfigTab
+algometer_data "1" - - "1" MeasurementRegionTab
+MeasurementsTab "1" *- - "1..*" MeasurementRegionTab
+@enduml
+
+@startuml
+
+enum Unit {
+    LBF
+    N
+    KGF
+    OZF
+    + {static} Unit from_string(str)
+    + str to_string(str)
+    + float convert_to(float, Unit)
+}
+
+class AlgometerReading {
+    + float value
+    + Unit unit
+    + AlgometerReading convert_to(Unit)
+}
+
+abstract class Algometer {
+    + AlgometerReading get_reading(Unit)
+    + {abstract} AlgometerReading get_reading_raw()
+    + {abstract} void disconnect()
+    + {abstract} {static} str get_display_name()
+    + {abstract} {static} Iterable[Any] get_device_requirements()
+}
+
+class DevelopmentAlgometer {
+    + float current_force
+    + float start_reading_time
+    + AlgometerReading get_reading_raw()
+    + void disconnect()
+    + {static} str get_display_name()
+    + {static} Iterable[Any] get_device_requirements()
+}
+
+class AlgometerWagnerFPX {
+    + serial.Serial serial_device
+    + AlgometerReading get_reading_raw()
+    + void disconnect()
+    + {static} str get_display_name()
+    + {static} Iterable[Any] get_device_requirements()
+    + {static} AlgometerWagnerFPX(serial.Serial)
+}
+
+Algometer <|- - DevelopmentAlgometer
+Algometer <|- - AlgometerWagnerFPX
+Algometer - -> AlgometerReading
+AlgometerReading *- - Unit
+
+class MainWindow {
+    + QMainWindow main_win
+    + Ui_MainWindow ui
+    + List[str] measured_areas
+    + void show()
+    + void on_measure_area_add()
+    + void add_measurement_tab()
+    + void on_print_button_clicked()
+}
+class Ui_MainWindow {
+    + QWidget centralwidget
+    + QFormLayout formLayout
+    + QTabWidget tabWidget
+    + PatientInfoTab patient_info_tab
+    + MeasurementsTab measurement_tab
+    + AnalysisTab analysisTab
+    + ConfigTab configTab
+    + {static} Ui_MainWindow(QMainWindow window)
+    + void retranslateUi()
+}
+
+class QWidget {
+}
+
+class QTabWidget {
+}
+
+class PatientInfoTab {
+    + QLabel label_2
+    + QLineEdit name_box
+    + QLabel label_3
+    + QLineEdit age_box
+    + QLabel label_4
+    + QLineEdit height_box
+    + QLabel label_5
+    + QLineEdit weight_box
+    + QLabel comment_label
+    + QLineEdit comment_box
+    + QComboBox comboBox
+    + QPushButton add_measurement_button
+    + QPushButton print_button
+    + void retranslateUi()
+}
+
+class MeasurementsTab {
+
+    + int tab_count
+    + void stop_all_readings()
+    + void retranslateUi()
+    + MeasurementRegionTab create_tab(str)
+}
+
+enum MeasurementReadingSide{
+    NONE
+    LEFT
+    RIGHT
+}
+
+class MeasurementRegionTab{
+    + MeasurementReadingSide current_reading_side
+    + QLabel left_side_label
+    + QLabel right_side_label
+    + QPushButton record_left
+    + QPushButton record_right
+    + QTableWidget tableWidget
+    + AlgometerReadingGraph algometer_widget
+    + QPushButton remove_reading
+    + void retranslateUi()
+    + Hashable get_region_identifier()
+    + void on_start_recording_left()
+    + void on_start_recording_right()
+    + void on_stop_reading()
+    + void update_reading_table()
+}
+
+class AnalysisTab {
+    + retranslateUi()
+}
+
+class ConfigTab {
+    + QComboBox algometer_type_choice
+    + Dict[Algometer, QWidget] algometer_widget_map
+    + QStackedWidget algometer_requirements
+    + QPushButton connect_button
+
+    + Type[Algometer] get_current_algometer_type()
+    + void on_algometer_type_changed(int)
+    + void on_connect_button_clicked()
+    + QWidget get_algometer_requirements_ui(Type[Algometer])
+    + void retranslateUi()
+}
+
+class algometer_data <<singleton>>{
+    + Optional[Algometer] algometer
+    + Dict[Hashable, List[Tuple[MeasurementReadingSide, AlgometerReading]]] readings
+}
+
+class ReadingAnalyzer {
+    + float start_reading_time
+    + AlgometerReading max_reading
+    + deque[Tuple[float, float]] previous_derivatives
+    + deque[Tuple[AlgometerReading, float]] previous_readings
+    + Optional[Tuple[float, float]] add_reading(AlgometerReading, float)
+    + void reset()
+}
+
+class AlgometerReadingGraph {
+    + PlotDataItem graph
+    + InfiniteLine target_line
+    + QTimer timer
+    + Algometer algometer
+    + ReadingAnalyzer analyzer
+    + List[float] readings
+    + List[float] reading_times
+}
+
+AlgometerReadingGraph *- - ReadingAnalyzer
+MeasurementRegionTab *- - AlgometerReadingGraph
+MainWindow *- - Ui_MainWindow
+PatientInfoTab - -|> QWidget
+MeasurementRegionTab - -|> QWidget
+AnalysisTab - -|> QWidget
+ConfigTab - -|> QWidget
+MeasurementRegionTab - - MeasurementReadingSide
+QTabWidget <|- - MeasurementsTab
+Ui_MainWindow *- - PatientInfoTab
+Ui_MainWindow *- - MeasurementsTab
+Ui_MainWindow *- - AnalysisTab
+Ui_MainWindow *- - ConfigTab
+algometer_data "1" - - "1" ConfigTab
+algometer_data "1" - - "1" MeasurementRegionTab
+MeasurementsTab "1" *- - "1..*" MeasurementRegionTab
+@enduml
+
+PlantUML version 1.2022.0(Tue Jan 11 11:16:42 EST 2022)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: Cp1252
+Language: en
+Country: CA
+--></g></svg>
