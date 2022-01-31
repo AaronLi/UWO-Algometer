@@ -16,11 +16,11 @@ from tabs.measurements_tab.measurements_tab import MeasurementsTab
 from tabs.patientinfo_tab import PatientInfoTab
 
 
-class Ui_MainWindow(object):
-    def setupUi(self, MainWindow):
-        MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(1000, 650)
-        self.centralwidget = QtWidgets.QWidget(MainWindow)
+class Ui_MainWindow:
+    def __init__(self, main_window):
+        main_window.setObjectName("MainWindow")
+        main_window.resize(1000, 650)
+        self.centralwidget = QtWidgets.QWidget(main_window)
         self.centralwidget.setObjectName("centralwidget")
         self.formLayout = QtWidgets.QFormLayout(self.centralwidget)
         self.formLayout.setObjectName("formLayout")
@@ -45,16 +45,16 @@ class Ui_MainWindow(object):
         self.tabWidget.addTab(self.configTab, "")
 
         self.formLayout.setWidget(0, QtWidgets.QFormLayout.SpanningRole, self.tabWidget)
-        MainWindow.setCentralWidget(self.centralwidget)
+        main_window.setCentralWidget(self.centralwidget)
 
-        self.retranslateUi(MainWindow)
-        self.tabWidget.setCurrentIndex(1)
+        self.retranslateUi()
+        self.tabWidget.setCurrentIndex(0)
         self.measurement_tab.setCurrentIndex(0)
-        QtCore.QMetaObject.connectSlotsByName(MainWindow)
+        QtCore.QMetaObject.connectSlotsByName(main_window)
 
-    def retranslateUi(self, main_window):
+    def retranslateUi(self):
         _translate = QtCore.QCoreApplication.translate
-        main_window.setWindowTitle(_translate("MainWindow", "Algometer Application"))
+        self.centralwidget.parent().setWindowTitle(_translate("MainWindow", "Algometer Application"))
         self.patient_info_tab.retranslateUi()
         self.measurement_tab.retranslateUi()
         self.analysisTab.retranslateUi()

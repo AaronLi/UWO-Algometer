@@ -7,7 +7,7 @@ from algometer.algometer import Algometer, AlgometerReading, Unit
 
 class DevelopmentAlgometer(Algometer):
     def __init__(self):
-        super().__init__(None)
+        super().__init__()
         self.current_force = 0
         self.start_reading_time = 0
 

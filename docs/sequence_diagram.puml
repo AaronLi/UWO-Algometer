@@ -1,0 +1,44 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+title Starting and Stopping Recordings
+actor User
+
+User --> MeasurementRegionTab : "Start Recording"
+
+MeasurementRegionTab --> AlgometerReadingGraph : start_reading(algometer_data.algometer)
+
+AlgometerReadingGraph --> AlgometerReadingGraph : self.timer.start(100)
+par [Timer Ticking] Until "Stop Recording" pressed
+    AlgometerReadingGraph --> AlgometerReadingGraph.update
+    activate AlgometerReadingGraph.update
+        AlgometerReadingGraph.update --> Algometer : get_reading(Unit.LBF)
+
+        activate Algometer
+            Algometer --> Algometer : get_reading_raw()
+            activate Algometer
+            return Output from Physical Algometer in default units
+        return Algometer Output in desired units
+        AlgometerReadingGraph.update --> ReadingAnalyzer : add_reading(Algometer Output)
+        activate ReadingAnalyzer
+        return Derivative of accumulated readings (if enough readings are available)
+        AlgometerReadingGraph.update --> AlgometerReadingGraph : Update Graph
+    deactivate AlgometerReadingGraph.update
+else Stop Recording
+    alt Click "Stop Recording"
+        User --> MeasurementRegionTab : "Stop Recording"
+        MeasurementRegionTab --> AlgometerReadingGraph : stop_reading()
+        AlgometerReadingGraph --> AlgometerReadingGraph : self.timer.stop()
+    else Change tabs from Measurement Tab
+        User --> UI_MainWin : "Change tabs from Measurement Tab"
+        UI_MainWin --> MeasurementsTab : stop_all_readings()
+        loop For each measurement region tab
+            MeasurementsTab --> MeasurementRegionTab : stop_reading()
+        end
+        MeasurementRegionTab --> AlgometerReadingGraph : stop_reading()
+        AlgometerReadingGraph --> AlgometerReadingGraph : self.timer.stop()
+    end
+    MeasurementRegionTab --> MeasurementRegionTab : update_reading_table()
+end
+
+
+@enduml

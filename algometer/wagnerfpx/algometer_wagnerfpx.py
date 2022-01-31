@@ -12,6 +12,10 @@ from algometer.algometer import Algometer, Unit, AlgometerReading
 class AlgometerWagnerFPX(Algometer):
     __reading_pattern = re.compile(r'(-?\d+\.\d+) (\w+)')
 
+    def __init__(self, serial_device: serial.Serial) -> None:
+        super().__init__()
+        self.serial_device = serial_device
+
     def get_reading_raw(self) -> AlgometerReading:
         self.serial_device.write(b'?\r\n')
         response = self.serial_device.readline().decode('utf-8').strip()
