@@ -1,5 +1,5 @@
 @startuml
-
+title Algometer Reader
 ' Algometer related classes
 enum Unit {
     LBF
