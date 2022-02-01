@@ -29,7 +29,7 @@ class MainWindow:
 
     def on_measure_area_add(self):
         currentIndex = self.ui.patient_info_tab.comboBox.currentIndex()
-        self.ui.patient_info_tab.listWidget.addItem(self.ui.patient_info_tab.comboBox.itemText(currentIndex))
+        self.ui.patient_info_tab.list_widget.addItem(self.ui.patient_info_tab.comboBox.itemText(currentIndex))
         self.add_measurement_tab()
         self.measured_areas.append(self.ui.patient_info_tab.comboBox.itemText(currentIndex))
 
