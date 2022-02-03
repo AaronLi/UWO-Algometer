@@ -3,20 +3,18 @@ import sys
 
 from PyQt5 import QtGui
 from PyQt5.QtCore import Qt
-from PyQt5.QtWidgets import QMainWindow, QApplication, QWidget
+from PyQt5.QtWidgets import QMainWindow, QApplication
 
-import algometer_data
 from UI_MainWin import Ui_MainWindow
-from tabs.measurements_tab.measurement_region_tab import MeasurementRegionTab
 from userDataPrinter import print_pdf
 
 
-class MainWindow:
-    def __init__(self):
-        self.main_win = QMainWindow()
-        self.ui = Ui_MainWindow(self.main_win)
-        self.main_win.setWindowTitle("Algometer Program")
-        self.main_win.setWindowIcon(QtGui.QIcon('logo.png'))
+class MainWindow(QMainWindow):
+    def __init__(self, *args, **kwargs):
+        super(MainWindow, self).__init__(*args, **kwargs)
+        self.ui = Ui_MainWindow(self)
+        self.setWindowTitle("Algometer Program")
+        self.setWindowIcon(QtGui.QIcon('logo.png'))
 
 
         #list of measured areas
@@ -27,10 +25,6 @@ class MainWindow:
         self.ui.patient_info_tab.print_button.clicked.connect(self.on_print_button_clicked)
 
         self.tab_region_id_monotonic = 0
-
-
-    def show(self):
-        self.main_win.show()
 
     def on_measure_area_add(self):
         currentIndex = self.ui.patient_info_tab.comboBox.currentIndex()
