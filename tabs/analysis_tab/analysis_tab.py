@@ -8,7 +8,6 @@ class AnalysisTab(QWidget):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
-<<<<<<< HEAD:tabs/analysis_tab.py
         self.setObjectName("analysisTab")
         self.left_graph_1 = QGraphicsView(self)
         self.left_graph_1.setGeometry(QRect(40, 90, 256, 192))
@@ -25,10 +24,9 @@ class AnalysisTab(QWidget):
         self.right_graph_1 = QGraphicsView(self)
         self.right_graph_1.setGeometry(QRect(420, 90, 256, 192))
         self.right_graph_1.setObjectName("right_graph_1")
-=======
+
     def update(self) -> None:
         print(algometer_data.readings)
->>>>>>> d241d52144d0c5a25336420e2fee53742429bef3:tabs/analysis_tab/analysis_tab.py
 
     def retranslateUi(self):
         self.patient_name_label.setText(QCoreApplication.translate("MainWindow", "Patient Name Here"))
