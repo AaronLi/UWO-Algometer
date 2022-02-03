@@ -31,7 +31,7 @@ class Ui_MainWindow:
         self.patient_info_tab = PatientInfoTab()
         self.tabWidget.addTab(self.patient_info_tab, "")
 
-        self.measurement_tab = MeasurementsTab()
+        self.measurement_tab = MeasurementsTab(on_stop_reading_callback=self.update_analysis_tab)
         self.measurement_tab.setObjectName("measurement_tab")
         self.tabWidget.addTab(self.measurement_tab, "")
         self.tabWidget.currentChanged.connect(self.measurement_tab.stop_all_readings)
@@ -63,3 +63,6 @@ class Ui_MainWindow:
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.measurement_tab), _translate("MainWindow", "Measurements"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.analysisTab), _translate("MainWindow", "Analysis"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.configTab), _translate("MainWindow", "Config"))
+
+    def update_analysis_tab(self):
+        self.analysisTab.update()

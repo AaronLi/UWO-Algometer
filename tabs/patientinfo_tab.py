@@ -1,4 +1,5 @@
 import os
+from typing import List, Tuple
 
 from PyQt5.QtCore import QRect, QCoreApplication
 from PyQt5.QtWidgets import QWidget, QHBoxLayout, QSpacerItem, QSizePolicy, QVBoxLayout, QLabel, QLineEdit, QFormLayout, \
@@ -106,7 +107,6 @@ class PatientInfoTab(QWidget):
         self.comboBox.addItem("", MeasurementLocation.UPPER_FIBERS_OF_TRAPEZIUS)
         self.comboBox.addItem("", MeasurementLocation.TIBIALIS_ANTERIOR)
         self.comboBox.addItem("", MeasurementLocation.OTHER)
-        self.comboBox.setItemText(4, "")
         form_layout_2.setWidget(0, QFormLayout.LabelRole, self.comboBox)
         self.add_measurement_button = QPushButton(self)
         self.add_measurement_button.setObjectName("add_measurement_button")
@@ -128,7 +128,11 @@ class PatientInfoTab(QWidget):
         spacerItem15 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
         horizontalLayout.addItem(spacerItem15)
 
+    def update_measured_areas(self, areas: List[Tuple[int, MeasurementLocation]]):
+        self.list_widget.clear()
 
+        for area in areas:
+            self.list_widget.addItem(str(area[1]))
 
     def retranslateUi(self):
         self.label_2.setText(QCoreApplication.translate("MainWindow", "Name"))

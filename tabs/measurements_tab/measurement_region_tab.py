@@ -15,8 +15,11 @@ class MeasurementRegionSide(enum.Enum):
     RIGHT = enum.auto()
 
 class MeasurementRegionTab(QWidget):
-    def __init__(self, location: MeasurementLocation):
+    def __init__(self, location: MeasurementLocation, region_id: int, on_stop_reading: callable = None):
         super().__init__()
+
+        self.on_stop_reading_callback = on_stop_reading
+        self.region_id = region_id
         self.location = location
         self.current_reading_side = MeasurementRegionSide.NONE
         self.setObjectName("measurement_tab_content")
@@ -66,7 +69,7 @@ class MeasurementRegionTab(QWidget):
         self.remove_reading.setText(QCoreApplication.translate("MainWindow", "Remove Reading"))
 
     def get_region_identifier(self) -> Hashable:
-        return self
+        return self.region_id
 
     def on_start_recording_left(self):
         if algometer_data.algometer is None:
@@ -99,13 +102,18 @@ class MeasurementRegionTab(QWidget):
     def stop_reading(self):
         if self.current_reading_side is not None:
             self.algometer_widget.stop_reading()
-            algometer_data.readings[self.get_region_identifier()].append(
-                (self.current_reading_side, self.algometer_widget.get_max_reading()))
             self.update_reading_table()
             self.record_left.setEnabled(True)
             self.record_right.setEnabled(True)
             self.record_right.setText(QCoreApplication.translate("MainWindow", "Start\nRecording"))
             self.record_left.setText(QCoreApplication.translate("MainWindow", "Start\nRecording"))
+            algometer_data.readings[self.get_region_identifier()].append(
+                (self.current_reading_side, self.algometer_widget.get_max_reading()))
+            try:
+                print("calling callback")
+                self.on_stop_reading_callback()
+            except TypeError:
+                pass
             self.current_reading_side = MeasurementRegionSide.NONE
 
     def update_reading_table(self):
