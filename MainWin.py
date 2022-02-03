@@ -2,6 +2,7 @@ import os
 import sys
 
 from PyQt5 import QtGui
+from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import QMainWindow, QApplication, QWidget
 
 from UI_MainWin import Ui_MainWindow
@@ -35,7 +36,7 @@ class MainWindow:
 
     def add_measurement_tab(self):
         self.newTab = QWidget()
-        new_area = self.ui.patient_info_tab.comboBox.itemText(self.ui.patient_info_tab.comboBox.currentIndex())
+        new_area = self.ui.patient_info_tab.comboBox.itemData(self.ui.patient_info_tab.comboBox.currentIndex(), role=Qt.UserRole)
         self.ui.measurement_tab.create_tab(new_area)
 
     def on_print_button_clicked(self):

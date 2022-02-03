@@ -10,7 +10,7 @@
 
 from PyQt5 import QtCore, QtWidgets
 
-from tabs.analysis_tab import AnalysisTab
+from tabs.analysis_tab.analysis_tab import AnalysisTab
 from tabs.config_tab.config_tab import ConfigTab
 from tabs.measurements_tab.measurements_tab import MeasurementsTab
 from tabs.patientinfo_tab import PatientInfoTab

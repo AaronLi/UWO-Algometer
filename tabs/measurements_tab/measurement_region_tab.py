@@ -5,6 +5,7 @@ from PyQt5 import QtGui
 from PyQt5.QtCore import QRect, QCoreApplication, QSize
 from PyQt5.QtWidgets import QWidget, QGridLayout, QLabel, QPushButton, QTableWidget, QTableWidgetItem, QMessageBox
 
+from algometer.algometer import MeasurementLocation
 from algometer_graph import AlgometerReadingGraph
 import algometer_data
 
@@ -14,8 +15,9 @@ class MeasurementRegionSide(enum.Enum):
     RIGHT = enum.auto()
 
 class MeasurementRegionTab(QWidget):
-    def __init__(self):
+    def __init__(self, location: MeasurementLocation):
         super().__init__()
+        self.location = location
         self.current_reading_side = MeasurementRegionSide.NONE
         self.setObjectName("measurement_tab_content")
         grid_layout = QGridLayout(self)
@@ -46,7 +48,7 @@ class MeasurementRegionTab(QWidget):
         self.tableWidget.setMinimumSize(QSize(290, 0))
         grid_layout.addWidget(self.tableWidget, 2, 0, 1, 2)
 
-        self.algometer_widget = AlgometerReadingGraph()
+        self.algometer_widget = AlgometerReadingGraph(location)
         grid_layout.addWidget(self.algometer_widget, 1, 2, 2, 1)
 
         self.remove_reading = QPushButton(self)

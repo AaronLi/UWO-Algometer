@@ -4,6 +4,7 @@ from PyQt5.QtCore import QRect, QCoreApplication
 from PyQt5.QtWidgets import QWidget, QHBoxLayout, QSpacerItem, QSizePolicy, QVBoxLayout, QLabel, QLineEdit, QFormLayout, \
     QComboBox, QPushButton, QListWidget
 
+from algometer.algometer import MeasurementLocation
 from userDataPrinter import print_pdf
 
 
@@ -102,9 +103,9 @@ class PatientInfoTab(QWidget):
         form_layout_2.setObjectName("formLayout_2")
         self.comboBox = QComboBox(self)
         self.comboBox.setObjectName("comboBox")
-        self.comboBox.addItem("")
-        self.comboBox.addItem("")
-        self.comboBox.addItem("")
+        self.comboBox.addItem("", MeasurementLocation.UPPER_FIBERS_OF_TRAPEZIUS)
+        self.comboBox.addItem("", MeasurementLocation.TIBIALIS_ANTERIOR)
+        self.comboBox.addItem("", MeasurementLocation.OTHER)
         self.comboBox.setItemText(4, "")
         form_layout_2.setWidget(0, QFormLayout.LabelRole, self.comboBox)
         self.add_measurement_button = QPushButton(self)

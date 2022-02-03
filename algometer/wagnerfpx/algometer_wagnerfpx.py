@@ -6,7 +6,7 @@ from typing import Iterable, Any
 
 import serial
 
-from algometer.algometer import Algometer, Unit, AlgometerReading
+from algometer.algometer import Algometer, Unit, AlgometerReading, MeasurementLocation
 
 
 class AlgometerWagnerFPX(Algometer):
@@ -16,14 +16,14 @@ class AlgometerWagnerFPX(Algometer):
         super().__init__()
         self.serial_device = serial_device
 
-    def get_reading_raw(self) -> AlgometerReading:
+    def get_reading_raw(self, location: MeasurementLocation) -> AlgometerReading:
         self.serial_device.write(b'?\r\n')
         response = self.serial_device.readline().decode('utf-8').strip()
         match = self.__reading_pattern.match(response)
         if match:
             reading = -float(match[1])
             unit = Unit.from_string(match[2])
-            return AlgometerReading(reading, unit)
+            return AlgometerReading(reading, unit, location)
         else:
             raise ValueError('Invalid response from device: {}'.format(response))
 
