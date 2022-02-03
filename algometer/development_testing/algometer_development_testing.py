@@ -2,7 +2,7 @@ import random
 import time
 from typing import Iterable, Any
 
-from algometer.algometer import Algometer, AlgometerReading, Unit
+from algometer.algometer import Algometer, AlgometerReading, Unit, MeasurementLocation
 
 
 class DevelopmentAlgometer(Algometer):
@@ -11,10 +11,10 @@ class DevelopmentAlgometer(Algometer):
         self.current_force = 0
         self.start_reading_time = 0
 
-    def get_reading_raw(self) -> AlgometerReading:
+    def get_reading_raw(self, location: MeasurementLocation) -> AlgometerReading:
         if self.start_reading_time == 0:
             self.start_reading_time = time.time()
-            return AlgometerReading(0, Unit.LBF)
+            return AlgometerReading(0, Unit.LBF, location)
 
         elapsed_time = time.time() - self.start_reading_time
 
@@ -24,7 +24,7 @@ class DevelopmentAlgometer(Algometer):
             self.current_force = 0
             self.start_reading_time = 0
         reading = self.current_force + random.gauss(0, 0.05)
-        return AlgometerReading(reading, Unit.LBF)
+        return AlgometerReading(reading, Unit.LBF, location)
 
     @classmethod
     def get_display_name(cls) -> str:

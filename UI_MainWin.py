@@ -10,7 +10,7 @@
 
 from PyQt5 import QtCore, QtWidgets
 
-from tabs.analysis_tab import AnalysisTab
+from tabs.analysis_tab.analysis_tab import AnalysisTab
 from tabs.config_tab.config_tab import ConfigTab
 from tabs.measurements_tab.measurements_tab import MeasurementsTab
 from tabs.patientinfo_tab import PatientInfoTab
@@ -31,7 +31,7 @@ class Ui_MainWindow:
         self.patient_info_tab = PatientInfoTab()
         self.tabWidget.addTab(self.patient_info_tab, "")
 
-        self.measurement_tab = MeasurementsTab()
+        self.measurement_tab = MeasurementsTab(on_stop_reading_callback=self.update_analysis_tab)
         self.measurement_tab.setObjectName("measurement_tab")
         self.tabWidget.addTab(self.measurement_tab, "")
         self.tabWidget.currentChanged.connect(self.measurement_tab.stop_all_readings)
@@ -63,3 +63,6 @@ class Ui_MainWindow:
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.measurement_tab), _translate("MainWindow", "Measurements"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.analysisTab), _translate("MainWindow", "Analysis"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.configTab), _translate("MainWindow", "Config"))
+
+    def update_analysis_tab(self):
+        self.analysisTab.update()

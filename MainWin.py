@@ -2,18 +2,19 @@ import os
 import sys
 
 from PyQt5 import QtGui
-from PyQt5.QtWidgets import QMainWindow, QApplication, QWidget
+from PyQt5.QtCore import Qt
+from PyQt5.QtWidgets import QMainWindow, QApplication
 
 from UI_MainWin import Ui_MainWindow
 from userDataPrinter import print_pdf
 
 
-class MainWindow:
-    def __init__(self):
-        self.main_win = QMainWindow()
-        self.ui = Ui_MainWindow(self.main_win)
-        self.main_win.setWindowTitle("Algometer Program")
-        self.main_win.setWindowIcon(QtGui.QIcon('logo.png'))
+class MainWindow(QMainWindow):
+    def __init__(self, *args, **kwargs):
+        super(MainWindow, self).__init__(*args, **kwargs)
+        self.ui = Ui_MainWindow(self)
+        self.setWindowTitle("Algometer Program")
+        self.setWindowIcon(QtGui.QIcon('logo.png'))
 
 
         #list of measured areas
@@ -23,20 +24,16 @@ class MainWindow:
         self.ui.patient_info_tab.add_measurement_button.clicked.connect(self.on_measure_area_add)
         self.ui.patient_info_tab.print_button.clicked.connect(self.on_print_button_clicked)
 
-
-    def show(self):
-        self.main_win.show()
+        self.tab_region_id_monotonic = 0
 
     def on_measure_area_add(self):
         currentIndex = self.ui.patient_info_tab.comboBox.currentIndex()
-        self.ui.patient_info_tab.list_widget.addItem(self.ui.patient_info_tab.comboBox.itemText(currentIndex))
-        self.add_measurement_tab()
-        self.measured_areas.append(self.ui.patient_info_tab.comboBox.itemText(currentIndex))
-
-    def add_measurement_tab(self):
-        self.newTab = QWidget()
-        new_area = self.ui.patient_info_tab.comboBox.itemText(self.ui.patient_info_tab.comboBox.currentIndex())
-        self.ui.measurement_tab.create_tab(new_area)
+        selected_location_measurementlocation = self.ui.patient_info_tab.comboBox.itemData(currentIndex,
+                                                              role=Qt.UserRole)
+        self.ui.measurement_tab.create_tab(selected_location_measurementlocation, self.tab_region_id_monotonic)
+        self.measured_areas.append((self.tab_region_id_monotonic, selected_location_measurementlocation))
+        self.ui.patient_info_tab.update_measured_areas(self.measured_areas)
+        self.tab_region_id_monotonic += 1
 
     def on_print_button_clicked(self):
         name_text = self.ui.patient_info_tab.name_box.text()

@@ -68,22 +68,45 @@ class Unit(enum.Enum):
     def convert_to(self, value: float, to_unit: 'Unit') -> float:
         return to_unit.__from_newtons(self.__to_newtons(value))
 
+class MeasurementLocation(enum.Enum):
+    OTHER = enum.auto()
+    UPPER_FIBERS_OF_TRAPEZIUS = enum.auto()
+    TIBIALIS_ANTERIOR = enum.auto()
+
+    @classmethod
+    def from_string(cls, string):
+        string = string.lower()
+
+        if string == "uft":
+            return cls.UPPER_FIBERS_OF_TRAPEZIUS
+        elif string == "ta":
+            return cls.TIBIALIS_ANTERIOR
+        else:
+            return cls.OTHER
+
+    def __str__(self):
+        if self == MeasurementLocation.UPPER_FIBERS_OF_TRAPEZIUS:
+            return "Upper Fibers of Trapezius"
+        elif self == MeasurementLocation.TIBIALIS_ANTERIOR:
+            return "Tibialis Anterior"
+        else:
+            return "Other"
 
 @total_ordering
 @dataclass(frozen=True)
 class AlgometerReading:
     value: float
     unit: Unit
+    location: MeasurementLocation
 
     def convert_to(self, to_unit: Unit) -> 'AlgometerReading':
-        return AlgometerReading(self.unit.convert_to(self.value, to_unit), to_unit)
+        return AlgometerReading(self.unit.convert_to(self.value, to_unit), to_unit, self.location)
 
-    @staticmethod
-    def _valid_operand(other):
-        return isinstance(other, AlgometerReading)
+    def _valid_operand(self, other):
+        return isinstance(other, AlgometerReading) and other.location == self.location
 
     def __neg__(self):
-        return AlgometerReading(-self.value, self.unit)
+        return AlgometerReading(-self.value, self.unit, self.location)
 
     def __lt__(self, other: 'AlgometerReading'):
         if not self._valid_operand(other):
@@ -98,23 +121,25 @@ class AlgometerReading:
     def __str__(self) -> str:
         return f'{self.value:.2f} {self.unit.to_string()}'
 
+    def __repr__(self):
+        return f'AlgometerReading({self.value}, {self.unit}, {self.location})'
 
 class Algometer(abc.ABC):
     """
     Algometer, does not close serial port itself
     """
 
-    def get_reading(self, target_units: Unit) -> AlgometerReading:
+    def get_reading(self, target_units: Unit, location: MeasurementLocation) -> AlgometerReading:
         """
         Returns a reading in the target units
         :param target_units:
         :return:
         """
-        reading = self.get_reading_raw()
+        reading = self.get_reading_raw(location)
         return reading.convert_to(target_units)
 
     @abc.abstractmethod
-    def get_reading_raw(self) -> AlgometerReading:
+    def get_reading_raw(self, location: MeasurementLocation) -> AlgometerReading:
         """
         Returns a reading in the default units from the device. For control over what units are returned, use get_reading(Unit)
         :return: The reading and its units

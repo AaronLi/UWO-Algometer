@@ -8,13 +8,14 @@ import pyqtgraph as pg
 import serial
 from PyQt5 import QtCore, QtGui
 
-from algometer.algometer import Unit, Algometer
+from algometer.algometer import Unit, Algometer, MeasurementLocation, AlgometerReading
 from reading_analyzer import ReadingAnalyzer
 
 
 class AlgometerReadingGraph(pg.PlotWidget):
-    def __init__(self, parent=None, size=(400, 300)):
+    def __init__(self, location: MeasurementLocation, parent=None, size=(400, 300)):
         super(AlgometerReadingGraph, self).__init__(parent)
+        self.location = location
         self.setLabel('left', 'Force', units='deg')
         self.setLabel('bottom', 'Time', units='s')
         self.setMinimumSize(*size)
@@ -48,7 +49,7 @@ class AlgometerReadingGraph(pg.PlotWidget):
 
     def update(self):  # updates the widget
         try:
-            response = self.algometer.get_reading(Unit.LBF)
+            response = self.algometer.get_reading(Unit.LBF, self.location)
             derivative = self.reading_analyzer.add_reading(response, time.time())
             if derivative is not None:
                 value, reading_time = derivative
@@ -66,7 +67,7 @@ class AlgometerReadingGraph(pg.PlotWidget):
         self.reading_times = []
         self.graph.setData(x=[], y=[])
 
-    def get_max_reading(self):
+    def get_max_reading(self) -> AlgometerReading:
         return self.reading_analyzer.max_reading
 
     def freeze(self, parent=None):
