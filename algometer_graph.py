@@ -32,7 +32,7 @@ class AlgometerReadingGraph(pg.PlotWidget):
         plotitem.setMenuEnabled(False)
         self.setCentralItem(plotitem)
         self.timer = QtCore.QTimer()
-        self.timer.timeout.connect(self.update)
+        self.timer.timeout.connect(self.make_reading)
         self.algometer: Algometer = None
         self.reading_analyzer = ReadingAnalyzer()
         self.readings = []
@@ -47,7 +47,7 @@ class AlgometerReadingGraph(pg.PlotWidget):
         self.timer.stop()
         self.algometer = None
 
-    def update(self):  # updates the widget
+    def make_reading(self):  # updates the widget
         try:
             response = self.algometer.get_reading(Unit.LBF, self.location)
             derivative = self.reading_analyzer.add_reading(response, time.time())

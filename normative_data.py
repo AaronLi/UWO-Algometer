@@ -72,7 +72,6 @@ class NormativeDataTable:
     def get_normative_data(self, location: MeasurementLocation, sex: Sex) -> NormativeData:
         return self.data[sex][location]
 
-
 if __name__ == '__main__':
     table = NormativeDataTable('normative_data_1.json')
     data = table.get_normative_data(MeasurementLocation.TIBIALIS_ANTERIOR, Sex.FEMALE)

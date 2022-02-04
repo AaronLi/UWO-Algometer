@@ -124,6 +124,16 @@ class AlgometerReading:
     def __repr__(self):
         return f'AlgometerReading({self.value}, {self.unit}, {self.location})'
 
+    def __add__(self, other):
+        if not self._valid_operand(other):
+            return NotImplemented
+        return AlgometerReading(self.value + other.convert_to(self.unit).value, self.unit, self.location)
+
+    def __truediv__(self, other):
+        if not isinstance(other, (float, int)):
+            return NotImplemented
+        return AlgometerReading(self.value / other, self.unit, self.location)
+
 class Algometer(abc.ABC):
     """
     Algometer, does not close serial port itself

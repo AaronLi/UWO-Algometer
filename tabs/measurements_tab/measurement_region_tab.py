@@ -102,25 +102,24 @@ class MeasurementRegionTab(QWidget):
     def stop_reading(self):
         if self.current_reading_side is not None:
             self.algometer_widget.stop_reading()
-            self.update_reading_table()
             self.record_left.setEnabled(True)
             self.record_right.setEnabled(True)
             self.record_right.setText(QCoreApplication.translate("MainWindow", "Start\nRecording"))
             self.record_left.setText(QCoreApplication.translate("MainWindow", "Start\nRecording"))
-            algometer_data.readings[self.get_region_identifier()].append(
+            algometer_data.readings[self.get_region_identifier()][1].append(
                 (self.current_reading_side, self.algometer_widget.get_max_reading()))
             try:
-                print("calling callback")
                 self.on_stop_reading_callback()
             except TypeError:
                 pass
             self.current_reading_side = MeasurementRegionSide.NONE
+            self.update_reading_table()
 
     def update_reading_table(self):
         self.tableWidget.clear()
         left_readings = 0
         right_readings = 0
-        for i, reading in enumerate(algometer_data.readings[self.get_region_identifier()]):
+        for i, reading in enumerate(algometer_data.readings[self.get_region_identifier()][1]):
             if reading[0] == MeasurementRegionSide.LEFT:
                 self.tableWidget.setItem(left_readings, 0, QTableWidgetItem(str(reading[1])))
                 left_readings += 1

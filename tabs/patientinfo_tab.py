@@ -5,6 +5,7 @@ from PyQt5.QtCore import QRect, QCoreApplication
 from PyQt5.QtWidgets import QWidget, QHBoxLayout, QSpacerItem, QSizePolicy, QVBoxLayout, QLabel, QLineEdit, QFormLayout, \
     QComboBox, QPushButton, QListWidget
 
+import normative_data
 from algometer.algometer import MeasurementLocation
 from userDataPrinter import print_pdf
 
@@ -33,6 +34,18 @@ class PatientInfoTab(QWidget):
         self.name_box.setObjectName("self.name_box")
         horizontalLayout_7.addWidget(self.name_box)
         verticalLayout.addLayout(horizontalLayout_7)
+
+        sex_layout = QHBoxLayout()
+        self.sex_label = QLabel(self)
+        self.sex_label.setText("Sex")
+        sex_layout.addWidget(self.sex_label)
+        self.sex_box = QComboBox(self)
+        self.sex_box.addItem("Male", normative_data.Sex.MALE)
+        self.sex_box.addItem("Female", normative_data.Sex.FEMALE)
+        self.sex_box.addItem("Other (No normative data)", normative_data.Sex.OTHER)
+        sex_layout.addWidget(self.sex_box)
+        verticalLayout.addLayout(sex_layout)
+
         spacerItem3 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
         verticalLayout.addItem(spacerItem3)
         horizontalLayout_8 = QHBoxLayout()

@@ -1,7 +1,12 @@
-from PyQt5.QtWidgets import QWidget, QGraphicsView, QLabel, QGraphicsView
-from PyQt5.QtCore import QRect, QCoreApplication
+from typing import List, Tuple
+
+from PyQt5.QtCore import QRect, QCoreApplication, Qt
+from PyQt5.QtWidgets import QWidget, QLabel, QGridLayout, QVBoxLayout, QListWidget, QWidgetItem, QListWidgetItem, \
+    QScrollArea, QFrame, QSizePolicy
 
 import algometer_data
+from algometer.algometer import MeasurementLocation
+from tabs.analysis_tab.region_measurement_quartile_widget import MeasurementQuartileWidget
 
 
 class AnalysisTab(QWidget):
@@ -9,26 +14,28 @@ class AnalysisTab(QWidget):
         super().__init__(*args, **kwargs)
 
         self.setObjectName("analysisTab")
-        self.left_graph_1 = QGraphicsView(self)
-        self.left_graph_1.setGeometry(QRect(40, 90, 256, 192))
-        self.left_graph_1.setObjectName("left_graph_1")
-        self.patient_name_label = QLabel(self)
-        self.patient_name_label.setGeometry(QRect(60, 40, 231, 20))
-        self.patient_name_label.setObjectName("patient_name_label")
-        self.left_quartile_1 = QLabel(self)
-        self.left_quartile_1.setGeometry(QRect(310, 140, 81, 20))
-        self.left_quartile_1.setObjectName("left_quartile_1")
-        self.right_quartile_1 = QLabel(self)
-        self.right_quartile_1.setGeometry(QRect(690, 140, 81, 20))
-        self.right_quartile_1.setObjectName("right_quartile_1")
-        self.right_graph_1 = QGraphicsView(self)
-        self.right_graph_1.setGeometry(QRect(420, 90, 256, 192))
-        self.right_graph_1.setObjectName("right_graph_1")
+        layout = QVBoxLayout(self)
+        self.patient_name_label = QLabel()
+        self.subplots = QScrollArea(widgetResizable=True, verticalScrollBarPolicy=Qt.ScrollBarAlwaysOn)
+        self.subplot_widget = QFrame()
+        self.subplots.setWidget(self.subplot_widget)
+        self.subplot_layout = QVBoxLayout()
+        self.subplot_layout.setAlignment(Qt.AlignTop)
+        self.subplot_widget.setLayout(self.subplot_layout)
+        layout.addWidget(self.patient_name_label)
+        layout.addWidget(self.subplots)
 
-    def update(self) -> None:
-        print(algometer_data.readings)
+    def update_regions(self, regions: List[Tuple[int, MeasurementLocation]], normative_data=None) -> None:
+        # remove all widgets and create them again with the updated info
+        for i in reversed(range(self.subplot_layout.count())):
+            to_remove = self.subplot_layout.itemAt(i).widget()
+            self.subplot_layout.removeWidget(to_remove)
+            to_remove.setParent(None)
+        for region in regions:
+            new_region = MeasurementQuartileWidget(region[0], normative_data)
+
+            self.subplot_layout.addWidget(new_region)
+        self.subplots.update()
 
     def retranslateUi(self):
         self.patient_name_label.setText(QCoreApplication.translate("MainWindow", "Patient Name Here"))
-        self.left_quartile_1.setText(QCoreApplication.translate("MainWindow", "xth quartile"))
-        self.right_quartile_1.setText(QCoreApplication.translate("MainWindow", "xth quartile"))

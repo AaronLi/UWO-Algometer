@@ -5,6 +5,8 @@ from PyQt5 import QtCore, QtWidgets, QtGui
 from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import QMainWindow, QApplication
 
+import algometer_data
+from normative_data import NormativeDataTable
 from tabs.analysis_tab.analysis_tab import AnalysisTab
 from tabs.config_tab.config_tab import ConfigTab
 from tabs.measurements_tab.measurements_tab import MeasurementsTab
@@ -22,6 +24,8 @@ class AlgometerApp(QMainWindow):
 
         # list of measured areas
         self.measured_areas = []
+
+        self.normative_data = NormativeDataTable('normative_data_1.json')
 
         self.tab_region_id_monotonic = 0
 
@@ -60,6 +64,8 @@ class AlgometerApp(QMainWindow):
         # connecting buttons here
         self.patient_info_tab.add_measurement_button.clicked.connect(self.on_measure_area_add)
         self.patient_info_tab.print_button.clicked.connect(self.on_print_button_clicked)
+        self.patient_info_tab.sex_box.currentIndexChanged.connect(self.set_patient_sex)
+        self.set_patient_sex()
 
     def retranslateUi(self):
         _translate = QtCore.QCoreApplication.translate
@@ -74,14 +80,16 @@ class AlgometerApp(QMainWindow):
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.configTab), _translate("MainWindow", "Config"))
 
     def update_analysis_tab(self):
-        self.analysisTab.update()
+        self.analysisTab.update_regions(self.measured_areas, self.normative_data)
 
     def on_measure_area_add(self):
         current_index = self.patient_info_tab.comboBox.currentIndex()
         selected_location_measurementlocation = self.patient_info_tab.comboBox.itemData(current_index,
                                                               role=Qt.UserRole)
+        algometer_data.readings[self.tab_region_id_monotonic] = (selected_location_measurementlocation, [])
         self.measurement_tab.create_tab(selected_location_measurementlocation, self.tab_region_id_monotonic)
         self.measured_areas.append((self.tab_region_id_monotonic, selected_location_measurementlocation))
+        self.update_analysis_tab()
         self.patient_info_tab.update_measured_areas(self.measured_areas)
         self.tab_region_id_monotonic += 1
 
@@ -96,6 +104,10 @@ class AlgometerApp(QMainWindow):
         print_pdf(name_text, age_text, height_text, weight_text, comment, self.measured_areas)
         os.system(path)
 
+    def set_patient_sex(self):
+        new_selection = self.patient_info_tab.sex_box.itemData(self.patient_info_tab.sex_box.currentIndex(), role=Qt.UserRole)
+        algometer_data.patient_sex = new_selection
+        self.update_analysis_tab()
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
