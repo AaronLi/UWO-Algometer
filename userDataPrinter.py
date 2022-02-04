@@ -1,6 +1,9 @@
 from fpdf import FPDF
 from datetime import date
 
+import algometer_data
+
+
 def print_pdf(name, age, height, weight, comment, areas_measured):
     pdf = PDF()
     pdf.alias_nb_pages()
@@ -16,7 +19,7 @@ def print_pdf(name, age, height, weight, comment, areas_measured):
     pdf.set_font("Times", size=12)
     pdf.line(10, 30, 200, 30)
     pdf.cell(100, 10, "Name: {}".format(name), 0, 0)
-    sex = "Male"
+    sex = algometer_data.patient_sex
     pdf.cell(100, 10, "Sex: {}".format(sex), 0, 1)
     pdf.cell(100, 10, "Age: {}".format(age), 0, 0)
     pdf.cell(100, 10, "Height: {}".format(height), 0, 1)
@@ -26,7 +29,7 @@ def print_pdf(name, age, height, weight, comment, areas_measured):
     pdf.line(10, 80, 200, 80)
     for i in range(len(areas_measured)):
         pdf.set_font("Arial", style="B")
-        pdf.cell(200, 10, txt="{}".format(areas_measured[i]), ln=(6+i*3+1), align="L")
+        pdf.cell(200, 10, txt="{}".format(areas_measured[i][1]), ln=(6+i*3+1), align="L")
         pdf.set_font("Arial", style="")
         #testing step
         result = "no data"

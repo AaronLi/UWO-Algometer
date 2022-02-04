@@ -22,6 +22,14 @@ class Sex(enum.Enum):
         else:
             return cls.OTHER
 
+    def __str__(self) -> str:
+        if self == Sex.MALE:
+            return "Male"
+        elif self == Sex.FEMALE:
+            return "Female"
+        else:
+            return "Other"
+
 
 @dataclasses.dataclass
 class NormativeData:
