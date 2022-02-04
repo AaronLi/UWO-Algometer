@@ -124,6 +124,9 @@ class PatientInfoTab(QWidget):
         self.add_measurement_button = QPushButton(self)
         self.add_measurement_button.setObjectName("add_measurement_button")
         form_layout_2.setWidget(1, QFormLayout.LabelRole, self.add_measurement_button)
+        self.remove_measurement_button = QPushButton(self)
+        self.remove_measurement_button.setObjectName("remove_measurement_button")
+        form_layout_2.setWidget(2, QFormLayout.LabelRole, self.remove_measurement_button)
         vertical_layout_2.addLayout(form_layout_2)
         spacerItem12 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
         vertical_layout_2.addItem(spacerItem12)
@@ -157,6 +160,7 @@ class PatientInfoTab(QWidget):
         self.comboBox.setItemText(1, QCoreApplication.translate("MainWindow", "Tibialis Anterior"))
         self.comboBox.setItemText(2 , QCoreApplication.translate("MainWindow", "Other (No comparative data)"))
         self.add_measurement_button.setText(QCoreApplication.translate("MainWindow", "Add Measurement"))
+        self.remove_measurement_button.setText(QCoreApplication.translate("MainWindow", "Remove Measurement"))
         self.print_button.setText(QCoreApplication.translate("MainWindow", "Print Report"))
 
 """
