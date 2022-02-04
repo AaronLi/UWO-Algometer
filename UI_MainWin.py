@@ -73,6 +73,18 @@ class AlgometerApp(QMainWindow):
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.analysisTab), _translate("MainWindow", "Analysis"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.configTab), _translate("MainWindow", "Config"))
 
+
+    #functionality of the program
+
+    def on_measurement_area_remove(self):
+        current_index = self.patient_info_tab.comboBox.currentIndex()
+        ## do all of the stuff needed to delete a measurement
+        #
+        #
+        #
+        #
+
+
     def update_analysis_tab(self):
         self.analysisTab.update()
 
