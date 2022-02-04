@@ -69,8 +69,11 @@ class NormativeDataTable:
                                                                     standard_error_of_measurement)
         return out_data
 
-    def get_normative_data(self, location: MeasurementLocation, sex: Sex) -> NormativeData:
-        return self.data[sex][location]
+    def get_normative_data(self, location: MeasurementLocation, sex: Sex) -> Optional[NormativeData]:
+        try:
+            return self.data[sex][location]
+        except KeyError:
+            return None
 
 if __name__ == '__main__':
     table = NormativeDataTable('normative_data_1.json')

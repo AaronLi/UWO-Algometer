@@ -1,10 +1,8 @@
 from typing import List, Tuple
 
-from PyQt5.QtCore import QRect, QCoreApplication, Qt
-from PyQt5.QtWidgets import QWidget, QLabel, QGridLayout, QVBoxLayout, QListWidget, QWidgetItem, QListWidgetItem, \
-    QScrollArea, QFrame, QSizePolicy
+from PyQt5.QtCore import QCoreApplication, Qt
+from PyQt5.QtWidgets import QWidget, QLabel, QVBoxLayout, QScrollArea, QFrame
 
-import algometer_data
 from algometer.algometer import MeasurementLocation
 from tabs.analysis_tab.region_measurement_quartile_widget import MeasurementQuartileWidget
 

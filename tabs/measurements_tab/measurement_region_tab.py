@@ -2,12 +2,13 @@ import enum
 from typing import Hashable
 
 from PyQt5 import QtGui
-from PyQt5.QtCore import QRect, QCoreApplication, QSize
+from PyQt5.QtCore import QCoreApplication, QSize
 from PyQt5.QtWidgets import QWidget, QGridLayout, QLabel, QPushButton, QTableWidget, QTableWidgetItem, QMessageBox
 
+import algometer_data
 from algometer.algometer import MeasurementLocation
 from algometer_graph import AlgometerReadingGraph
-import algometer_data
+
 
 class MeasurementRegionSide(enum.Enum):
     NONE = enum.auto()

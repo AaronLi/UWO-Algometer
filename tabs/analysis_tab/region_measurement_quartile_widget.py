@@ -1,11 +1,8 @@
-from typing import Hashable
-import numpy as np
-from PyQt5.QtWidgets import QWidget, QHBoxLayout, QLabel, QVBoxLayout, QFrame
 import pyqtgraph as pg
+from PyQt5.QtWidgets import QHBoxLayout, QLabel, QVBoxLayout, QFrame
 
 import algometer_data
 import normative_data
-
 from tabs.measurements_tab.measurement_region_tab import MeasurementRegionSide
 
 
