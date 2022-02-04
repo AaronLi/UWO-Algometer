@@ -5,6 +5,8 @@ from PyQt5.QtWidgets import QWidget
 from algometer.algometer import Algometer
 from algometer.development_testing.algometer_development_testing import DevelopmentAlgometer
 from algometer.development_testing.development_testing_builder import DevelopmentAlgometerBuilder
+from algometer.development_testing.algometer_bt_test import BTDevAlgometer
+from algometer.development_testing.bt_test_builder import BTDevAlgometerBuilder
 from algometer.wagnerfpx.algometer_wagnerfpx import AlgometerWagnerFPX
 from algometer.wagnerfpx.wagnerfpx_builder import WagnerFPXBuilder
 
@@ -18,3 +20,5 @@ class AlgometerBuilder:
             return WagnerFPXBuilder().build(config)
         elif algometer_type == DevelopmentAlgometer:
             return DevelopmentAlgometerBuilder().build(config)
+        elif algometer_type == BTDevAlgometer:
+            return BTDevAlgometerBuilder().build(config)

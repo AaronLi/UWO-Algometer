@@ -7,6 +7,7 @@ from PyQt5.QtWidgets import QWidget, QFormLayout, QComboBox, QPushButton, QStack
 from algometer import algometer
 from algometer.development_testing import algometer_development_testing
 from algometer.wagnerfpx import algometer_wagnerfpx
+from algometer.development_testing import algometer_bt_test
 from algometer.algometer_builder import AlgometerBuilder
 from tabs.config_tab.serial_port_list import SerialPortList
 import algometer_data
@@ -15,6 +16,7 @@ import algometer_data
 class ConfigTab(QWidget):
     SUPPORTED_ALGOMETERS = [
         algometer_development_testing.DevelopmentAlgometer,
+        algometer_bt_test.BTDevAlgometer,
         algometer_wagnerfpx.AlgometerWagnerFPX
     ]
     def __init__(self, *args, **kwargs):
