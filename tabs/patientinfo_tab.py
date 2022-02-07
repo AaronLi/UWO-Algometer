@@ -44,6 +44,8 @@ class PatientInfoTab(QWidget):
         self.sex_box.addItem("Female", normative_data.Sex.FEMALE)
         self.sex_box.addItem("Other (No normative data)", normative_data.Sex.OTHER)
         sex_layout.addWidget(self.sex_box)
+        spacerItem21 = QSpacerItem(20, 40, QSizePolicy.Expanding, QSizePolicy.Minimum)
+        verticalLayout.addItem(spacerItem21)
         verticalLayout.addLayout(sex_layout)
 
         spacerItem3 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
