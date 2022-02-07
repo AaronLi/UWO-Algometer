@@ -66,6 +66,7 @@ class AlgometerApp(QMainWindow):
         self.patient_info_tab.print_button.clicked.connect(self.on_print_button_clicked)
         self.patient_info_tab.sex_box.currentIndexChanged.connect(self.set_patient_sex)
         self.set_patient_sex()
+        self.patient_info_tab.name_box.textChanged.connect(self.on_name_update)
 
     def retranslateUi(self):
         _translate = QtCore.QCoreApplication.translate
@@ -89,6 +90,9 @@ class AlgometerApp(QMainWindow):
         #
         #
         #
+
+    def on_name_update(self):
+        self.analysisTab.patient_name_label.setText(self.patient_info_tab.name_box.text())
 
 
     def update_analysis_tab(self):
