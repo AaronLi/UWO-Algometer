@@ -7,19 +7,26 @@ enum Unit {
     KGF
     OZF
     + {static} Unit from_string(str)
-    + str to_string(str)
     + float convert_to(float, Unit)
+}
+
+enum MeasurementLocation {
+    OTHER
+    UPPER_FIBERS_OF_TRAPEZIUS
+    TIBIALIS_ANTERIOR
+    + {static} MeasurementLocation from_string(str)
 }
 
 class AlgometerReading {
     + float value
     + Unit unit
     + AlgometerReading convert_to(Unit)
+    + MeasurementLocation location
 }
 
 abstract class Algometer {
     + AlgometerReading get_reading(Unit)
-    + {abstract} AlgometerReading get_reading_raw()
+    + {abstract} AlgometerReading get_reading_raw(MeasurementLocation)
     + {abstract} void disconnect()
     + {abstract} {static} str get_display_name()
     + {abstract} {static} Iterable[Any] get_device_requirements()
@@ -28,7 +35,7 @@ abstract class Algometer {
 class DevelopmentAlgometer {
     + float current_force
     + float start_reading_time
-    + AlgometerReading get_reading_raw()
+    + AlgometerReading get_reading_raw(MeasurementLocation)
     + void disconnect()
     + {static} str get_display_name()
     + {static} Iterable[Any] get_device_requirements()
@@ -36,7 +43,7 @@ class DevelopmentAlgometer {
 
 class AlgometerWagnerFPX {
     + serial.Serial serial_device
-    + AlgometerReading get_reading_raw()
+    + AlgometerReading get_reading_raw(MeasurementLocation)
     + void disconnect()
     + {static} str get_display_name()
     + {static} Iterable[Any] get_device_requirements()
@@ -47,18 +54,10 @@ Algometer <|-- DevelopmentAlgometer
 Algometer <|-- AlgometerWagnerFPX
 Algometer --> AlgometerReading
 AlgometerReading *-- Unit
+AlgometerReading *-- MeasurementLocation
 
 ' UI Related classes
-class MainWindow {
-    + QMainWindow main_win
-    + Ui_MainWindow ui
-    + List[str] measured_areas
-    + void show()
-    + void on_measure_area_add()
-    + void add_measurement_tab()
-    + void on_print_button_clicked()
-}
-class Ui_MainWindow {
+class AlgometerApp {
     + QWidget centralwidget
     + QFormLayout formLayout
     + QTabWidget tabWidget
@@ -66,7 +65,14 @@ class Ui_MainWindow {
     + MeasurementsTab measurement_tab
     + AnalysisTab analysisTab
     + ConfigTab configTab
-    + {static} Ui_MainWindow(QMainWindow window)
+    + QMainWindow main_win
+    + List[str] measured_areas
+    + void on_measure_area_add()
+    + void add_measurement_tab()
+    + void on_measurement_area_remove()
+    + void on_name_update()
+    + void on_print_button_clicked()
+    + {static} AlgometerApp(QMainWindow window)
     + void retranslateUi()
 }
 
@@ -126,6 +132,7 @@ class MeasurementRegionTab{
 
 class AnalysisTab {
     + retranslateUi()
+    + update_regions(List[Tuple[int, MeasurementLocation]], NormativeDataTable)
 }
 
 class ConfigTab {
@@ -165,19 +172,55 @@ class AlgometerReadingGraph {
     + List[float] reading_times
 }
 
+class MeasurementQuartileWidget{
+    MeasurementQuartileWidget(int, NormativeDataTable)
+}
+
+enum Sex {
+    OTHER
+    MALE
+    FEMALE
+    + {static} from_string())
+}
+
+class NormativeData{
+    Sex sex
+    List[AlgometerReading] quartiles
+    AlgometerReading standard_error_of_measurement
+    + Optional[int] get_quartile(AlgometerReading)
+    + MeasurementLocation location
+}
+
+NormativeData *-- Sex
+NormativeData *-- AlgometerReading
+
+class NormativeDataTable {
+    NormativeDataTable(str)
+    dict[Sex, dict[MeasurementLocation, NormativeData]] data
+
+    - load_data()
+    + get_normative_data(MeasurementLocation, Sex)
+}
+
+NormativeDataTable *-- NormativeData
+NormativeDataTable *-- MeasurementLocation
+
+AnalysisTab <-- NormativeDataTable
+AnalysisTab *-- MeasurementQuartileWidget
+
 AlgometerReadingGraph *-- ReadingAnalyzer
 MeasurementRegionTab *-- AlgometerReadingGraph
-MainWindow *-- Ui_MainWindow
 PatientInfoTab --|> QWidget
 MeasurementRegionTab --|> QWidget
 AnalysisTab --|> QWidget
 ConfigTab --|> QWidget
+MeasurementQuartileWidget --|> QWidget
 MeasurementRegionTab -- MeasurementReadingSide
 QTabWidget <|-- MeasurementsTab
-Ui_MainWindow *-- PatientInfoTab
-Ui_MainWindow *-- MeasurementsTab
-Ui_MainWindow *-- AnalysisTab
-Ui_MainWindow *-- ConfigTab
+AlgometerApp *-- PatientInfoTab
+AlgometerApp *-- MeasurementsTab
+AlgometerApp *-- AnalysisTab
+AlgometerApp *-- ConfigTab
 algometer_data "1" -- "1" ConfigTab
 algometer_data "1" -- "1" MeasurementRegionTab
 MeasurementsTab "1" *-- "1..*" MeasurementRegionTab
