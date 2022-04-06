@@ -3,7 +3,7 @@ import dataclasses
 import enum
 from typing import List, Optional
 
-from algometer.algometer import AlgometerReading, Unit, MeasurementLocation
+from algometer.algometer import AlgometerReading, MeasurementLocation, Unit
 
 
 class Sex(enum.Enum):
@@ -34,9 +34,12 @@ class Sex(enum.Enum):
 @dataclasses.dataclass
 class NormativeData:
     sex: Sex
-    location: MeasurementLocation
     quartiles: List[AlgometerReading]
     standard_error_of_measurement: AlgometerReading
+
+    @property
+    def location(self):
+        return self.quartiles[0].location
 
     def get_quartile(self, measurement: AlgometerReading) -> Optional[int]:
         quartile = len(self.quartiles) - 1
@@ -71,7 +74,7 @@ class NormativeDataTable:
                     second_quartile = AlgometerReading(float(data_table['Q2']), units, data_region)
                     third_quartile = AlgometerReading(float(data_table['Q3']), units, data_region)
                     standard_error_of_measurement = AlgometerReading(float(data_table['SEM']), units, data_region)
-                    out_data[data_sex][data_region] = NormativeData(data_sex, data_region,
+                    out_data[data_sex][data_region] = NormativeData(data_sex,
                                                                     [AlgometerReading(0, Unit.N, data_region), first_quartile,
                                                                      second_quartile, third_quartile],
                                                                     standard_error_of_measurement)
