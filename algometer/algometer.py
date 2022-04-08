@@ -129,6 +129,14 @@ class AlgometerReading:
             return NotImplemented
         return AlgometerReading(self.value + other.convert_to(self.unit).value, self.unit, self.location)
 
+    def __sub__(self, other):
+        return self + (-other)
+
+    def __abs__(self):
+        if self.value < 0:
+            return -self
+        return AlgometerReading(self.value, self.unit, self.location)
+
     def __truediv__(self, other):
         if not isinstance(other, (float, int)):
             return NotImplemented

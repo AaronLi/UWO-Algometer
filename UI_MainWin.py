@@ -40,7 +40,7 @@ class AlgometerApp(QMainWindow):
         self.patient_info_tab = PatientInfoTab()
         self.tabWidget.addTab(self.patient_info_tab, "")
 
-        self.measurement_tab = MeasurementsTab(on_stop_reading_callback=self.update_analysis_tab)
+        self.measurement_tab = MeasurementsTab(on_stop_reading_callback=self.update_analysis_tab, normative_data_table=self.normative_data)
         self.measurement_tab.setObjectName("measurement_tab")
         self.tabWidget.addTab(self.measurement_tab, "")
         self.tabWidget.currentChanged.connect(self.measurement_tab.stop_all_readings)
