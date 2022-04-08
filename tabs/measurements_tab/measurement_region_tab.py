@@ -8,6 +8,7 @@ from PyQt5.QtWidgets import QWidget, QGridLayout, QLabel, QPushButton, QTableWid
 import algometer_data
 from algometer.algometer import MeasurementLocation
 from algometer_graph import AlgometerReadingGraph
+from normative_data import NormativeData, NormativeDataTable
 
 
 class MeasurementRegionSide(enum.Enum):
@@ -16,7 +17,7 @@ class MeasurementRegionSide(enum.Enum):
     RIGHT = enum.auto()
 
 class MeasurementRegionTab(QWidget):
-    def __init__(self, location: MeasurementLocation, region_id: int, on_stop_reading: callable = None):
+    def __init__(self, location: MeasurementLocation, region_id: int, on_stop_reading: callable = None, norm_data: NormativeDataTable = None):
         super().__init__()
 
         self.on_stop_reading_callback = on_stop_reading
@@ -55,19 +56,20 @@ class MeasurementRegionTab(QWidget):
         self.algometer_widget = AlgometerReadingGraph(location)
         grid_layout.addWidget(self.algometer_widget, 1, 2, 2, 1)
 
-        self.remove_reading = QPushButton(self)
-        self.remove_reading.setObjectName("remove_reading")
-        grid_layout.addWidget(self.remove_reading, 3, 0, 1, 1)
+        # self.remove_reading = QPushButton(self)
+        # self.remove_reading.setObjectName("remove_reading")
+        # grid_layout.addWidget(self.remove_reading, 3, 0, 1, 1)
 
         self.record_left.clicked.connect(self.on_start_recording_left)
         self.record_right.clicked.connect(self.on_start_recording_right)
 
         self.retranslateUi()
+        self.norm_data = norm_data
 
     def retranslateUi(self):
         self.record_left.setText(QCoreApplication.translate("MainWindow", "Start\nRecording"))
         self.record_right.setText(QCoreApplication.translate("MainWindow", "Start\nRecording"))
-        self.remove_reading.setText(QCoreApplication.translate("MainWindow", "Remove Reading"))
+        # self.remove_reading.setText(QCoreApplication.translate("MainWindow", "Remove Reading"))
 
     def get_region_identifier(self) -> Hashable:
         return self.region_id
@@ -113,8 +115,20 @@ class MeasurementRegionTab(QWidget):
                 self.on_stop_reading_callback()
             except TypeError:
                 pass
-            self.current_reading_side = MeasurementRegionSide.NONE
             self.update_reading_table()
+
+
+            readings_on_same_area = list(filter(lambda  x: x[0] == self.current_reading_side, algometer_data.readings[self.get_region_identifier()][1]))
+
+            if len(readings_on_same_area) == 2:
+                first_reading = readings_on_same_area[0][1]
+                second_reading = readings_on_same_area[1][1]
+                measurement_location = algometer_data.readings[self.get_region_identifier()][0]
+                if abs(second_reading - first_reading) > self.norm_data.get_normative_data(measurement_location, algometer_data.patient_sex).standard_error_of_measurement:
+                    QMessageBox.information(self, "Reading disparity above SEM ",
+                                            f"Please make another measurement on the {str(measurement_location)}")
+
+            self.current_reading_side = MeasurementRegionSide.NONE
 
     def update_reading_table(self):
         self.tableWidget.clear()

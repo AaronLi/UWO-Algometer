@@ -1,12 +1,13 @@
 from PyQt5.QtCore import QCoreApplication
 from PyQt5.QtWidgets import QTabWidget
 
+from normative_data import NormativeDataTable
 from tabs.measurements_tab.measurement_region_tab import MeasurementRegionTab
 from algometer.algometer import MeasurementLocation
 
 class MeasurementsTab(QTabWidget):
 
-    def __init__(self, *args, on_stop_reading_callback: callable = None, **kwargs):
+    def __init__(self, *args, on_stop_reading_callback: callable = None, normative_data_table: NormativeDataTable = None, **kwargs):
         """
         Constructor
         @param args:
@@ -17,7 +18,8 @@ class MeasurementsTab(QTabWidget):
         self.setObjectName("measurementsTab")
         self.tab_count = -1
         self.on_stop_reading_callback = on_stop_reading_callback
-        measurement_tab_content = MeasurementRegionTab(MeasurementLocation.OTHER, -1, on_stop_reading=self.on_stop_reading_callback)
+        self.normative_data_table = normative_data_table
+        measurement_tab_content = MeasurementRegionTab(MeasurementLocation.OTHER, -1, on_stop_reading=self.on_stop_reading_callback, norm_data=normative_data_table)
         self.addTab(measurement_tab_content, "")
 
     def stop_all_readings(self):
@@ -35,7 +37,7 @@ class MeasurementsTab(QTabWidget):
         # delete default tab if adding a new one
         if self.tab_count == 0:
             self.removeTab(0)
-        new_tab = MeasurementRegionTab(location, region_id, on_stop_reading=self.on_stop_reading_callback)
+        new_tab = MeasurementRegionTab(location, region_id, on_stop_reading=self.on_stop_reading_callback, norm_data=self.normative_data_table)
         self.addTab(new_tab, "")
         new_tab.setObjectName(str(location) + "_tab")
         self.setTabText(self.tab_count, QCoreApplication.translate("MainWindow", str(location)))
