@@ -63,6 +63,7 @@ class AlgometerApp(QMainWindow):
 
         # connecting buttons here
         self.patient_info_tab.add_measurement_button.clicked.connect(self.on_measure_area_add)
+        self.patient_info_tab.remove_measurement_button.clicked.connect(self.on_measurement_area_remove)
         self.patient_info_tab.print_button.clicked.connect(self.on_print_button_clicked)
         self.patient_info_tab.sex_box.currentIndexChanged.connect(self.set_patient_sex)
         self.set_patient_sex()
@@ -84,12 +85,13 @@ class AlgometerApp(QMainWindow):
     #functionality of the program
 
     def on_measurement_area_remove(self):
-        current_index = self.patient_info_tab.comboBox.currentIndex()
-        ## do all of the stuff needed to delete a measurement
-        #
-        #
-        #
-        #
+        current_index = self.patient_info_tab.list_widget.currentIndex().row()
+        tab_region_id_monotonic, measurement_location = self.measured_areas.pop(current_index)
+        del algometer_data.readings[tab_region_id_monotonic]
+        self.measurement_tab.removeTab(current_index)
+        self.update_analysis_tab()
+        self.patient_info_tab.update_measured_areas(self.measured_areas)
+
 
     def on_name_update(self):
         self.analysisTab.patient_name_label.setText(self.patient_info_tab.name_box.text())
