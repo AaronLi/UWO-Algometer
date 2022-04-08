@@ -56,9 +56,9 @@ class MeasurementRegionTab(QWidget):
         self.algometer_widget = AlgometerReadingGraph(location)
         grid_layout.addWidget(self.algometer_widget, 1, 2, 2, 1)
 
-        self.remove_reading = QPushButton(self)
-        self.remove_reading.setObjectName("remove_reading")
-        grid_layout.addWidget(self.remove_reading, 3, 0, 1, 1)
+        # self.remove_reading = QPushButton(self)
+        # self.remove_reading.setObjectName("remove_reading")
+        # grid_layout.addWidget(self.remove_reading, 3, 0, 1, 1)
 
         self.record_left.clicked.connect(self.on_start_recording_left)
         self.record_right.clicked.connect(self.on_start_recording_right)
@@ -69,7 +69,7 @@ class MeasurementRegionTab(QWidget):
     def retranslateUi(self):
         self.record_left.setText(QCoreApplication.translate("MainWindow", "Start\nRecording"))
         self.record_right.setText(QCoreApplication.translate("MainWindow", "Start\nRecording"))
-        self.remove_reading.setText(QCoreApplication.translate("MainWindow", "Remove Reading"))
+        # self.remove_reading.setText(QCoreApplication.translate("MainWindow", "Remove Reading"))
 
     def get_region_identifier(self) -> Hashable:
         return self.region_id
