@@ -1,21 +1,18 @@
 from fpdf import FPDF
 from datetime import date
-
+import enum
 import algometer_data
+import pyqtgraph as pg
 
+class MeasurementRegionSide(enum.Enum):
+    NONE = enum.auto()
+    LEFT = enum.auto()
+    RIGHT = enum.auto()
 
 def print_pdf(name, age, height, weight, comment, areas_measured):
     pdf = PDF()
     pdf.alias_nb_pages()
     pdf.add_page()
-    '''
-    pdf.set_font("Arial", size=12)
-    pdf.cell(200 ,10, txt="Name: {}".format(name), ln=1, align="L")
-    pdf.cell(200, 10, txt="Age: {}".format(age), ln=2, align="L")
-    pdf.cell(200, 10, txt="Height: {}".format(height), ln=3, align="L")
-    pdf.cell(200, 10, txt="Weight: {}".format(weight), ln=4, align="L")
-    pdf.cell(200, 10, txt="Comments: {}".format(comment), ln=5, align="L")
-    '''
     pdf.set_font("Times", size=12)
     pdf.line(10, 30, 200, 30)
     pdf.cell(100, 10, "Name: {}".format(name), 0, 0)
@@ -27,14 +24,22 @@ def print_pdf(name, age, height, weight, comment, areas_measured):
     pdf.line(10, 60, 200, 60)
     pdf.cell(200, 20, "{}".format(comment), 0, 1)
     pdf.line(10, 80, 200, 80)
-    for i in range(len(areas_measured)):
+    for area_index in range(len(areas_measured)):
         pdf.set_font("Arial", style="B")
-        pdf.cell(200, 10, txt="{}".format(areas_measured[i][1]), ln=(6+i*3+1), align="L")
+        pdf.cell(200, 10, txt="{}".format(areas_measured[area_index][1]), ln=(6+area_index*3+1), align="L")
         pdf.set_font("Arial", style="")
-        #testing step
-        result = "no data"
-        pdf.cell(200, 10, txt="\tRight Side: {}".format(result), ln=(6 + i * 3 + 2), align="L")
-        pdf.cell(200, 10, txt="\tLeft Side: {}".format(result), ln=(6 + i * 3 + 3), align="L")
+
+        pdf.cell(200, 10, txt="\t{}".format(algometer_data.readings[area_index][0]), ln=(6 + area_index * 3 + 2), align="L")
+        ##print graphs
+        for i, reading in enumerate(algometer_data.readings[area_index][1]):
+            if reading[0] == MeasurementRegionSide.LEFT:
+                pdf.cell(200, 10, txt="\tLeft Side: {}".format("hi"), ln=(6 + i * 3 + 2), align="L")
+
+            elif reading[0] == MeasurementRegionSide.RIGHT:
+                pdf.cell(200, 10, txt="\tRight Side: {}".format("hi"), ln=(6 + i * 3 + 2), align="L")
+        #end graphs
+
+
     formatted_name = name.replace(" ", "_")
     pdf.output("{}_Report.pdf".format(formatted_name))
 
