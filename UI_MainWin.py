@@ -8,10 +8,12 @@ from PyQt5.QtWidgets import QMainWindow, QApplication
 import algometer_data
 from normative_data import NormativeDataTable
 from tabs.analysis_tab.analysis_tab import AnalysisTab
+from tabs.analysis_tab.region_measurement_quartile_widget import MeasurementQuartileWidget
 from tabs.config_tab.config_tab import ConfigTab
 from tabs.measurements_tab.measurements_tab import MeasurementsTab
 from tabs.patientinfo_tab import PatientInfoTab
 from userDataPrinter import print_pdf
+from pyqtgraph.exporters import ImageExporter
 
 
 class AlgometerApp(QMainWindow):
@@ -119,6 +121,22 @@ class AlgometerApp(QMainWindow):
         formatted_name = name_text.replace(" ", "_")
         path = "{}_Report.pdf".format(formatted_name)
         comment = self.patient_info_tab.comment_box.text()
+
+        for graph in self.analysisTab.subplot_widget.children():
+            if isinstance(graph, MeasurementQuartileWidget):
+                region_id = graph.data_source
+                left_exporter = ImageExporter(graph.left_plot_widget.scene())
+                right_exporter = ImageExporter(graph.right_plot_widget.scene())
+
+                save_dir = os.path.join(os.getcwd(), 'report_figures', str(region_id))
+                if not os.path.exists(save_dir):
+                    os.makedirs(save_dir)
+
+                left_exporter.parameters()['width'] = 500
+                right_exporter.parameters()['width'] = 500
+                left_exporter.export(os.path.join(save_dir, 'left_graph.png'))
+                right_exporter.export(os.path.join(save_dir, 'right_graph.png'))
+
         print_pdf(name_text, age_text, height_text, weight_text, comment, self.measured_areas)
         os.system(path)
 

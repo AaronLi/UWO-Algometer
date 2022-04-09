@@ -124,7 +124,8 @@ class MeasurementRegionTab(QWidget):
                 first_reading = readings_on_same_area[0][1]
                 second_reading = readings_on_same_area[1][1]
                 measurement_location = algometer_data.readings[self.get_region_identifier()][0]
-                if abs(second_reading - first_reading) > self.norm_data.get_normative_data(measurement_location, algometer_data.patient_sex).standard_error_of_measurement:
+                sem = self.norm_data.get_normative_data(measurement_location, algometer_data.patient_sex)
+                if sem is not None and abs(second_reading - first_reading) > sem.standard_error_of_measurement:
                     QMessageBox.information(self, "Reading disparity above SEM ",
                                             f"Please make another measurement on the {str(measurement_location)}")
 
